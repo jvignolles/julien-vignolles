@@ -1,0 +1,108 @@
+@import "variables";
+@import "mixins";
+
+.job-item {
+  position: relative;
+  margin-bottom: 3em;
+  @media screen and (min-width: mem(600px)) {
+    padding-left: 30%;
+  }
+}
+.job-name {
+  font-size: em(22px);
+  line-height: em(32px, 22px);
+  margin-top: 0;
+  margin-bottom: em(5px);
+  color: $brand-primary;
+}
+
+// Company
+.job-company {
+  border-left: em(5px) solid $brand-primary;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #eee;
+}
+.job-company-name {
+  //&:before {
+  //  content: '@';
+  //  margin-right: em(5px);
+  //}
+  color: #222;
+  font-weight: bold;
+}
+.job-company-location {
+  margin-left: em(20px);
+  color: #666;
+}
+.job-company-description {
+  margin-top: 1em;
+}
+
+// Infos / duration
+@media screen and (min-width: mem(600px)) {
+  .job-infos {
+    position: absolute;
+    width: 30%;
+    top: 0;
+    left: 0;
+    border-left: none;
+    padding: 0;
+    background-color: transparent;
+    .job-duration-span {
+      display: block;
+    }
+  }
+}
+.job-duration {
+  border-left: em(5px) solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
+  background-color: #eee;
+  @media screen and (min-width: mem(600px)) {
+    border-left: none;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+@media screen and (min-width: mem(600px)) {
+  .job-duration-dates {
+    padding-top: em(8px);
+    padding-right: em(10px);
+    line-height: em(22px);
+  }
+}
+@media screen and (min-width: mem(992px)) {
+  .job-duration-dates {
+    font-size: em(16px);
+    line-height: em(24px, 16px);
+    padding-top: em(6px, 16px);
+  }
+}
+.job-duration-duration {
+  padding-left: em(5px);
+  color: #666;
+  @media screen and (min-width: mem(600px)) {
+    padding-left: 0;
+    margin-bottom: 1em;
+  }
+}
+.job-skills {
+  margin-bottom: 1em;
+}
+.btn-skill {
+  display: inline-block;
+  font-size: em(12px);
+  line-height: em(18px, 12px);
+  padding: 3px 5px;
+  margin-bottom: em(5px);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #eee;
+  text-align: center;
+}
+
+// Description
+.job-description {
+  font-size: em(14px);
+}

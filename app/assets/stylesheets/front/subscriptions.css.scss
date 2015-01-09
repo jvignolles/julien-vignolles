@@ -1,0 +1,63 @@
+@import "variables";
+@import "mixins";
+
+#subscription {
+  padding: 7em 0;
+  background: #9f3d66 image-url("front/newsletter_bg.jpg") center top no-repeat;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  .form-subscription {
+    max-width: em(400px);
+    margin: em(50px) auto 0;
+  }
+  .control-label {
+    display: none;
+  }
+  ::-webkit-input-placeholder { color: white; }
+  :-moz-placeholder {           color: white; }
+  ::-moz-placeholder {          color: white; }
+  :-ms-input-placeholder {      color: white; }
+  .subscription-heading {
+    font-size: em(24px);
+    line-height: em(30px, 24px);
+    margin: em(20px, 24px) 0;
+    @media screen and (min-width: mem(450px)) {
+      font-size: em(32px);
+      line-height: em(40px, 32px);
+      margin: em(20px, 32px) 0;
+    }
+    @media screen and (min-width: mem(580px)) {
+      font-size: em(42px);
+      line-height: em(50px, 42px);
+      margin: em(20px, 42px) 0;
+    }
+  }
+  .subscription-description {
+    margin-top: em(10px);
+  }
+  .btn-custom {
+    font-size: em(14px);
+    margin-top: 1em;
+    @media screen and (min-width: mem(360px)) {
+      font-size: em(16px);
+    }
+    @media screen and (min-width: mem(400px)) {
+      font-size: em(18px);
+    }
+  }
+}
+.form-subscription {
+  input {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    &:focus {
+      border-color: white;
+    }
+  }
+  .has-error input {
+    color: #444;
+  }
+}
+

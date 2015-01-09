@@ -1,0 +1,172 @@
+@import "variables";
+@import "mixins";
+
+$menu-column-breakpoint: 680px;
+
+.header-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #444;
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  top: em(-106px);
+  @include transition (all 0.4s ease-in-out);
+  .container {
+    padding-top: em(15px);
+    padding-bottom: em(15px);
+  }
+  .logo {
+    position: absolute;
+    font-family: 'Rock Salt', cursive;
+    right: em(15px);
+    @media screen and (min-width: mem(420px)) {
+      right: auto;
+      left: 50%;
+      margin-left: em(-73px);
+    }
+    @media screen and (min-width: mem($toggle-menu-breakpoint)) {
+      left: auto;
+      margin-left: 0;
+    }
+    .text-wrapper {
+      display: block;
+      height: em(52px);
+      line-height: em(52px);
+    }
+  }
+  .logo-name {
+    font-size: em(16px);
+    font-weight: bold;
+  }
+  .logo-img {
+    display: block;
+    width: em(146px);
+    height: em(52px);
+  }
+}
+.menu-link {
+  float: left;
+  margin-top: em(5px);
+  margin-bottom: em(5px);
+  height: em(40px);
+  line-height: em(36px);
+  color: #444;
+  background-color: white;
+  border: 1px solid #444;
+  text-transform: uppercase;
+  padding: 0 em(10px);
+  text-align: center;
+  @media screen and (min-width: mem($toggle-menu-breakpoint)) {
+    display: none;
+  }
+  &:hover, &:active {
+    color: $brand-primary;
+    border-color: $brand-primary;
+  }
+}
+.menu {
+  position: absolute;
+  left: em(-$toggle-menu-width);
+  top: 0;
+  z-index: 9;
+  width: em($toggle-menu-width);
+  min-height: 100%;
+  background-color: $brand-footer;
+  color: white;
+  .text-wrapper {
+    display: block;
+    padding: 0 2em;
+    line-height: em(52px);
+    text-transform: uppercase;
+    text-align: left;
+    color: white;
+  }
+  a.text-wrapper:hover {
+    background-color: $brand-primary;
+    color: white;
+  }
+  a.text-wrapper:focus {
+    text-decoration: none;
+  }
+  .text-wrapper-contact {
+    text-transform: normal;
+    .glyphicon {
+      margin-left: 0;
+      margin-right: em(3px);
+    }
+  }
+  @media screen and (min-width: mem($toggle-menu-breakpoint)) {
+    position: static;
+    float: right;
+    width: auto;
+    background-color: transparent;
+    li {
+      float: left;
+      text-align: center;
+    }
+    .text-wrapper {
+      padding: 0 em(7px);
+      text-align: center;
+      color: black;
+    }
+    a.text-wrapper:hover {
+      background-color: white;
+      color: $brand-primary;
+    }
+    .text {
+      font-size: em(13px);
+    }
+    .toggle-hide {
+      display: none;
+    }
+    .text-wrapper-contact {
+      padding-right: 0 !important;
+    }
+  }
+  @media screen and (min-width: mem(992px)) {
+    .text {
+      font-size: em(15px);
+    }
+    .text-wrapper {
+      padding: 0 em(20px);
+    }
+  }
+  @media screen and (min-width: mem(1280px)) {
+    .text {
+      font-size: em(18px);
+    }
+    .text-wrapper {
+      padding: 0 em(35px);
+    }
+  }
+}
+.homepage-heading {
+  position: absolute;
+  font-size: em(14px);
+  line-height: em(21px, 14px);
+  margin: em(10px) 0 0;
+  text-align: left;
+  color: #aaa;
+}
+
+// FIXED PART
+@media screen and (min-width: mem(992px)) {
+  .sticky-menu {
+    .fixed-header-padder {
+      padding-top: em(84px);
+    }
+    .header-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.6);
+    }
+    .homepage-heading {
+      display: none;
+    }
+  }
+}
+

@@ -1,0 +1,28 @@
+.heading-wrapper.container-wrapper
+  .container
+    .row
+      .col-xxs-12
+        %h1.page-heading= @page_heading
+.faq-items-wrapper.container-wrapper
+  .container
+    .row
+      .col-sm-4.col-md-3.faq-categories
+        %ul.nav.nav-pills.nav-stacked{ role: "tablist" }
+          - if @faq_categories.present?
+            - @faq_categories.each_with_index do |category, index|
+              - classes = ["faq-categories-a"] #, "list-group-item"]
+              - classes_li = []
+              - classes_li << "active" if 0 == index
+              %li{ role: "presentation", class: classes_li }
+                = link_to category.name, "#faq-category-#{category.id}", class: classes, data: { role: "pill", toggle: "tab" }
+      .col-sm-8.col-md-9.tab-content
+        - if @faq_categories.present?
+          - @faq_categories.each_with_index do |category, index|
+            - classes = ["tab-pane"]
+            - classes << "active" if 0 == index
+            %div{ id: "faq-category-#{category.id}", class: classes, role: "tabpanel" }
+              - category.faq_items.active.each_with_index do |item, index|
+                .faq-item
+                  .faq-item-question #{index + 1}. #{item.name}
+                  .faq-item-answer= item.description.html_safe
+

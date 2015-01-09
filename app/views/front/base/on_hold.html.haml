@@ -1,0 +1,6 @@
+.on-hold-page.container-wrapper
+  .container
+    - if (image = @configuration.images.for_kind(:logo_app).first).present?
+      = image_tag image.img.configuration.logo_app.url, alt: app_name, class: "logo-app"
+    .message= @configuration.website_on_hold_description.html_safe
+

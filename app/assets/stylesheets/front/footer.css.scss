@@ -1,0 +1,29 @@
+@import "variables";
+@import "mixins";
+
+.footer-wrapper {
+  padding-top: 2em;
+  background-color: $brand-footer;
+  color: #ccc;
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: $brand-primary;
+      text-decoration: underline;
+    }
+  }
+
+  .copyright {
+    font-size: em(12px);
+    text-align: center;
+    color: #888;
+    a {
+      color: #aaa;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+

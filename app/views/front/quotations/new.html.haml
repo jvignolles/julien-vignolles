@@ -1,0 +1,18 @@
+= simple_form_for [:front, @quotation], html: { class: "form-horizontal form-with-alerts form-quotation clearfix" } do |f|
+  = render "front/shared/errors", item: @quotation
+  .clearfix
+    .col-md-6= f.input :last_name
+    .col-md-6= f.input :first_name
+  .clearfix
+    .col-md-6= f.input :email
+    .col-md-6= f.input :phone
+  .col-xs-12= f.input :description, input_html: { rows: 5 }, label: "Votre message"
+  -#.col-xs-12
+    %p.newsletter-checkbox Je m’abonne à la Newsletter de #{app_name}
+  .col-xs-12
+    -#= f.input_field :product_id, as: :hidden
+    -#= f.input_field :from_path, as: :hidden
+    %button.btn.btn-primary.btn-custom{ type: :submit } Envoyer ma demande
+  .col-xs-12
+    %p.contact-footer-info Nous n’utilisons vos coordonées uniquement pour répondre à votre demande. #{link_to "Politique de confidentialité", front_editorial_privacy_policy_path}
+

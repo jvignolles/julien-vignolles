@@ -1,0 +1,21 @@
+.editorial-wrapper.container-wrapper
+  .row.container
+    .page-heading= @page_heading
+    .editos
+      - if @editorial.text1.present?
+        .html-text= @editorial.text1.html_safe
+      - if @editorial.text2.present?
+        .line
+        .html-text= @editorial.text2.html_safe
+      - if @editorial.text3.present?
+        .line
+        .html-text= @editorial.text3.html_safe
+    - if @editorial.images.present?
+      .row.editorial-images
+        - @editorial.images.each do |image|
+          -#= link_to image.img.prefull.url, class: "editorial-image col-md-4 col-sm-5 col-xs-12" do
+          .editorial-image.your-box-image.col-xs-6.col-sm-4
+            = image_tag image.img.editorial.preview.url, alt: image.legend, class: "editorial-image-img"
+    .row.row-quotation
+      .col-xxs-12= link_to "Pré-reserver", new_front_quotation_fr_path, class: "btn btn-primary btn-lg"
+

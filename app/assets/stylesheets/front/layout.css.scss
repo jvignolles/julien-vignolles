@@ -1,0 +1,344 @@
+@import "variables";
+@import "mixins";
+
+@include selection;
+
+@font-face {
+  font-family: 'Open Sans';
+  src: font-url('opensans/OpenSans-Regular-webfont.eot');
+  src: font-url('opensans/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+     font-url('opensans/OpenSans-Regular-webfont.woff') format('woff'),
+     font-url('opensans/OpenSans-Regular-webfont.ttf') format('truetype'),
+     font-url('opensans/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  color: white;
+  background-color: white;
+}
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $main-font;
+}
+li {
+  list-style: none;
+}
+a {
+  //color: $brand-primary;
+  @include transition (all 0.2s ease-in-out);
+}
+legend {
+  margin-bottom: 0.5em;
+}
+fieldset {
+  margin-bottom: 1em;
+}
+.page-heading {
+  font-size: em(24px);
+  margin: 0;
+  //margin-bottom: em(30px, 24px);
+  @media screen and (min-width: mem(500px)) {
+    font-size: em(36px);
+    //margin-bottom: em(30px, 36px);
+  }
+}
+h2.heading {
+  font-size: em(24px);
+  margin: 0 0 1em;
+  color: $brand-primary;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #ffc;
+}
+.btn-icon .glyphicon {
+  margin-left: 0;
+}
+.centered {
+  text-align: center;
+}
+.clear {
+  clear: both;
+}
+.righted {
+  text-align: right;
+}
+
+.html-text {
+  font-size: em(16px);
+  p {
+    margin-bottom: 1em;
+  }
+  ul, ol {
+    margin-top: -1em;
+    margin-bottom: 1em;
+  }
+  li {
+    display: list-item;
+    list-style-type: square;
+    margin-left: 1em;
+  }
+  a {
+    text-decoration: underline;
+  }
+  h4, h5, h6 {
+    text-transform: uppercase;
+  }
+}
+
+
+// Responsive menu
+#all {
+  width: 100%;
+  overflow: hidden;
+}
+#wrap {
+  position: relative;
+  left: 0;
+  z-index: 10;
+  @include transition (all 0.2s ease-in-out);
+}
+.menu-expanded {
+  #wrap {
+    left: em($toggle-menu-width);
+  }
+}
+
+.container-wrapper {
+  padding-top: em(30px);
+  padding-bottom: em(30px);
+}
+.container {
+  margin: 0 auto;
+  //background: #aaf;
+  @media screen and (max-width: mem(767px)) {
+    // DEV NOTE: not mobile first, because we want to preserve higher breakpoints
+    width: 100%; // fluid layout
+  }
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+}
+.container-wrapper-flashes {
+  padding: 1em 0 0;
+}
+/* #flashes {} */
+.container-wrapper-breadcrumb {
+  text-align: left;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.breadcrumb {
+  font-size: em(12px);
+  padding: 0;
+  margin: em(10px) 0;
+  background-color: transparent;
+  @include ellipsis();
+  li {
+    text-overflow: no-wrap;
+  }
+  a {
+    color: #b3b3b3;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+  .active .divider {
+    font-size: 14px;
+  }
+}
+
+
+#main {
+  position: relative;
+  z-index: -1;
+  background-color: white;
+  color: black;
+  //.container {
+  //  padding-top: em(40px);
+  //  padding-bottom: em(40px);
+  //  background-color: white;
+  //  box-shadow: 0 0 5px hsla(0, 0, 0, 0.1);
+  //}
+  .page-header {
+    margin-top: 0;
+    .inline-text {
+      margin-left: 10px;
+    }
+  }
+
+  .heading-description {
+    margin-top: 1em;
+    color: #4d4d4d;
+  }
+  .heading-description-text {
+    font-size: em(16px);
+    line-height: em(24px, 16px);
+    max-height: em(1000px, 16px);
+    text-align: left;
+    overflow-y: hidden;
+    @include transition (all 0.2s ease-in-out);
+  }
+  .heading-description-more {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: em(120px); // 5 * 24px
+    @include background-image(linear-gradient(rgba(243, 240, 235, 0) 0, rgba(243, 240, 235, 1.0) 120px));
+    .btn-custom {
+      color: #b3b3b3;
+      border-color: #b3b3b3;
+      &:hover {
+        color: $brand-primary;
+        border-color: $brand-primary;
+      }
+    }
+  }
+
+  /* Forms */
+  .with-help {
+     margin-bottom: 20px;
+    .form-group, .control {
+      display: inline;
+    }
+  }
+  /* Listings */
+  .table-hover.listing tbody tr:hover td, .table-hover.listing tbody tr:hover th {
+    background-color: #ffc;
+  }
+  table.simple-listing th, table.simple-listing td {
+    line-height: 26px;
+  }
+  table.listing th, table.listing td {
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  table.listing tr.inactive {
+    th, td {
+      background-color: #F2DEDE;
+    }
+    a {
+      color: #A94442;
+    }
+  }
+  table.listing .link {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 42px;
+    a {
+      display: block;
+    }
+    .popover-content {
+      line-height: 20px;
+    }
+  }
+  table td.center, table th.center {
+    text-align: center;
+  }
+  table .buttons-group {
+    padding: 2px 5px;
+    margin-bottom: 0;
+    display: table-cell;
+  }
+  table .col-btn-2 {
+    width: 73px;
+  }
+  table .col-btn-3 {
+    width: 112px;
+  }
+  table .col-btn-4 {
+    width: 151px;
+  }
+  table.listing.table-condensed {
+    .btn-group {
+      padding: 1px 5px;
+    }
+    .link {
+      line-height: 40px;
+    }
+  }
+}
+
+.html-text {
+  font-size: em(16px);
+  p {
+    margin-bottom: 1em;
+  }
+  ul, ol {
+    margin-top: -1em;
+    margin-bottom: 1em;
+  }
+  li {
+    display: list-item;
+    list-style-type: square;
+    margin-left: 1em;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+
+#main table.listing a small {
+  display: block;
+  font-size: smaller;
+  color: #999;
+  line-height: 1.5em;
+  margin: -1em 0 0.5em;
+}
+
+.btn-disabled {
+  cursor: not-allowed;
+  background: #ddd;
+  &:hover, &:focus {
+    background: #ddd;
+  }
+}
+
+.sidebar {
+  .list-product-item {
+    padding-left: em(30px);
+  }
+}
+
+.heading-wrapper {
+  text-align: center;
+  padding: 0;
+}
+
+.fade-in {
+  @include opacity(0);
+  @include transition (all 0.5s ease-in-out 0.2s);
+  &.in-viewport {
+    @include opacity(1);
+  }
+}
+
+.mfp-bg {
+  background-color: white;
+}
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  @include transition (all 0.3s ease-in-out);
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+    opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+

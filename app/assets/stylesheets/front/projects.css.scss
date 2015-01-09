@@ -1,0 +1,141 @@
+@import "variables";
+@import "mixins";
+
+// Listing / index
+.projects-wrapper {
+  .project-categories-a {
+    display: block;
+    height: em(40px);
+    padding-top: 10px;
+    background-color: #eee;
+    color: black;
+    &.active {
+      background-color: $brand-primary;
+      color: white;
+    }
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+  .project-thumb {
+    position: relative;
+    margin-bottom: em(40px);
+    @include transition (all 0.4s ease-in-out);
+    &.not-visible {
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .project-link {
+    display: block;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+    box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+    &:hover {
+      color: $brand-primary;
+      box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+    }
+  }
+  .project-img-wrapper {
+    position: relative;
+  }
+  .project-img {
+    width: 100%;
+  }
+  .project-name {
+    height: em(40px);
+    line-height: em(30px);
+    padding: em(5px);
+    text-align: center;
+    .inner {
+      display: inline-block;
+      height: em(30px);
+      line-height: em(15px);
+      vertical-align: middle;
+      overflow: hidden;
+    }
+  }
+  .project-pricing {
+    font-size: em(13px);
+    line-height: em(20px, 13px);
+    height: em(30px, 13px);
+    padding-bottom: em(10px, 13px);
+    padding: 0 em(5px, 13px);
+    text-align: center;
+    overflow: hidden; 
+  }
+  .project-pricing-price {
+    font-size: em(18px);
+    font-weight: bold;
+  }
+  .project-pricing-original {
+    text-decoration: line-through;
+    margin-right: em(10px);
+    color: #444;
+  }
+  .project-pricing-info {
+    color: #666;
+    margin-left: em(10px);
+  }
+}
+.btn-custom {
+  border-color: $brand-primary;
+  text-transform: uppercase;
+  padding-left: em(30px);
+  padding-right: em(30px);
+}
+
+
+
+// Only one / show
+.project-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+  //background-color: $brand-grey;
+  .project-image {
+    position: relative;
+    width: 100%;
+  }
+  .project-image-img {
+    display: block;
+    width: 100%;
+  }
+  .project-name {
+    margin: 1em 0;
+  }
+  .project-description {
+    font-size: em(16px);
+  }
+  .project-pricing {
+    font-size: em(24px);
+    margin-top: 1em;
+  }
+  .project-pricing-price {
+    font-size: em(32px, 24px);
+    font-weight: bold;
+  }
+  .project-pricing-original {
+    text-decoration: line-through;
+    margin-right: 1em;
+    color: #444;
+  }
+  .project-pricing-info {
+    color: #666;
+    margin-left: 1em;
+  }
+  .project-info {
+    color: #aaa;
+    margin-top: 2em;
+  }
+  .project-back {
+    margin-top: 2em;
+  }
+}
+
+.project-similar-wrapper {
+  padding-top: 0;
+}
+

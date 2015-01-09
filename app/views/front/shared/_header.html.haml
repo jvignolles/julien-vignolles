@@ -1,0 +1,28 @@
+%header.container-wrapper.header-wrapper{ role: "banner" }
+  %nav.container{ role: "navigation" }
+    .logo
+      = link_to front_home_path, class: "text-wrapper" do
+        - if (image = @configuration.images.for_kind(:logo_app).first).present?
+          = image_tag image.img.configuration.logo_app.url, alt: app_name, class: "logo-img"
+        - else
+          %span.logo-name= app_name
+    = link_to "Menu", "#", class: "menu-link menu-toggle"
+    %ul.menu.clearfix
+      %li
+        = link_to front_home_path, class: "text-wrapper" do
+          %span.text Accueil
+      %li
+        = link_to front_projects_path, class: "text-wrapper" do
+          %span.text Portfolio
+      %li
+        = link_to front_jobs_path, class: "text-wrapper" do
+          %span.text Expériences
+      %li
+        = link_to new_front_contact_path, class: "text-wrapper" do
+          %span.text Contact
+      -#%li.text-wrapper.text-wrapper-contact
+        = link_to "tel:#{@configuration.phone.gsub(/[^0-9]/, "")}", class: "btn btn-primary" do
+          = icon "earphone"
+          = @configuration.phone
+.fixed-header-padder
+

@@ -1,0 +1,43 @@
+.project-wrapper.container-wrapper
+  .container
+    .row
+      .col-xs-5
+        - if (image = @project.images.first).present?
+          - alt = image.legend.present? ? image.legend : @project.name
+          -#= link_to image.img.project.preview.url, title: alt, class: "project-image project-image-preview" do
+            .project-image-layer
+            = image_tag image.img.project.preview.url, alt: alt, class: "project-image-img"
+          = image_tag image.img.project.preview.url, alt: alt, class: "project-image-img"
+        - else
+          = image_tag "front/default_project.png", alt: @project.name, class: "project-image-img"
+      .col-xs-7.col-md-6.col-md-offset-1
+        %h1.project-name= @project.name
+        - if @project.description.present?
+          .project-description= @project.description.html_safe
+        .project-pricing
+          - if @project.price1_original.present?
+            %span.project-pricing-original= @project.price1_original
+          %span.project-pricing-price= @project.price1
+          - if @project.price1_info.present?
+            %span.project-pricing-info= @project.price1_info
+        - if @project.price2.present?
+          .project-pricing.project-pricing2
+            - if @project.price2_original.present?
+              %span.project-pricing-original= @project.price2_original
+            %span.project-pricing-price= @project.price2
+            - if @project.price2_info.present?
+              %span.project-pricing-info= @project.price2_info
+        .project-info Article à acheter sur place.
+        .project-back= link_to "Retour aux accessoires", front_projects_path, class: "btn btn-primary"
+- if (projects = similar_projects(@project, 4)).present?
+  .projects-wrapper.container-wrapper.project-similar-wrapper
+    .container
+      .row
+        .col-xxs-12.centered
+          %h2.project-heading.project-similar-heading Articles associés
+      .row
+        - projects.each do |project|
+          .col-xxs-6.col-xs-4.col-sm-3.project-thumb{ data: { category: project.project_category_id } }
+            - cache project, expires_in: 3.days do
+              = render "front/projects/thumb", project: project
+

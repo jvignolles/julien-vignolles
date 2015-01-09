@@ -1,0 +1,75 @@
+.heading-wrapper.container-wrapper
+  .container
+    .row
+      .col-xxs-12
+        %h1.page-heading= @page_heading
+.jobs-wrapper.container-wrapper
+  .container
+    - if @jobs.present?
+      - @jobs.each do |job|
+        - company = job.company
+        .row
+          .col-xxs-12
+            .job-item
+              %h2.job-name= job.name
+              - if company && company.active?
+                .job-company
+                  %p
+                    - if company.website_url.present?
+                      = link_to company.name, company.website_url, rel: "external", class: "job-company-name"
+                    - else
+                      %span.job-company-name= company.name
+                    - if company.location.present?
+                      %span.job-company-location
+                        = icon "map-marker"
+                        = company.location
+                  - if company.description.present?
+                    %p.job-company-description= company.description
+              .job-infos
+                .job-duration
+                  %span.job-duration-span.job-duration-dates= format_job_dates job
+                  %span.job-duration-span.job-duration-duration (#{format_job_duration job})
+                - if (skills = job.skills.active).present?
+                  %p.job-skills
+                    - skills.each do |skill|
+                      %span.btn-skill
+                        - if skill.title.present?
+                          %abbr{ title: skill.title }= skill.name
+                        - else
+                          = skill.name
+              .job-description.html-text= job.description.html_safe
+.jobs-wrapper.educations-wrapper.container-wrapper
+  .container
+    - if @educations.present?
+      - @educations.each do |education|
+        .row
+          .col-xxs-12
+            .job-item.education-item
+              %h2.job-name= education.name
+              - if education.establishment.present?
+                .job-company
+                  %p
+                    - if company.website_url.present?
+                      = link_to company.name, company.website_url, rel: "external", class: "job-company-name"
+                    - else
+                      %span.job-company-name= company.name
+                    - if company.location.present?
+                      %span.job-company-location
+                        = icon "map-marker"
+                        = company.location
+                  - if company.description.present?
+                    %p.job-company-description= company.description
+              .job-infos
+                .job-duration
+                  %span.job-duration-span.job-duration-dates= format_job_dates job
+                  %span.job-duration-span.job-duration-duration (#{format_job_duration job})
+                - if (skills = job.skills.active).present?
+                  %p.job-skills
+                    - skills.each do |skill|
+                      %span.btn-skill
+                        - if skill.title.present?
+                          %abbr{ title: skill.title }= skill.name
+                        - else
+                          = skill.name
+              .job-description.html-text= job.description.html_safe
+

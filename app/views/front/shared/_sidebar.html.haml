@@ -1,0 +1,31 @@
+- if @editorials.present?
+  .sidebar.sidebar-tabs
+    #sidebar-tabs.list-group
+      - @editorials.each do |editorial|
+        - classes = ["list-group-item"]
+        - if @editorial && editorial.id == @editorial.id
+          - classes << "active"
+        - kind = editorial.kind
+        - hash = Editorial::KINDS[kind] || {}
+        - url = if hash[:token].present?
+          - send("front_editorial_#{kind}_path")
+        - elsif hash[:url].present?
+          - send(hash[:url])
+        - else
+          - front_editorial_path(editorial)
+        = link_to url, class: classes do
+          %span.inline-text= editorial.name
+        - if "products" == editorial.kind && @products.present?
+          - @products.each do |product|
+            - classes = ["list-group-item", "list-product-item"]
+            - if @product && product.id == @product.id
+              - classes << "active"
+            = link_to front_product_path(id: product), class: classes do
+              %span.inline-text= "» #{product.name}"
+- if @product.present? && (images = @product.images.for_kind(:preview)).present?
+  .row
+    .sidebar-images.parent-lightbox
+      - images.each do |image|
+        = link_to image.public_filename(:prefull), class: "sidebar-image custom-lightbox col-xxs-6 col-xs-3 col-sm-12", title: image.legend do
+          = image_tag image.img.product.preview.carrousel.url, alt: image.legend, class: "sidebar-img"
+

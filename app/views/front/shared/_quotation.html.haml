@@ -1,0 +1,13 @@
+#quotation.container-wrapper
+    .container
+      .quotation-heading Demander un devis
+      - if @configuration.newsletter_description.present?
+        .quotation-description= @configuration.quotation_description
+      - if @configuration.phone.present?
+        = link_to "tel:#{@configuration.phone.gsub(/[^0-9+()]/, "")}", class: "quotation-phone" do
+          = icon "earphone"
+          %span.text= @configuration.phone
+        %p.quotation-or ou
+      .row
+        = render "front/quotations/form"
+

@@ -1,0 +1,15 @@
+-#.heading-wrapper.container-wrapper
+  .container
+    .row
+      .col-xxs-12
+        %h1.page-heading= @page_heading
+.editorial-wrapper.container-wrapper
+  .container
+    .page-heading= @page_heading
+    - if @editorial.text1.present?
+      .html-text= @editorial.text1.html_safe
+    - if @editorial.text2.present?
+      .html-text= @editorial.text2.html_safe
+    - if @editorial.text3.present?
+      .html-text= @editorial.text3.html_safe
+

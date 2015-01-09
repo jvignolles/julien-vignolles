@@ -1,0 +1,83 @@
+@import "variables";
+@import "mixins";
+
+.contacts-wrapper {
+  padding-top: 0;
+  padding-bottom: 5em;
+
+  .form-group-submit {
+    text-align: center;
+  }
+  .contact-footer-info {
+    color: #666;
+    margin-top: 1em;
+  }
+}
+
+.contact-block {
+  padding: em(20px);
+  background-color: #eee;
+  margin-bottom: 2em;
+
+  h2 {
+    font-size: em(24px);
+    line-height: em(30px, 24px);
+    padding: 0 em(20px, 24px);
+    margin: 0 0 0.5em;
+    color: #444;
+    text-align: center;
+  }
+  .form-regular {
+    margin-bottom: 0;
+  }
+}
+
+.contact-block-advice {
+  text-align: center;
+  .phone {
+    font-size: em(24px);
+  }
+  .hours {
+    color: #666;
+  }
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: #eee;
+  font-weight: bold;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #f8f8f8;
+}
+
+.contact-block-map {
+  .hours {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1em;
+  }
+  .address {
+    display: inline-block;
+    text-align: left;
+    padding: em(15px) em(30px);
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    strong {
+      display: block;
+    }
+  }
+  .canvas-map {
+    width: 100%;
+    height: em(300px);
+  }
+  .description {
+    margin-top: 1em;
+    text-align: right;
+    .target {
+      display: none;
+      text-align: left;
+    }
+  }
+}
+

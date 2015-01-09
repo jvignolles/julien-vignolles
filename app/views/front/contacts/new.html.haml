@@ -1,0 +1,28 @@
+= simple_form_for [:front, @contact], html: { class: "form-horizontal form-regular form-with-alerts form-contact clearfix" } do |f|
+  = render "front/shared/errors", item: @contact
+  = f.input :name, wrapper_html: { class: "size-m" }, required: true
+  = f.input :email, wrapper_html: { class: "size-m" }, required: true
+  -#= f.input :subject, required: true
+  = f.input :description, as: :text, input_html: { cols: 40, rows: 5 }
+  = submit_button form: f, kind: "send"
+-#.col-sm-4.col-sm-offset-1.contact-column
+  .contact-block
+    .image= icon "map-marker"
+    .content
+      %p.heading Nous rencontrer
+      %p
+        %strong= @configuration.company_name
+      %p= @configuration.address.gsub(/\n/, '<br/>').html_safe
+  .contact-block
+    .image= icon "earphone"
+    .content
+      %p.heading Nous joindre
+      - if @configuration.phone.present?
+        %p
+          %strong Tél. : 
+          = link_to @configuration.phone, "tel:#{@configuration.phone.gsub(/[^0-9]+/, "")}"
+      - if @configuration.fax.present?
+        %p
+          %strong Fax : 
+          = @configuration.fax
+
