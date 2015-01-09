@@ -3,6 +3,6 @@ class Admin::CompaniesController < Admin::BaseController
 
 private
   def strong_params
-    %w(active name location website_url)
+    %w(active name location website_url description)
   end
 end

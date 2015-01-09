@@ -56,19 +56,8 @@ private
     on_hold_page_requested = "front/base" == params[:controller].to_s && "on_hold" == params[:action].to_s
     if @configuration.website_on_hold?
       if current_admin
-        if false
-          if "front/products" == params[:controller] && "show" == params[:action] #TODO
-            return true
-          else
-            if (p = Product.active.first)
-              return redirect_to(front_product_path(id: p))
-            end
-            return redirect_to(on_hold_path) unless on_hold_page_requested
-          end
-        else
-          # flash[:warning] = "Attention #{current_admin.first_name}, le site est actuellement fermé au public." # DEV NOTE: too tired by this!
-          return redirect_to(front_home_path) if on_hold_page_requested
-        end
+        # flash[:warning] = "Attention #{current_admin.first_name}, le site est actuellement fermé au public." # DEV NOTE: too tired by this!
+        return redirect_to(front_home_path) if on_hold_page_requested
       else
         return redirect_to(on_hold_path) unless on_hold_page_requested
       end

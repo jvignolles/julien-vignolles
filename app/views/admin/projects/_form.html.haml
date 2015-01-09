@@ -1,0 +1,13 @@
+- item = form.object
+= render "admin/shared/errors", item: item
+%fieldset.row
+  .col-xxs-12
+    %legend Informations générales
+  .col-xxs-12
+    = form.input :active, wrapper: :inline_checkbox
+    = form.input :name, wrapper_html: { class: "size-m" }, autofocus: true
+    = form.input :highlight, wrapper: :inline_checkbox
+    = form.input :year, wrapper_html: { class: "size-s" }
+    = form.input :website_url, wrapper_html: { class: "size-m" }
+    = form.input :job_id, collection: @jobs, input_html: { class: "size-m select2" }
+    = form.input :description, input_html: { rows: 4, class: "tinymce" }

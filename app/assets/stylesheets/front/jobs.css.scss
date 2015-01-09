@@ -47,6 +47,12 @@
   color: #222;
   font-weight: bold;
 }
+a.job-company-name {
+  border-bottom: 1px dotted #aaa;
+  &:hover {
+    border-bottom: 1px solid $brand-primary;
+  }
+}
 .job-company-location {
   margin-left: em(20px);
   color: #666;

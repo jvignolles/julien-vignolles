@@ -132,7 +132,10 @@ fr:
       message:
         content: "Réponse"
       project:
+        highlight: "Mise en avant"
+        job_id: "Emploi"
         skill_ids: "Compétences"
+        year: "Année"
       subscriptions:
         file: Fichier
       user:
