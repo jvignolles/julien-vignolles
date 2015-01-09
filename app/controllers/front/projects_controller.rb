@@ -26,7 +26,6 @@ class Front::ProjectsController < Front::BaseController
       # DEV NOTE: SEO safe, avoid duplicate URLs if project is renamed.
       return redirect_to(correct_url, status: 301)
     end
-    @quotation.project_id ||= @project.id
     @page_heading = @project.name
     @front_kind = "project"
     @geocoding_assets = true
