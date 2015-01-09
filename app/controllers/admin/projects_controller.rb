@@ -5,7 +5,7 @@ private
   def strong_params
     %w(
       active highlight name year website_url description job_id
-      seo_title seo_h1 seo_description seo_kerywords
+      seo_title seo_h1 seo_description seo_keywords
     )
   end
 end

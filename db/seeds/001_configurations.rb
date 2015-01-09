@@ -1,6 +1,6 @@
 class Seeder
   def seed_configurations
-    table_name = 'admins'
+    table_name = 'configurations'
     seeding table_name
     clear_table table_name
     cfg = Configuration.send(:new,

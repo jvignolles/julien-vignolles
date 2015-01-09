@@ -20,7 +20,7 @@ class Admin::BaseController < ApplicationController
     }},
     skills:         { name: "Compétences",     url: "admin_skills_path" },
     projects:       { name: "Projets",         url: "admin_projects_path" },
-    experiences:    { name: "Expériences",     url: "", children: {
+    experiences:    { name: "Expérience",      url: "", children: {
       companies:      { name: "Entreprises",     url: "admin_companies_path" },
       jobs:           { name: "Emplois",         url: "admin_jobs_path" },
       educations:     { name: "Études",          url: "admin_educations_path" },

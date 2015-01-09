@@ -1,0 +1,21 @@
+- item = form.object
+= render "admin/shared/errors", item: item
+%fieldset.row
+  .col-xxs-12
+    %legend Informations générales
+  .col-xxs-12
+    = form.input :active, wrapper: :inline_checkbox
+    = form.input :name, wrapper_html: { class: "size-m" }, autofocus: true
+    = form.input :option, wrapper_html: { class: "size-m" }
+    = form.input :establishment, wrapper_html: { class: "size-m" }
+    = form.input :location, wrapper_html: { class: "size-m" }
+    = form.input :website_url, wrapper_html: { class: "size-m" }
+    = form.input :started_on, wrapper_html: { class: "size-s" } do
+      .input-group
+        = form.input_field :started_on, as: :string, class: "form-control with-calendar", value: format_date(item.started_on)
+        %span.input-group-addon= icon "calendar"
+    = form.input :ended_on, wrapper_html: { class: "size-s" } do
+      .input-group
+        = form.input_field :ended_on, as: :string, class: "form-control with-calendar", value: format_date(item.ended_on)
+        %span.input-group-addon= icon "calendar"
+    = form.input :description, input_html: { rows: 4, class: "tinymce" }

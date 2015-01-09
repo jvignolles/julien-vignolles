@@ -15,7 +15,7 @@ private
   def strong_params
     a = %w(
       active name started_at ended_at description company_id
-      seo_title seo_h1 seo_description seo_kerywords
+      seo_title seo_h1 seo_description seo_keywords
     )
     a << { skill_ids: [] }
     a

@@ -11,7 +11,7 @@
         .row
           .col-xxs-12
             .job-item
-              %h2.job-name= job.name
+              %h3.job-name= job.name
               - if company && company.active?
                 .job-company
                   %p
@@ -37,39 +37,34 @@
                           %abbr{ title: skill.title }= skill.name
                         - else
                           = skill.name
-              .job-description.html-text= job.description.html_safe
-.jobs-wrapper.educations-wrapper.container-wrapper
-  .container
-    - if @educations.present?
+              - if job.description.present?
+                .job-description.html-text= job.description.html_safe
+- if @educations.present?
+  .jobs-wrapper.educations-wrapper.container-wrapper
+    .container
+      .row
+        .col-xxs-12
+          %h2.page-heading Formation
       - @educations.each do |education|
         .row
           .col-xxs-12
             .job-item.education-item
-              %h2.job-name= education.name
+              %h3.job-name= education.name
+              - if education.option.present?
+                .job-option Option : #{education.option}
               - if education.establishment.present?
                 .job-company
                   %p
-                    - if company.website_url.present?
-                      = link_to company.name, company.website_url, rel: "external", class: "job-company-name"
+                    - if education.website_url.present?
+                      = link_to education.establishment, education.website_url, rel: "external", class: "job-company-name"
                     - else
-                      %span.job-company-name= company.name
-                    - if company.location.present?
+                      %span.job-company-name= education.establishment
+                    - if education.location.present?
                       %span.job-company-location
                         = icon "map-marker"
-                        = company.location
-                  - if company.description.present?
-                    %p.job-company-description= company.description
+                        = education.location
               .job-infos
                 .job-duration
-                  %span.job-duration-span.job-duration-dates= format_job_dates job
-                  %span.job-duration-span.job-duration-duration (#{format_job_duration job})
-                - if (skills = job.skills.active).present?
-                  %p.job-skills
-                    - skills.each do |skill|
-                      %span.btn-skill
-                        - if skill.title.present?
-                          %abbr{ title: skill.title }= skill.name
-                        - else
-                          = skill.name
-              .job-description.html-text= job.description.html_safe
-
+                  %span.job-duration-span.job-duration-dates= format_education_dates education
+              - if education.description.present?
+                .job-description.html-text= education.description.html_safe

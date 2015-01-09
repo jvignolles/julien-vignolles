@@ -53,6 +53,7 @@ fr:
         floor: Étage
         kind: Genre
         last_name: Nom
+        location: "Lieu"
         login: Identifiant
         name: Nom
         newsletter: Inscrit Newsletter
@@ -79,7 +80,7 @@ fr:
         text: Texte
         updated_at: "Dernière modification le"
         url: URL
-        website: Site web
+        website_url: Site web
         zip_code: Code postal
       admin:
         current_password: Mot de passe actuel
@@ -117,6 +118,9 @@ fr:
         text1: Texte 1
         text2: Texte 2
         text3: Texte 3
+      education:
+        establishment: "Établissement"
+        option: "Option"
       image:
         img: Fichier image
         legend: Légende
