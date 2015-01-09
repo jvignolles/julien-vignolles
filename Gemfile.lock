@@ -71,6 +71,7 @@ GEM
     connection_pool (2.1.0)
     css_parser (1.3.5)
       addressable
+    dalli (2.7.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -135,6 +136,7 @@ GEM
     jquery-ui-rails (5.0.2)
       railties (>= 3.2.16)
     json (1.8.1)
+    kgio (2.9.2)
     levenshtein (0.2.2)
     libv8 (3.16.14.7)
     magnific-popup-rails (0.9.9)
@@ -193,6 +195,7 @@ GEM
       activesupport (= 4.1.7)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.13.0)
     rake (10.4.0)
     random_record (0.0.8)
       activerecord (>= 3.0.0)
@@ -265,6 +268,10 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicode_utils (1.4.0)
+    unicorn (4.8.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
     uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
@@ -280,6 +287,7 @@ DEPENDENCIES
   cancan
   carrierwave (~> 0.10.0)
   carrierwave_direct
+  dalli
   devise
   dynamic_form
   escape_utils
@@ -328,4 +336,5 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   unicode_utils
+  unicorn
   will_paginate (= 3.0.4)

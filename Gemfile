@@ -117,7 +117,10 @@ group :production do
 end
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+
+# Memcache
+gem 'dalli'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
