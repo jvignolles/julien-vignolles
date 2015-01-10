@@ -92,6 +92,10 @@ class ImageUploader < CarrierWave::Uploader::Base
       process resize_to_fill: [560, 560]
       #process resize_to_fill: [820, 560]
     end
+    version :logo, :if => :as_logo? do
+      process resize_to_fill: [560, 560]
+      #process resize_to_fill: [820, 560]
+    end
   end
 
   # Returns the actual dimensions of a version's image file.  This means disk I/O as we're opening the file

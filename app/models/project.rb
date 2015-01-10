@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   IMAGE_KINDS = {
     :preview => "Photo",
+    :logo =>    "Logo",
   }
   IMAGE_LEGENDABLE = true
 

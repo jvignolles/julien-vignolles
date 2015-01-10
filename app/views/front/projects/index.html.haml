@@ -10,24 +10,13 @@
             = link_to "Lire la suite", "#", class: "btn btn-xs btn-custom", id: "js-heading-description-btn"
 .projects-wrapper.container-wrapper
   .container
-    .row
-      .col-sm-4.col-md-3.filter
-        -#.filter-heading Filtrer
-        - if @project_categories.present?
-          #js-project-categories.project-categories.list-group
-            - @project_categories.each_with_index do |category, index|
-              - classes = ["project-categories-a", "list-group-item"]
-              - classes << "active" if 0 == index
-              = link_to category[0], "#", class: classes, data: { id: category[1] }
-      .col-sm-8.col-md-9
-        - if true #cache cache_key_for_projects(@projects), expires_in: 1.day do
-          - if @projects.present?
-            #js-projects.project-listing.row
-              - @projects.each do |project|
-                .col-xxs-6.col-xs-4.col-sm-6.col-md-4.project-thumb
-                  -#{ data: { category: project.project_category_id } }
-                  - if true #cache project, expires_in: 1.day do
-                    = render "front/projects/thumb", project: project
-          - else
-            .centered Aucun résultat
-
+    -#cache cache_key_for_projects(@projects), expires_in: 1.day do
+    - if @projects.present?
+      .project-listing.row
+        - @projects.each do |project|
+          .col-xxs-6.col-xs-4.col-sm-3.col-md-3.project-thumb
+            -#{ data: { category: project.project_category_id } }
+            - if true #cache project, expires_in: 1.day do
+              = render "front/projects/thumb", project: project
+    - else
+      .centered Aucun résultat

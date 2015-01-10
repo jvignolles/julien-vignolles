@@ -30,6 +30,7 @@ class Front::ProjectsController < Front::BaseController
     @front_kind = "project"
     @geocoding_assets = true
     @page_title = "#{@page_heading} | #{app_name}"
+    @breadcrumbs << { key: "projects", name: "Portfolio", url: front_projects_path }
     @breadcrumbs << { key: "projects-#{@project.id}", name: @page_heading, url: front_project_path(id: @project) }
     add_seo_fields @project
   end

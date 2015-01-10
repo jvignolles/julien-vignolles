@@ -1,17 +1,8 @@
 = link_to front_project_path(id: project), class: "project-link" do
   .project-img-wrapper
-    -# if (image = project.images.for_kind(:preview).first).present?
-    - if (image = project.images.first).present?
-      = image_tag image.img.project.preview.url, alt: project.name, class: "project-img"
+    - if (image = project.images.for_kind(:logo).first).present?
+      = image_tag image.img.project.logo.url, alt: project.name, class: "project-img grayscale"
     - else
       = image_tag "front/default_project.png", alt: "", class: "project-img"
-  .project-description
-    .project-name
-      %span.inner= project.name
-    -#.project-pricing
-      - if project.price1_original.present?
-        %span.project-pricing-original= project.price1_original
-      %span.project-pricing-price= project.price1
-      - if project.price1_info.present?
-        %span.project-pricing-info= project.price1_info
-
+  .project-name
+    %span.inner= project.name

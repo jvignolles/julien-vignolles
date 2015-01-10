@@ -17,7 +17,11 @@
   filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
   opacity: $opacity;
 }
-
+// Bourbon 4.1
+@mixin filter($function: none) {
+  // <filter-function> [<filter-function]* | none
+  @include prefixer(filter, $function, webkit moz spec);
+}
 // Bourbon
   @import "functions/compact";
 //@import "functions/deprecated-webkit-gradient";
