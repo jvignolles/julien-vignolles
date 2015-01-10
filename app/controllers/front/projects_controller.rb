@@ -1,8 +1,7 @@
 class Front::ProjectsController < Front::BaseController
   def index
     @front_kind = "projects"
-    scope = Project.active.ordered.includes(:images, :skills)
-    @projects = scope.reverse
+    @projects = Project.active.ordered.includes(:images, :skills)
     @page_heading = "Portfolio"
     @page_title = "#{@page_heading} | #{app_name}"
     @page_description = "Consultez ma sélection de projets."

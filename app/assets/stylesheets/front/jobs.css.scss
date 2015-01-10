@@ -89,6 +89,7 @@ a.job-company-name {
 }
 @media screen and (min-width: mem(600px)) {
   .job-duration-dates {
+    color: $brand-primary;
     padding-top: em(8px);
     padding-right: em(10px);
     line-height: em(22px);
