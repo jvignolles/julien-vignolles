@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108191547) do
+ActiveRecord::Schema.define(version: 20150110221357) do
 
   create_table "admins", force: true do |t|
     t.boolean  "active",                             default: true,  null: false
@@ -230,20 +230,21 @@ ActiveRecord::Schema.define(version: 20150108191547) do
   add_index "jobs_skills", ["job_id", "skill_id"], name: "index_jobs_skills_on_job_id_and_skill_id", using: :btree
 
   create_table "projects", force: true do |t|
-    t.boolean  "active",                      default: true,  null: false
-    t.boolean  "highlight",                   default: false, null: false
-    t.string   "name",            limit: 128, default: "",    null: false
-    t.string   "year",            limit: 128, default: "",    null: false
-    t.string   "website_url",     limit: 128, default: "",    null: false
+    t.boolean  "active",                          default: true,  null: false
+    t.boolean  "highlight",                       default: false, null: false
+    t.string   "name",                limit: 128, default: "",    null: false
+    t.string   "year",                limit: 128, default: "",    null: false
+    t.string   "website_url",         limit: 128, default: "",    null: false
     t.text     "description"
     t.integer  "job_id"
-    t.string   "seo_title",       limit: 128, default: "",    null: false
-    t.string   "seo_h1",          limit: 128, default: "",    null: false
-    t.string   "seo_description",             default: "",    null: false
+    t.string   "seo_title",           limit: 128, default: "",    null: false
+    t.string   "seo_h1",              limit: 128, default: "",    null: false
+    t.string   "seo_description",                 default: "",    null: false
     t.text     "seo_keywords"
-    t.integer  "position",                    default: 0,     null: false
+    t.integer  "position",                        default: 0,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "company_description",             default: "",    null: false
   end
 
   add_index "projects", ["created_at"], name: "index_projects_on_created_at", using: :btree

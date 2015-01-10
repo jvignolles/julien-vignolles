@@ -7,6 +7,7 @@
     = form.input :active, wrapper: :inline_checkbox
     = form.input :name, wrapper_html: { class: "size-m" }, autofocus: true
     = form.input :highlight, wrapper: :inline_checkbox
+    = form.input :company_description, as: :text, input_html: { rows: 2 }
     = form.input :year, wrapper_html: { class: "size-s" }
     = form.input :website_url, wrapper_html: { class: "size-m" }
     = form.input :job_id, collection: @jobs, input_html: { class: "size-m select2" }
