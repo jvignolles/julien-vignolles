@@ -40,7 +40,7 @@ class Admin::ImagesController < Admin::BaseController
     data = {}
     if params[:data].present?
       data = JSON.parse(params[:data]).symbolize_keys
-      img = data[:image]
+      img = data[:image].symbolize_keys
     else
       img = params[:image]
     end
