@@ -93,8 +93,7 @@ class ImageUploader < CarrierWave::Uploader::Base
       #process resize_to_fill: [820, 560]
     end
     version :logo, :if => :as_logo? do
-      process resize_to_fill: [560, 560]
-      #process resize_to_fill: [820, 560]
+      process resize_to_fill: [275, 275]
     end
   end
 
