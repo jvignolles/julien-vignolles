@@ -102,14 +102,28 @@
   padding-top: 0;
   padding-bottom: 0;
   //background-color: $brand-grey;
-  .project-image {
-    position: relative;
-    //width: 100%;
-    margin-bottom: 2em;
+  //.project-image {
+  //  position: relative;
+  //  //width: 100%;
+  //  margin-bottom: 2em;
+  //}
+  //.project-image-img {
+  //  display: block;
+  //  width: 100%;
+  //}
+  //.project-carrousel-image {
+  //  display: block;
+  //  margin-bottom: 1em;
+  //}
+  .project-slider {
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    -o-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    overflow: hidden;
   }
-  .project-image-img {
-    display: block;
-    width: 100%;
+  .project-carousel {
+    overflow: hidden;
   }
   .project-details {
     margin-bottom: 2em;

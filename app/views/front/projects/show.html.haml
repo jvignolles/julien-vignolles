@@ -1,17 +1,24 @@
 .project-wrapper.container-wrapper
   .container
     .row
-      .project-image.col-xs-5
-        -# if (image = @project.images.first).present?
-        - if (image = @project.images.for_kind(:preview).first).present?
-          - alt = image.legend.present? ? image.legend : @project.name
-          -#= link_to image.img.project.preview.url, title: alt, class: "project-image project-image-preview" do
-            .project-image-layer
-            = image_tag image.img.project.preview.url, alt: alt, class: "project-image-img"
-          = image_tag image.img.project.preview.url, alt: alt, class: "project-image-img"
+      .col-xs-5
+        - if (images = @project.images.for_kind(:preview)).present?
+          #js-slider.flexslider.project-slider
+            %ul.slides
+              - images.each do |image|
+                - alt = image.legend.present? ? image.legend : @project.name
+                %li.slider-slide= image_tag image.img.project.preview.url, alt: alt, class: "project-slider-img"
         - else
-          = image_tag "front/default_project.png", alt: @project.name, class: "project-image-img"
-      .project-details.col-xs-7.col-md-6.col-md-offset-1
+          = image_tag "front/default_project.png", alt: @project.name, class: "project-slider-img"
+      .col-xs-1
+        - if (images = @project.images.for_kind(:preview)).present? && 1 < images.count
+          #js-carousel.flexslider.project-carousel
+            %ul.slides
+              - images.each do |image|
+                - alt = image.legend.present? ? image.legend : @project.name
+                -#= link_to "#", class: "project-carousel-image" do
+                %li.carousel-slide= image_tag image.img.small.url, alt: alt, class: "project-carousel-img"
+      .project-details.col-xs-6
         %h1.project-name= @project.name
         - if @project.company_description.present?
           .project-company-description= @project.company_description

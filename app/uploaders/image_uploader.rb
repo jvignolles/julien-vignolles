@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # The single image uploader for image management in the backoffice.  This is mirrored by a
 # single controller (AdminImagesController) used in many nested routes, and a single
 # model (Image).

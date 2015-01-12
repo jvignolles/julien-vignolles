@@ -129,11 +129,11 @@ $(function() {
   }
 
   $(document).ready(function() {
-    bindCustomLightboxes();
+    //bindCustomLightboxes();
     bindDescriptions();
     bindExternalLinks();
     bindFixedMenu();
-    bindMaps();
+    //bindMaps();
     bindMenu();
     bindScrollTos();
     //bindSidebars();
