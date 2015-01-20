@@ -21,8 +21,8 @@ protected
     @display_breadcrumbs = true
     @menu = Admin::BaseController::MENU.dup
     @badge_contacts = Contact.waiting.count
-    @badge_quotations = Quotation.waiting.count
-    @badge_subscriptions = Subscription.count
+    #@badge_quotations = Quotation.waiting.count
+    #@badge_subscriptions = Subscription.count
     @breadcrumbs = [{ key: :home, name: "Accueil", url: admin_home_path }]
     @per_page_values = [10, 20, 30, 50, 100]
     if (search = params[:search]).present?

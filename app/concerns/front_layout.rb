@@ -47,19 +47,19 @@ protected
     # Content
     @front_kind = :default
     @display_breadcrumbs = true
-    @display_quotation = false
+    #@display_quotation = false
     @active_menus = []
     @breadcrumbs = [{ key: "homepage", name: "Accueil", url: front_home_path }]
-    quotation = (params[:quotation] || {})
-    quotation[:from_path] ||= request.fullpath
-    @quotation = Quotation.new(quotation)
-    @subscription = Subscription.new(params[:subscription])
+    #quotation = (params[:quotation] || {})
+    #quotation[:from_path] ||= request.fullpath
+    #@quotation = Quotation.new(quotation)
+    #@subscription = Subscription.new(params[:subscription])
     @social_networks = {
-      instagram: "Instagram",
-      googleplus: "Google+",
-      pinterest: "Pinterest",
       facebook: "Facebook",
       twitter: "Twitter",
+      googleplus: "Google+",
+      instagram: "Instagram",
+      pinterest: "Pinterest",
     }
 
     # SEO
