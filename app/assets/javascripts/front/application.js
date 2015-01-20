@@ -18,7 +18,6 @@
 //  require ./socialshare.min
 //= require ./stickymenu
 //= require ./jquery.sticky
-//= require ./jquery.flexslider-min
 
 //  require moment
 //  require kalendae
@@ -28,7 +27,6 @@
 //  require ./tinymce_behavior
 
 //= require ./layout
-//= require ./projects
 //  require ./forms
 //= require ./maps
 //= require ./contacts

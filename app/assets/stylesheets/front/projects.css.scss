@@ -99,31 +99,48 @@
 
 // Only one / show
 .project-wrapper {
-  padding-top: 0;
-  padding-bottom: 0;
-  //background-color: $brand-grey;
-  //.project-image {
-  //  position: relative;
-  //  //width: 100%;
-  //  margin-bottom: 2em;
-  //}
-  //.project-image-img {
-  //  display: block;
-  //  width: 100%;
-  //}
-  //.project-carrousel-image {
-  //  display: block;
-  //  margin-bottom: 1em;
-  //}
+  padding-bottom: 2em;
   .project-slider {
+    padding: 0 em(50px);
+    margin-bottom: em(80px);
+  }
+  .carousel-inner {
     -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     -o-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     box-shadow: 0 1px 4px rgba(0,0,0,.2);
-    overflow: hidden;
   }
-  .project-carousel {
-    overflow: hidden;
+  .slider-slide {
+    width: 100%;
+  }
+  .carousel-control {
+    font-size: em(20px);
+    width: em(50px, 20px);
+    color: #666;
+    background: transparent;
+    &:hover {
+      color: $brand-primary;
+      background: transparent;
+    }
+    .glyphicon-chevron-left {
+      left: em(15px, 20px);
+    }
+    .glyphicon-chevron-right {
+      right: em(15px, 20px);
+    }
+  }
+  .carousel-indicators {
+    bottom: em(-40px);
+    li {
+      width: em(15px);
+      height: em(15px);
+      margin: 0;
+      margin-right: em(10px);
+      border-color: $brand-primary;
+    }
+    .active {
+      background-color: $brand-primary;
+    }
   }
   .project-details {
     margin-bottom: 2em;
@@ -135,6 +152,10 @@
   .project-company-description {
     margin-bottom: 1em;
     color: #666;
+  }
+  .project-company-link {
+    display: inline-block;
+    margin-bottom: 1em;
   }
   .project-description {
     font-size: em(16px);
