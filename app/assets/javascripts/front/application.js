@@ -31,6 +31,4 @@
 //= require ./projects
 //  require ./forms
 //= require ./maps
-//= require ./calculator
 //= require ./contacts
-
