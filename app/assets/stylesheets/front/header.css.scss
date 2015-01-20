@@ -33,6 +33,7 @@ $menu-column-breakpoint: 680px;
       display: block;
       height: em(52px);
       line-height: em(52px);
+      outline: 0;
     }
   }
   .logo-name {
@@ -81,6 +82,7 @@ $menu-column-breakpoint: 680px;
     text-transform: uppercase;
     text-align: left;
     color: white;
+    outline: 0;
   }
   a.text-wrapper:hover {
     background-color: $brand-primary;

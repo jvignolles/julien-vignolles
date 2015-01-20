@@ -103,6 +103,7 @@
   .project-slider {
     padding: 0 em(50px);
     margin-bottom: em(80px);
+    @include user-select(none);
   }
   .carousel-inner {
     -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
@@ -118,6 +119,7 @@
     width: em(50px, 20px);
     color: #666;
     background: transparent;
+    outline: 0;
     &:hover {
       color: $brand-primary;
       background: transparent;
