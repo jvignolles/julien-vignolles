@@ -23,7 +23,8 @@
               = icon "chevron-right"
               %span.sr-only Suivante
         - else
-          = image_tag "front/default_project.png", alt: @project.name, class: "project-slider-img"
+          .project-slider
+            = image_tag "front/default_project.png", alt: @project.name, class: "slider-slide"
       .project-details.col-sm-6
         %h1.project-name= @project.name
         - if @project.company_description.present?

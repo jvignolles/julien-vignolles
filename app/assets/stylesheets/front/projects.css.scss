@@ -20,6 +20,7 @@
     background-color: white;
     color: black;
     overflow: hidden;
+    border: 1px solid #ddd;
     box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
     img.grayscale {
       -webkit-filter: grayscale(1);
@@ -30,6 +31,7 @@
     }
     &:hover {
       color: $brand-primary;
+      border-color: #aaa;
       box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
       img.grayscale {
         //@include filter(grayscale(0%));
@@ -68,7 +70,7 @@
     line-height: em(24px);
     padding: em(3px 5px);
     text-align: center;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(255,255,255,.8);
     @include transition (all 0.4s ease-in-out);
     @media screen and (min-width: mem(555px)) {
       bottom: em(-46px);
@@ -81,7 +83,7 @@
       line-height: em(14px, 10px);
       vertical-align: middle;
       overflow: hidden;
-      color: white;
+      color: #333;
       @media screen and (min-width: mem(555px)) {
         font-size: em(12px);
         line-height: em(18px, 12px);
@@ -106,13 +108,20 @@
     @include user-select(none);
   }
   .carousel-inner {
+    padding-top: 100%;
+    height: 0;
     -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     -o-box-shadow: 0 1px 4px rgba(0,0,0,.2);
     box-shadow: 0 1px 4px rgba(0,0,0,.2);
   }
   .slider-slide {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    top: 0;
+    line-height: em(50px);
+    text-align: center;
   }
   .carousel-control {
     font-size: em(20px);
@@ -146,6 +155,9 @@
   }
   .project-details {
     margin-bottom: 2em;
+    .centered {
+      margin-top: 1em;
+    }
   }
   .project-name {
     font-size: em(36px);
