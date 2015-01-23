@@ -1,26 +1,14 @@
 @import "variables";
 @import "mixins";
 
-// If you want to scope the homepage…
-//body.front-home { }
-
-.homepage-wrapper {
-  text-align: center;
-  .heading {
-    margin-top: 0;
-    line-height: em(42px, 30px);
-  }
-  .info {
-    margin-top: 1em;
-    color: #666;
-  }
-}
-
 .homepage-intro-wrapper {
   .homepage-intro-img {
     display: block;
     width: 100%;
     border-radius: 50%;
+  }
+  .page-heading {
+    margin-bottom: 0.5em;
   }
 }
 

@@ -1,7 +1,0 @@
-#subscription.container-wrapper
-  .container
-    .subscription-heading Newsletter #{app_name}
-    - if @configuration.newsletter_description.present?
-      .subscription-description= @configuration.newsletter_description
-    = render "front/subscriptions/form"
-

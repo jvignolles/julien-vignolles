@@ -11,7 +11,8 @@ private
       app_name baseline email_contact company_name phone phone_hours fax address siret siren
       intracom_vat_number quotation_description newsletter_description
       seo_title seo_description seo_keywords website_on_hold website_on_hold_description
-      facebook_url twitter_url googleplus_url instagram_url pinterest_url linkedin_url viadeo_url
+      facebook_url twitter_url googleplus_url instagram_url pinterest_url linkedin_url
+      viadeo_url github_url stackoverflow_url
     )
   end
 end

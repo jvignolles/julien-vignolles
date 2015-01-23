@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110221357) do
+ActiveRecord::Schema.define(version: 20150123182937) do
 
   create_table "admins", force: true do |t|
     t.boolean  "active",                             default: true,  null: false
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 20150110221357) do
     t.string   "viadeo_url",                  limit: 128, default: "",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "github_url",                  limit: 128, default: "",    null: false
+    t.string   "stackoverflow_url",           limit: 128, default: "",    null: false
   end
 
   create_table "contacts", force: true do |t|

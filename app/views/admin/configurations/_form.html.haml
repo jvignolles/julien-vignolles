@@ -15,7 +15,7 @@
 %fieldset.row
   .col-xxs-12
     %legend Réseaux sociaux
-    - [:facebook, :twitter, :googleplus, :instagram, :pinterest].each do |network|
+    - %w(facebook twitter googleplus instagram pinterest linkedin viadeo github stackoverflow).each do |network|
       = form.input "#{network}_url".to_sym, wrapper_html: { class: "size-m" }
   .col-xxs-12
 %fieldset.row
@@ -24,4 +24,3 @@
   .col-xxs-12
     = form.input :website_on_hold, wrapper: :inline_checkbox
     = form.input :website_on_hold_description, input_html: { rows: 4, class: "tinymce" }
-

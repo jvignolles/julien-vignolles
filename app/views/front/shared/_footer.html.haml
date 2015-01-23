@@ -2,5 +2,9 @@
   .container
     .row
       .col-xxs-12
+        %p.social-networks
+          - %w(twitter googleplus linkedin viadeo github stackoverflow).each do |name|
+            - if (url = @configuration.send("#{name}_url")).present?
+              = link_to content_tag(:span, '', class: "social-icon"), url, class: "social-link #{name}", rel: "external", title: "#{app_name} sur #{name.nameize}"
+      .col-xxs-12
         %p.copyright © #{copyright_years} #{app_name} · #{link_to "Contact", new_front_contact_path}
-
