@@ -2,16 +2,20 @@
 @import "mixins";
 
 .homepage-intro-wrapper {
-  .homepage-intro-img {
-    display: block;
-    width: 100%;
-    border-radius: 50%;
-  }
   .page-heading {
     margin-bottom: 0.5em;
   }
 }
-
+.homepage-intro-image {
+  margin-bottom: 2em;
+}
+.homepage-intro-img {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
 .homepage-expertises-wrapper {
   .homepage-expertise {
     padding: 1em;
@@ -32,12 +36,10 @@
     font-size: em(24px);
     font-weight: bold;
     margin-bottom: 1em;
-    //text-align: center;
-  }
-  .description {
   }
 }
 
+/*
 #homepage-banners {
   position: relative;
   padding-top: 0;
@@ -87,7 +89,7 @@
       padding: em(20px);
       max-width: em(430px);
       color: white;
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 1px 1px 2px #111;
     }
     .homepage-banner-name {
       font-size: em(32px);
@@ -111,7 +113,8 @@
     }
   }
 }
-
+*/
+/*
 .highlights-wrapper {
   background-color: white;
   padding-top: 2em;
@@ -122,7 +125,7 @@
   .highlight-link {
     display: block;
     background-color: white;
-    color: black;
+    color: #111;
     overflow: hidden;
     @include transition(none);
     box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
@@ -164,4 +167,4 @@
     }
   }
 }
-
+*/

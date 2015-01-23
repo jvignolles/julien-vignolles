@@ -4,12 +4,13 @@
   .container
     - if @editorial.present?
       .row
-        .col-xs-2.col-xs-offset-1
-          - if (image = @editorial.images.first).present?
-            = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
-          - else
-            = image_tag "front/default_homepage_intro.png", alt: "", class: "homepage-intro-img"
-        .col-xs-8.col-xs-offset-1
+        .col-xs-4
+          .homepage-intro-image
+            - if (image = @editorial.images.first).present?
+              = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
+            - else
+              = image_tag "front/default_homepage_intro.png", alt: "", class: "homepage-intro-img"
+        .col-xs-8
           - if @page_heading.present?
             %h1.page-heading= @page_heading
           - if @editorial.text1.present?

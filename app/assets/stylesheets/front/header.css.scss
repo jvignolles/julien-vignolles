@@ -48,22 +48,22 @@ $menu-column-breakpoint: 680px;
 }
 .menu-link {
   float: left;
-  margin-top: em(5px);
-  margin-bottom: em(5px);
-  height: em(40px);
-  line-height: em(36px);
+  font-size: em(36px);
+  height: 1.3em;
+  line-height: 1em;
   color: #444;
-  background-color: white;
-  border: 1px solid #444;
+  //background-color: white;
+  //border: 1px solid #444;
   text-transform: uppercase;
-  padding: 0 em(10px);
+  padding: 0 em(10px, 36px);
   text-align: center;
   @media screen and (min-width: mem($toggle-menu-breakpoint)) {
     display: none;
   }
-  &:hover, &:active {
-    color: $brand-primary;
-    border-color: $brand-primary;
+  &:hover, &:active, &:focus {
+    color: #111;
+    border-color: #111;
+    background-color: white;
   }
 }
 .menu {
@@ -110,7 +110,7 @@ $menu-column-breakpoint: 680px;
     .text-wrapper {
       padding: 0 em(7px);
       text-align: center;
-      color: black;
+      color: #111;
     }
     a.text-wrapper:hover {
       background-color: white;

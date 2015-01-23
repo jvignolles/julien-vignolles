@@ -6,7 +6,7 @@
           = image_tag image.img.configuration.logo_app.url, alt: app_name, class: "logo-img"
         - else
           %span.logo-name= app_name
-    = link_to "Menu", "#", class: "menu-link menu-toggle"
+    = link_to "&#9776;".html_safe, "#", class: "menu-link menu-toggle btn btn-default", title: "Menu"
     %ul.menu.clearfix
       %li
         = link_to front_home_path, class: "text-wrapper" do

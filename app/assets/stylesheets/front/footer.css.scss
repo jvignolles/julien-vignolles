@@ -3,8 +3,9 @@
 
 .footer-wrapper {
   padding-top: 2em;
+  border-top: 1px solid #111;
   background-color: $brand-footer;
-  color: #444;
+  color: #111;
   a {
     color: white;
     text-decoration: none;
@@ -13,7 +14,6 @@
       text-decoration: underline;
     }
   }
-
   .social-networks {
     text-align: center;
     margin-bottom: 1em;
@@ -24,10 +24,13 @@
     height: em(36px);
     line-height: em(24px);
     padding: em(6px);
-    margin-left: em(14px);
+    margin-left: em(5px);
     border-radius: em(18px);
     background-color: #aaa;
     @include transition (all 0.5s ease-in-out);
+    @media screen and (min-width: mem(420px)) {
+      margin-left: em(14px);
+    }
     .social-icon { // instagram
       display: inline-block;
       width: em(24px);
@@ -36,6 +39,9 @@
     }
     &:hover {
       background-color: #3B5998;
+    }
+    &:first-child {
+      margin-left: 0;
     }
   }
   .googleplus {
