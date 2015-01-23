@@ -15,6 +15,16 @@
             %h1.page-heading= @page_heading
           - if @editorial.text1.present?
             .html-text= @editorial.text1.html_safe
+- if @highlighted_projects.present?
+  .container-wrapper.homepage-highlighted-projects-wrapper
+    .container
+      .row
+        - @highlighted_projects.each do |project|
+          - if (image = project.images.for_kind(:preview).first).present?
+            .col-xxs-6.col-xs-4.col-md-2.centered
+              = link_to front_project_path(id: project), class: "homepage-highlighted-project", title: project.name do
+                - alt = image.legend.present? ? image.legend : project.name
+                = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
 .container-wrapper.homepage-expertises-wrapper
   .container
     .row
@@ -75,7 +85,7 @@
                 - if banner.description.present?
                   .homepage-banner-text= banner.description
                 .button= link_to button_label, banner.url, class: "btn btn-primary btn-lg btn-homepage-banner"
-- if true # cache cache_key_for_highlights(@highlights), expires_in: 1.day do
+-# if false # cache cache_key_for_highlights(@highlights), expires_in: 1.day do
   - if @highlights.present?
     #homepage-highlights.highlights-wrapper.container-wrapper
       .container
@@ -92,4 +102,3 @@
                   %span.inner= highlight.name
                 .highlight-description
                   .truncate= highlight.description
-

@@ -16,6 +16,17 @@
   border-radius: 50%;
   margin: 0 auto;
 }
+.homepage-highlighted-projects-wrapper {
+}
+.homepage-highlighted-project {
+  display: inline-block;
+}
+.homepage-highlighted-project-img {
+  display: block;
+  width: 100%;
+  max-width: em(135px);
+  margin: 0 auto 1em;
+}
 .homepage-expertises-wrapper {
   .homepage-expertise {
     padding: 1em;
