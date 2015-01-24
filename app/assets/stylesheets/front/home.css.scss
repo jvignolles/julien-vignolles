@@ -17,17 +17,37 @@
   margin: 0 auto;
 }
 .homepage-highlighted-projects-wrapper {
+  padding-top: 0;
+  .page-heading {
+    font-size: em(24px);
+    margin-bottom: 1em;
+  }
 }
 .homepage-highlighted-project {
+  margin-bottom: 2em;
+  text-align: center;
+}
+.homepage-highlighted-project-link {
   display: inline-block;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+  &:hover {
+    border-color: #aaa;
+    box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+  }
 }
 .homepage-highlighted-project-img {
   display: block;
   width: 100%;
   max-width: em(135px);
-  margin: 0 auto 1em;
+  margin: 0 auto;
 }
 .homepage-expertises-wrapper {
+  padding-top: 0;
+  .page-heading {
+    font-size: em(24px);
+    margin-bottom: 1em;
+  }
   .homepage-expertise {
     padding: 1em;
     background-color: #eee;

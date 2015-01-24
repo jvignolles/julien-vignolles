@@ -19,15 +19,19 @@
   .container-wrapper.homepage-highlighted-projects-wrapper
     .container
       .row
+        .col-xxs-12
+          %h2.page-heading Quelques #{link_to "réalisations", front_projects_path}…
         - @highlighted_projects.each do |project|
           - if (image = project.images.for_kind(:preview).first).present?
-            .col-xxs-6.col-xs-4.col-md-2.centered
-              = link_to front_project_path(id: project), class: "homepage-highlighted-project", title: project.name do
+            .col-xxs-6.col-xs-4.col-md-2.homepage-highlighted-project
+              = link_to front_project_path(id: project), class: "homepage-highlighted-project-link", title: project.name do
                 - alt = image.legend.present? ? image.legend : project.name
                 = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
 .container-wrapper.homepage-expertises-wrapper
   .container
     .row
+      .col-xxs-12
+        %h2.page-heading Quelques compétences…
       .col-sm-6.col-md-6
         .homepage-expertise
           .test
