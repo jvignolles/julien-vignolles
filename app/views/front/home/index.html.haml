@@ -15,18 +15,6 @@
             %h1.page-heading= @page_heading
           - if @editorial.text1.present?
             .html-text= @editorial.text1.html_safe
-- if @highlighted_projects.present?
-  .container-wrapper.homepage-highlighted-projects-wrapper
-    .container
-      .row
-        .col-xxs-12
-          %h2.page-heading Quelques #{link_to "réalisations", front_projects_path}…
-        - @highlighted_projects.each do |project|
-          - if (image = project.images.for_kind(:preview).first).present?
-            .col-xxs-6.col-xs-4.col-md-2.homepage-highlighted-project
-              = link_to front_project_path(id: project), class: "homepage-highlighted-project-link", title: project.name do
-                - alt = image.legend.present? ? image.legend : project.name
-                = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
 .container-wrapper.homepage-expertises-wrapper
   .container
     .row
@@ -56,53 +44,15 @@
             .glyphicon.glyphicon-user
             .heading Conseil et accompagnement
           .description= Forgery('lorem_ipsum').paragraphs
-  
--# if true # cache cache_key_for_banners(@banners), expires_in: 1.day do
-  - if @banners.present?
-    #homepage-banners.container-wrapper.carousel.slide{ data: { ride: "carousel", interval: "8000" } }
-      .container
-        - @banners.each_with_index do |banner, index|
-          - id = "homepage-banner-#{index}"
-          - if (image = banner.images.first).present?
-            :css
-              ##{id} { background-image: url('#{image_path(image.img.banner.preview.xs.url)}'); }
-              @media screen and (min-width: 481px) { ##{id} { background-image: url('#{image_path(image.img.banner.preview.sm.url)}'); } }
-              @media screen and (min-width: 769px) { ##{id} { background-image: url('#{image_path(image.img.banner.preview.md.url)}'); } }
-              @media screen and (min-width: 1021px) { ##{id} { background-image: url('#{image_path(image.img.banner.preview.lg.url)}'); } }
-              @media screen and (min-width: 1441px) { ##{id} { background-image: url('#{image_path(image.img.banner.preview.url)}'); } }
-        - if 1 < @banners.count
-          %ol.carousel-indicators
-            - @banners.each_with_index do |banner, index|
-              - classes = ["marker"]
-              - classes << "active" if 0 == index
-              %li{ data: { "target" => "#homepage-banners", "slide-to" => index }, class: classes }
-        .carousel-inner
-          - @banners.each_with_index do |banner, index|
-            - id = "homepage-banner-#{index}"
-            - button_label = banner.button.present? ? banner.button : "Voir !"
-            - classes = ["homepage-banner", "item"]
-            - classes << "active" if 0 == index
-            %div{ id: id, class: classes }
-              .homepage-banner-description
-                - if banner.name.present?
-                  .homepage-banner-name= banner.name
-                - if banner.description.present?
-                  .homepage-banner-text= banner.description
-                .button= link_to button_label, banner.url, class: "btn btn-primary btn-lg btn-homepage-banner"
--# if false # cache cache_key_for_highlights(@highlights), expires_in: 1.day do
-  - if @highlights.present?
-    #homepage-highlights.highlights-wrapper.container-wrapper
-      .container
-        .row
-          - @highlights.each_with_index do |highlight, index|
-            .col-sm-4.col-xs-6.highlight-thumb
-              = link_to highlight.url, class: "highlight-link" do
-                .highlight-img-wrapper
-                  - if (image = highlight.images.first).present?
-                    = image_tag image.img.highlight.preview.url, alt: highlight.name, class: "highlight-img"
-                  - else
-                    = image_tag "front/default_highlight.png", alt: "", class: "highlight-img"
-                .highlight-name
-                  %span.inner= highlight.name
-                .highlight-description
-                  .truncate= highlight.description
+- if @highlighted_projects.present?
+  .container-wrapper.homepage-highlighted-projects-wrapper
+    .container
+      .row
+        .col-xxs-12
+          %h2.page-heading Quelques #{link_to "réalisations", front_projects_path}…
+        - @highlighted_projects.each do |project|
+          - if (image = project.images.for_kind(:preview).first).present?
+            .col-xxs-6.col-xs-4.col-md-2.homepage-highlighted-project
+              = link_to front_project_path(id: project), class: "homepage-highlighted-project-link", title: project.name do
+                - alt = image.legend.present? ? image.legend : project.name
+                = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
