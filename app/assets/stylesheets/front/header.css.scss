@@ -18,21 +18,25 @@ $menu-column-breakpoint: 680px;
   }
   .logo {
     position: absolute;
-    font-family: 'Rock Salt', cursive;
-    right: em(15px);
+    font-size: em(24px);
+    //font-family: 'Rock Salt', cursive;
+    right: em(15px, 24px);
     @media screen and (min-width: mem(420px)) {
+      width: em(240px, 24px);
       right: auto;
       left: 50%;
-      margin-left: em(-73px);
+      margin-left: em(-120px, 24px);
+      text-align: center;
     }
     @media screen and (min-width: mem($toggle-menu-breakpoint)) {
+      width: auto;
       left: auto;
       margin-left: 0;
     }
     .text-wrapper {
       display: block;
-      height: em(52px);
-      line-height: em(52px);
+      height: em(52px, 24px);
+      line-height: em(52px, 24px);
       outline: 0;
     }
   }
@@ -108,7 +112,7 @@ $menu-column-breakpoint: 680px;
       text-align: center;
     }
     .text-wrapper {
-      padding: 0 em(7px);
+      padding: 0 em(20px);
       text-align: center;
       color: #111;
     }
@@ -117,7 +121,7 @@ $menu-column-breakpoint: 680px;
       color: $brand-primary;
     }
     .text {
-      font-size: em(13px);
+      font-size: em(16px);
     }
     .toggle-hide {
       display: none;
@@ -128,18 +132,18 @@ $menu-column-breakpoint: 680px;
   }
   @media screen and (min-width: mem(992px)) {
     .text {
-      font-size: em(15px);
+      font-size: em(18px);
     }
     .text-wrapper {
-      padding: 0 em(20px);
+      padding: 0 em(30px);
     }
   }
   @media screen and (min-width: mem(1280px)) {
     .text {
-      font-size: em(18px);
+      font-size: em(20px);
     }
     .text-wrapper {
-      padding: 0 em(35px);
+      padding: 0 em(40px);
     }
   }
 }

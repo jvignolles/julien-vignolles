@@ -2,7 +2,7 @@
 !!! 5
 %html{ :lang => I18n.locale, :"xmlns:og" => "http://ogp.me/ns#" }
   %head
-    - prefetches = ["//www.google-analytics.com", "//fonts.googleapis.com", "//js-agent.newrelic.com", "https://vignolles.s3-eu-west-1.amazonaws.com"]
+    - prefetches = ["//www.google-analytics.com", "//js-agent.newrelic.com", "https://vignolles.s3-eu-west-1.amazonaws.com"]
     - prefetches.each do |domain|
       %link{ rel: "dns-prefetch", href: domain }
     %meta{ "http-equiv" => "Content-Type",    :content => "text/html; charset=utf-8" }
@@ -19,7 +19,7 @@
       %meta(name="keywords" content="#{@page_keywords}")
     - icon_name = on_production_site? ? "front/favicon.png" : "front/favicon_dev.png"
     %link{ rel: "icon", type: "image/png", href: image_path(icon_name) }
-    %link{ rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Rock+Salt" }
+    -#%link{ rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Rock+Salt" }
     = stylesheet_link_tag "front/application", :media => :all, 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
