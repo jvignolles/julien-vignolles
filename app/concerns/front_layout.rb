@@ -40,6 +40,12 @@ protected
     @front_kind = :default
     @display_breadcrumbs = true
     @active_menus = []
+    @header_menu = {
+      homepage: { name: "Accueil",   url: front_home_path },
+      projects: { name: "Portfolio", url: front_projects_path },
+      jobs:     { name: "CV",        url: front_jobs_path },
+      contacts: { name: "Contact",   url: new_front_contact_path },
+    }
     @breadcrumbs = [{ key: "homepage", name: "Accueil", url: front_home_path }]
 
     # SEO

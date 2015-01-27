@@ -13,23 +13,18 @@ $menu-column-breakpoint: 680px;
   top: em(-106px);
   @include transition (all 0.4s ease-in-out);
   .container {
-    padding-top: em(15px);
-    padding-bottom: em(15px);
+    padding-top: em(5px);
+    padding-bottom: em(5px);
   }
   .logo {
     position: absolute;
     font-size: em(18px);
-    //font-family: 'Rock Salt', cursive;
     right: em(15px, 18px);
-    @media screen and (min-width: mem(320px)) {
-      font-size: em(24px);
-      right: em(15px, 24px);
-    }
     @media screen and (min-width: mem(420px)) {
-      width: em(240px, 24px);
+      width: em(240px, 18px);
       right: auto;
       left: 50%;
-      margin-left: em(-120px, 24px);
+      margin-left: em(-120px, 18px);
       text-align: center;
     }
     @media screen and (min-width: mem($toggle-menu-breakpoint)) {
@@ -43,19 +38,19 @@ $menu-column-breakpoint: 680px;
       line-height: em(45px, 18px);
       outline: 0;
       @media screen and (min-width: mem(320px)) {
-        height: em(45px, 24px);
-        line-height: em(45px, 24px);
+        height: em(45px, 18px);
+        line-height: em(45px, 18px);
       }
     }
   }
   .logo-name {
-    font-size: em(16px);
+    //font-size: em(16px);
     font-weight: bold;
   }
   .logo-img {
     display: block;
     width: em(146px);
-    height: em(52px);
+    height: em(45px);
   }
 }
 .menu-link {
@@ -90,7 +85,7 @@ $menu-column-breakpoint: 680px;
   .text-wrapper {
     display: block;
     padding: 0 2em;
-    line-height: em(52px);
+    line-height: em(45px);
     text-transform: uppercase;
     text-align: left;
     color: white;
@@ -103,12 +98,17 @@ $menu-column-breakpoint: 680px;
   a.text-wrapper:focus {
     text-decoration: none;
   }
+/*
   .text-wrapper-contact {
     text-transform: normal;
     .glyphicon {
       margin-left: 0;
       margin-right: em(3px);
     }
+  }
+*/
+  a.active {
+    color: $brand-primary;
   }
   @media screen and (min-width: mem($toggle-menu-breakpoint)) {
     position: static;
@@ -168,7 +168,7 @@ $menu-column-breakpoint: 680px;
 @media screen and (min-width: mem(992px)) {
   .sticky-menu {
     .fixed-header-padder {
-      padding-top: em(84px);
+      padding-top: em(86px);
     }
     .header-wrapper {
       position: fixed;
@@ -176,6 +176,7 @@ $menu-column-breakpoint: 680px;
       left: 0;
       width: 100%;
       z-index: 1000;
+      border-top: 3px solid $brand-primary;
       box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.6);
     }
     .homepage-heading {

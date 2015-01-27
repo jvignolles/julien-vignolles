@@ -1,7 +1,8 @@
 class Front::ProjectsController < Front::BaseController
   def index
-    @front_kind = "projects"
     @projects = Project.active.ordered.includes(:images, :skills)
+    @front_kind = "projects"
+    @active_menus << :projects
     @page_heading = "Portfolio"
     @page_title = "#{@page_heading} | #{app_name}"
     @page_description = "Consultez ma sélection de projets."
@@ -25,8 +26,9 @@ class Front::ProjectsController < Front::BaseController
       # DEV NOTE: SEO safe, avoid duplicate URLs if project is renamed.
       return redirect_to(correct_url, status: 301)
     end
-    @page_heading = @project.name
     @front_kind = "project"
+    @active_menus << :projects
+    @page_heading = @project.name
     @page_title = "#{@page_heading} | #{app_name}"
     @breadcrumbs << { key: "projects", name: "Portfolio", url: front_projects_path }
     @breadcrumbs << { key: "projects-#{@project.id}", name: @page_heading, url: front_project_path(id: @project) }

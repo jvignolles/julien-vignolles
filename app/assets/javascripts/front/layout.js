@@ -140,6 +140,7 @@ $(function() {
   });
 });
 
+/*
 function hideAddressBar() {
   if (!window.location.hash) {
     if (document.height < window.outerHeight) {
@@ -155,4 +156,5 @@ if (window.addEventListener) {
   });
   window.addEventListener("orientationchange", hideAddressBar);
 }
+*/
 

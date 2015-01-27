@@ -27,6 +27,7 @@ private
   def init_view
     @editorial = Editorial.find_by_kind(:contact)
     @front_kind = "contacts"
+    @active_menus << :contacts
     @page_heading = "Me contacter"
     @page_title = "#{@page_heading} | #{app_name}"
     @breadcrumbs << { key: "contacts", name: "Contact", url: new_front_contact_path }
