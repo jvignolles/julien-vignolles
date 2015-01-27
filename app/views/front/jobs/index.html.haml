@@ -39,6 +39,15 @@
                           = skill.name
               - if job.description.present?
                 .job-description.html-text= job.description.html_safe
+              - if (projects = job.projects.active).present?
+                %ul.job-projects.clearfix
+                  - projects.each do |project|
+                    %li.job-project
+                      = link_to front_project_path(id: project), class: "job-project-link", title: project.name do
+                        - if (image = project.images.for_kind(:logo).first).present?
+                          = image_tag image.img.small.url, alt: project.name, class: "job-project-img"
+                        - else
+                          = image_tag "front/default_project.png", alt: project.name, class: "job-project-img"
 - if @educations.present?
   .jobs-wrapper.educations-wrapper.container-wrapper
     .container

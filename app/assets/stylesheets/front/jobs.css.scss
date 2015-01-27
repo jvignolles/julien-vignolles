@@ -129,3 +129,23 @@ a.job-company-name {
 .job-description {
   font-size: em(14px);
 }
+
+.job-project {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.job-project-link {
+  display: inline-block;
+  border: solid 1px #ddd;
+  box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+}
+.job-project-img {
+  display: block;
+  width: em(50px);
+  height: em(50px);
+  &:hover {
+    color: $brand-primary;
+    border-color: #aaa;
+    box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+  }
+}

@@ -14,6 +14,7 @@ class Job < ActiveRecord::Base
 
   #=== Associations
   belongs_to :company
+  has_many   :projects, -> { order "position" }
   has_and_belongs_to_many :skills, -> { order "position" }
 
   #=== Scopes
