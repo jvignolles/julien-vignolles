@@ -85,11 +85,14 @@ $menu-column-breakpoint: 680px;
   .text-wrapper {
     display: block;
     padding: 0 2em;
-    line-height: em(45px);
+    line-height: em(56px);
     text-transform: uppercase;
     text-align: left;
     color: white;
     outline: 0;
+    @media screen and (min-width: mem($toggle-menu-breakpoint)) {
+      line-height: em(45px);
+    }
   }
   a.text-wrapper:hover {
     background-color: $brand-primary;
