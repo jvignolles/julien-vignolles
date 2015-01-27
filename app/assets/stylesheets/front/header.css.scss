@@ -18,9 +18,13 @@ $menu-column-breakpoint: 680px;
   }
   .logo {
     position: absolute;
-    font-size: em(24px);
+    font-size: em(18px);
     //font-family: 'Rock Salt', cursive;
-    right: em(15px, 24px);
+    right: em(15px, 18px);
+    @media screen and (min-width: mem(320px)) {
+      font-size: em(24px);
+      right: em(15px, 24px);
+    }
     @media screen and (min-width: mem(420px)) {
       width: em(240px, 24px);
       right: auto;
@@ -35,9 +39,13 @@ $menu-column-breakpoint: 680px;
     }
     .text-wrapper {
       display: block;
-      height: em(52px, 24px);
-      line-height: em(52px, 24px);
+      height: em(45px, 18px);
+      line-height: em(45px, 18px);
       outline: 0;
+      @media screen and (min-width: mem(320px)) {
+        height: em(45px, 24px);
+        line-height: em(45px, 24px);
+      }
     }
   }
   .logo-name {
@@ -53,7 +61,7 @@ $menu-column-breakpoint: 680px;
 .menu-link {
   float: left;
   font-size: em(36px);
-  height: 1.3em;
+  height: 1.25em;
   line-height: 1em;
   color: #444;
   //background-color: white;
