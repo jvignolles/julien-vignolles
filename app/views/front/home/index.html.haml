@@ -1,5 +1,3 @@
-- if has_flashes?
-  = render "front/shared/flashes"
 .container-wrapper.homepage-intro-wrapper
   .container
     - if @editorial.present?
@@ -14,42 +12,64 @@
           - if @page_heading.present?
             %h1.page-heading= @page_heading
           - if @editorial.text1.present?
-            .html-text= @editorial.text1.html_safe
+            .html-text
+              = @editorial.text1.html_safe
+              %p Vous pouvez jeter un œil à mon #{link_to "portfolio", front_projects_path} ou à mon #{link_to "CV", front_jobs_path}.
 .container-wrapper.homepage-expertises-wrapper
   .container
     .row
-      .col-xxs-12
-        %h2.page-heading Quelques compétences…
-      .col-sm-6.col-md-6
+      .col-xs-6.col-md-3
         .homepage-expertise
-          .test
-            .glyphicon.glyphicon-cog
-            .heading Développement back-end
-          .description= Forgery('lorem_ipsum').paragraphs
-      .col-sm-6.col-md-6
+          .homepage-expertise-header
+            = icon "picture"
+            .homepage-expertise-heading
+              %span.centered Développement front-end
+          .homepage-expertise-description
+            %p Intégration HTML5/CSS3
+            %p Responsive web design
+            %p JavaScript, JQuery
+            %p Accessibilité
+      .col-xs-6.col-md-3
         .homepage-expertise
-          .test
-            .glyphicon.glyphicon-picture
-            .heading Développement front-end
-          .description= Forgery('lorem_ipsum').paragraphs
-      .col-sm-6.col-md-6
+          .homepage-expertise-header
+            = icon "cog"
+            .homepage-expertise-heading
+              %span.centered Développement back-end
+          .homepage-expertise-description
+            %p Ruby on Rails, Java / JEE
+            %p Bases de données
+            %p Cloud / PAAS (Heroku)
+            %p Administration Linux
+      .col-xs-6.col-md-3
         .homepage-expertise
-          .test
-            .glyphicon.glyphicon-list-alt
-            .heading Gestion de projet
-          .description= Forgery('lorem_ipsum').paragraphs
-      .col-sm-6.col-md-6
+          .homepage-expertise-header
+            = icon "user"
+            .homepage-expertise-heading
+              %span.centered Gestion de projet
+          .homepage-expertise-description
+            %p Méthodes agile, scrum…
+            %p Travail collaboratif (Git)
+            %p Tests et documentation
+            %p Lean startup
+      .col-xs-6.col-md-3
         .homepage-expertise
-          .test
-            .glyphicon.glyphicon-user
-            .heading Conseil et accompagnement
-          .description= Forgery('lorem_ipsum').paragraphs
+          .homepage-expertise-header
+            = icon "heart-empty"
+            .homepage-expertise-heading
+              %span.centered Petits plus
+          .homepage-expertise-description
+            %p Performance
+            %p Référencement naturel
+            %p Ergonomie / UX
+            %p Emailing / newsletters
+            %p Growth hacking
 - if @highlighted_projects.present?
   .container-wrapper.homepage-highlighted-projects-wrapper
     .container
       .row
-        .col-xxs-12
+        .col-xxs-12.centered
           %h2.page-heading Quelques #{link_to "réalisations", front_projects_path}…
+      .row
         - @highlighted_projects.each do |project|
           - if (image = project.images.for_kind(:preview).first).present?
             .col-xxs-6.col-xs-4.col-md-2.homepage-highlighted-project

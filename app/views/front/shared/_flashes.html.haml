@@ -1,6 +1,6 @@
 - is_not_layout = local_assigns[:is_not_layout]
 - if (!@flash_not_in_layout || is_not_layout) && has_flashes?
-  .container-wrapper.container-wrapper-breadcrumb
+  .container-wrapper.container-wrapper-flashes
     #flashes.container
       - [:error, :alert, :notice].each do |key|
         - if flash[key].present?
@@ -14,4 +14,3 @@
             %button.close{ "data-dismiss" => "alert", "type" => "button" } &times;
             = flash[key].html_safe
           - flash[key] = nil # Ensure flash cleanup
-

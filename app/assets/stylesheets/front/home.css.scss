@@ -12,10 +12,51 @@
 .homepage-intro-img {
   display: block;
   width: 100%;
-  max-width: 150px;
-  border-radius: 50%;
+  max-width: em(158px);
+  border-radius: em(79px);
   margin: 0 auto;
 }
+
+.homepage-expertises-wrapper {
+  padding-top: 0;
+  .page-heading {
+    font-size: em(24px);
+    margin-bottom: 1em;
+  }
+  .glyphicon {
+    display: inline-block;
+    font-size: em(48px);
+    line-height: em(60px, 48px);
+    margin: 0 em(20px, 48px);
+  }
+  .centered {
+    display: inline-block;
+    line-height: em(22px, 16px);
+  }
+}
+.homepage-expertise {
+  padding: 1em;
+  background-color: #eee;
+  margin-bottom: 2em;
+}
+.homepage-expertise-header {
+  color: #444;
+  text-align: center;
+}
+.homepage-expertise-heading {
+  font-size: em(16px);
+  line-height: em(44px, 16px);
+  height: em(44px, 16px);
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  vertical-align: middle;
+}
+.homepage-expertise-description {
+  line-height: em(20px);
+  min-height: em(100px);
+  text-align: center;
+}
+
 .homepage-highlighted-projects-wrapper {
   padding-top: 0;
   .page-heading {
@@ -41,33 +82,6 @@
   width: 100%;
   max-width: em(135px);
   margin: 0 auto;
-}
-.homepage-expertises-wrapper {
-  padding-top: 0;
-  .page-heading {
-    font-size: em(24px);
-    margin-bottom: 1em;
-  }
-  .homepage-expertise {
-    padding: 1em;
-    background-color: #eee;
-    margin-bottom: 2em;
-  }
-  .test {
-    line-height: em(60px);
-    color: #444;
-  }
-  .glyphicon {
-    float: left;
-    font-size: em(48px);
-    line-height: em(60px, 48px);
-    margin: 0 em(20px, 48px);
-  }
-  .heading {
-    font-size: em(24px);
-    font-weight: bold;
-    margin-bottom: 1em;
-  }
 }
 
 /*

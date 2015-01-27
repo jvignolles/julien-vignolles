@@ -35,32 +35,12 @@ protected
 
   def init_front_layout
     @configuration ||= ::Configuration.instance
-    #@per_page_values = [10, 20, 30, 50, 100]
-    #if (search = params[:search]).present?
-    #  [:page, :per_page].each do |p|
-    #    search.delete p if search[p].to_i <= 0
-    #  end
-    #  @per_page = search[:per_page].to_i
-    #end
-    #@per_page = 30 unless @per_page_values.include?(@per_page)
 
     # Content
     @front_kind = :default
     @display_breadcrumbs = true
-    #@display_quotation = false
     @active_menus = []
     @breadcrumbs = [{ key: "homepage", name: "Accueil", url: front_home_path }]
-    #quotation = (params[:quotation] || {})
-    #quotation[:from_path] ||= request.fullpath
-    #@quotation = Quotation.new(quotation)
-    #@subscription = Subscription.new(params[:subscription])
-    @social_networks = {
-      facebook: "Facebook",
-      twitter: "Twitter",
-      googleplus: "Google+",
-      instagram: "Instagram",
-      pinterest: "Pinterest",
-    }
 
     # SEO
     @page_title = @configuration.seo_title

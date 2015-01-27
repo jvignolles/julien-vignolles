@@ -7,9 +7,7 @@
       - if @display_breadcrumbs
         = render "front/shared/breadcrumbs"
       #main
+        - if has_flashes?
+          = render "front/shared/flashes"
         = yield
-      - if @display_quotation
-        = render "front/shared/quotation"
-        = render "front/shared/subscription"
       = render "front/shared/footer"
-
