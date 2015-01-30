@@ -6,9 +6,9 @@ $menu-column-breakpoint: 680px;
 .header-wrapper {
   padding-top: 0;
   padding-bottom: 0;
-  color: #444;
-  background-color: #eee;
-  border-bottom: 1px solid #ddd;
+  color: #eee;
+  background-color: #444;
+  border-bottom: 1px solid #666;
   text-align: center;
   top: em(-106px);
   @include transition (all 0.4s ease-in-out);
@@ -44,8 +44,7 @@ $menu-column-breakpoint: 680px;
     }
   }
   .logo-name {
-    //font-size: em(16px);
-    font-weight: bold;
+    color: #eee;
   }
   .logo-img {
     display: block;
@@ -59,8 +58,6 @@ $menu-column-breakpoint: 680px;
   height: 1.25em;
   line-height: 1em;
   color: #444;
-  //background-color: white;
-  //border: 1px solid #444;
   text-transform: uppercase;
   padding: 0 em(10px, 36px);
   text-align: center;
@@ -68,7 +65,7 @@ $menu-column-breakpoint: 680px;
     display: none;
   }
   &:hover, &:active, &:focus {
-    color: #111;
+    color: #eee;
     border-color: #111;
     background-color: white;
   }
@@ -95,7 +92,7 @@ $menu-column-breakpoint: 680px;
     }
   }
   a.text-wrapper:hover {
-    background-color: $brand-primary;
+    background-color: #222;
     color: white;
   }
   a.text-wrapper:focus {
@@ -125,11 +122,11 @@ $menu-column-breakpoint: 680px;
     .text-wrapper {
       padding: 0 em(20px);
       text-align: center;
-      color: #111;
+      color: #eee;
     }
     a.text-wrapper:hover {
-      background-color: white;
-      color: $brand-primary;
+      background-color: #eee;
+      color: #111;
     }
     .text {
       font-size: em(16px);
@@ -171,7 +168,7 @@ $menu-column-breakpoint: 680px;
 @media screen and (min-width: mem(992px)) {
   .sticky-menu {
     .fixed-header-padder {
-      padding-top: em(58px);
+      padding-top: em(59px);
     }
     .header-wrapper {
       position: fixed;

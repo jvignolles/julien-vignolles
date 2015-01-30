@@ -2,6 +2,8 @@
 @import "mixins";
 
 .homepage-intro-wrapper {
+  padding-top: em(60px);
+  padding-bottom: em(60px);
   .page-heading {
     margin-bottom: 0.5em;
   }
