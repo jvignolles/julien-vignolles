@@ -157,4 +157,3 @@ if (window.addEventListener) {
   window.addEventListener("orientationchange", hideAddressBar);
 }
 */
-

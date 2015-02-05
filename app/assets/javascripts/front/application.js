@@ -17,7 +17,6 @@
 //  require magnific-popup
 //  require ./socialshare.min
 //= require ./stickymenu
-//= require ./jquery.sticky
 
 //  require moment
 //  require kalendae
@@ -28,5 +27,5 @@
 
 //= require ./layout
 //  require ./forms
-//= require ./maps
+//  require ./maps
 //= require ./contacts
