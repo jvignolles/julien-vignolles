@@ -3,11 +3,6 @@
     .row
       .col-xxs-12
         %h1.page-heading= @page_heading
-      -# TODO if @page_editorial.present?
-        #js-heading-description.col-xxs-12.col-xs-8.col-xs-offset-2.heading-description.folded
-          .heading-description-text= @page_editorial.html_safe
-          .heading-description-more
-            = link_to "Lire la suite", "#", class: "btn btn-xs btn-custom", id: "js-heading-description-btn"
 .projects-wrapper.container-wrapper
   .container
     -#cache cache_key_for_projects(@projects), expires_in: 1.day do

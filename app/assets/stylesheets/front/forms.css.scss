@@ -84,9 +84,6 @@
     .form-field-label   { margin-left: percentage((4 / $grid-columns)); }
   }
   @media screen and (min-width: $screen-sm-min) {
-    //.control-label { width: percentage((4 / $grid-columns)); }
-    //.form-field        { width: percentage((6 / $grid-columns)); }
-    //.form-field          { max-width: em(430px); }
     .size-xs .form-field { max-width: em(130px); }
     .size-s  .form-field { max-width: em(230px); }
     .size-m  .form-field { max-width: em(330px); }
@@ -104,7 +101,6 @@
   }
   .btn-submit {
     float: left;
-    //min-width: em(200px);
     margin-right: 2em;
   }
   .form-submit-inline {
@@ -134,21 +130,3 @@
     padding-top: 0.5em;
   }
 }
-.form-quotation, .form-subscription {
-  .has-feedback {
-    .form-control-feedback {
-      right: 0;
-    }
-  }
-  &.form-with-alerts {
-    .has-error {
-      padding-top: 0;
-      .help-block {
-        padding-left: em(5px);
-        margin-bottom: em(5px);
-        text-align: left;
-      }
-    }
-  }
-}
-

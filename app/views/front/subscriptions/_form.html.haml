@@ -1,6 +1,0 @@
-= simple_form_for [:front, @subscription], html: { class: "form-subscription form-with-alerts" } do |f|
-  = render "front/shared/errors", item: @subscription
-  = f.input_field :kind, as: :hidden, value: "newsletter"
-  = f.input :email, placeholder: "Votre email *"
-  %button.btn.btn-primary.btn-lg.btn-custom{ type: :submit } Valider mon inscription
-

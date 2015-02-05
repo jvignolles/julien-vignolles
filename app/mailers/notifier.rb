@@ -24,23 +24,6 @@ class Notifier < ActionMailer::Base
     )
   end
 
-  def quotation(opts)
-    otps ||= {}
-    opts.symbolize_keys!
-    @email_info ||= {}
-    @email_info.merge! opts
-    quotation = opts[:quotation]
-    return unless quotation
-    @configuration ||= ::Configuration.instance
-    @email_info[:subject] = "Demande de devis de #{quotation.name}"
-    @email_info[:description] = quotation.description
-    mail(
-      :to => format_recipient(email_contact, app_name),
-      :reply_to => format_recipient(quotation.email, quotation.name),
-      :subject => "[#{app_name}] #{@email_info[:subject]}"
-    )
-  end
-
 # DEVISE
   def confirmation_instructions(h)
     h = h.symbolize_keys # don't use symbolize_keys!

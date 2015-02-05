@@ -38,7 +38,6 @@ class Admin < ActiveRecord::Base
 
   #=== Associations
   has_many :contacts
-  has_many :quotations
 
   #=== Scopes
   scope :active,       -> { where(active: true) }

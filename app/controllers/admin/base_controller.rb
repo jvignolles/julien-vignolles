@@ -11,8 +11,6 @@ class Admin::BaseController < ApplicationController
     contacts:       { name: "Contacts",        url: "admin_contacts_path", badge: "@badge_contacts", badge_kind: "warning" },
     #prospects:      { name: "Prospection",     url: "", children: {
     #  contacts:       { name: "Demandes de contact",     url: "admin_contacts_path", badge: "@badge_contacts", badge_kind: "warning" },
-    #  quotations:     { name: "Demandes de devis",       url: "admin_quotations_path", badge: "@badge_quotations", badge_kind: "warning" },
-    #  subscriptions:  { name: "Inscriptions newsletter", url: "admin_subscriptions_path", badge: "@badge_subscriptions", badge_kind: "success" },
     #}},
     homepage:       { name: "Homepage",        url: "", children: {
       banners:        { name: "Bannières",       url: "admin_banners_path" },

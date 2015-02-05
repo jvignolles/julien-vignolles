@@ -31,7 +31,5 @@ private
     @page_heading = "Me contacter"
     @page_title = "#{@page_heading} | #{app_name}"
     @breadcrumbs << { key: "contacts", name: "Contact", url: new_front_contact_path }
-    @display_quotation = false
-    #@geocoding_assets = true
   end
 end
