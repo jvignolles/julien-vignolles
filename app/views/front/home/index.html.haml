@@ -1,20 +1,23 @@
 .container-wrapper.homepage-intro-wrapper
-  .container
+  .container.homepage-intro-container
     - if @editorial.present?
       .row
-        .col-xs-4
-          .homepage-intro-image
+        -#.col-xs-4
+          -#.homepage-intro-image
             - if (image = @editorial.images.first).present?
               = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
             - else
               = image_tag "front/default_homepage_intro.png", alt: "", class: "homepage-intro-img"
-        .col-xs-8
-          - if @page_heading.present?
-            %h1.page-heading= @page_heading
-          - if @editorial.text1.present?
-            .html-text
-              = @editorial.text1.html_safe
-              %p Vous pouvez jeter un œil à mon #{link_to "portfolio", front_projects_path} ou à mon #{link_to "CV", front_jobs_path}.
+        .col-sm-8.col-sm-push-2.col-lg-6.col-lg-push-3
+          .homepage-intro-description
+            - if @page_heading.present?
+              %h1.page-heading= @page_heading
+            - if @editorial.text1.present?
+              .html-text
+                = @editorial.text1.html_safe
+                %p.call-to-actions
+                  = link_to "Mon portfolio", front_projects_path, class: "btn btn-call-to-action btn-portfolio"
+                  = link_to "Mon CV", front_jobs_path, class: "btn btn-call-to-action btn-cv"
 .container-wrapper.homepage-expertises-wrapper
   .container
     .row
@@ -68,7 +71,7 @@
     .container
       .row
         .col-xxs-12.centered
-          %h2.page-heading Quelques #{link_to "réalisations", front_projects_path}…
+          %h2.page-heading Quelques réalisations…
       .row
         - @highlighted_projects.each do |project|
           - if (image = project.images.for_kind(:preview).first).present?

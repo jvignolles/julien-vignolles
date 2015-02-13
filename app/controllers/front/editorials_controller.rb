@@ -21,7 +21,7 @@ class Front::EditorialsController < Front::BaseController
 
     # SEO
     @page_title = "#{@editorial.name} • #{app_name}"
-    @page_description = trunc_html(@editorial.description, 160)
+    @page_description = trunc_html(@editorial.text1, 160)
     add_seo_fields @editorial
   end
 end

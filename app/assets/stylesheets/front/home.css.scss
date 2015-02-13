@@ -2,11 +2,72 @@
 @import "mixins";
 
 .homepage-intro-wrapper {
-  padding-top: em(60px);
-  padding-bottom: em(60px);
-  .page-heading {
-    margin-bottom: 0.5em;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: em(300px);
+  background: black image-url('front/home_intro_xs.jpg') center center no-repeat;
+  background-size: cover;
+  color: #ddd;
+  text-shadow: 1px 1px 2px #111;
+  @media screen and (min-width: mem(480px)) {
+    background-image: image-url('front/home_intro_sm.jpg');
   }
+  @media screen and (min-width: mem(768px)) {
+    background-image: image-url('front/home_intro_md.jpg');
+  }
+  @media screen and (min-width: mem(992px)) {
+    padding-top: em(80px);
+    padding-bottom: em(80px);
+    background-image: image-url('front/home_intro_lg.jpg');
+  }
+  @media screen and (min-width: mem(1280px)) {
+    background-image: image-url('front/home_intro_xl.jpg');
+  }
+  .page-heading {
+    margin-bottom: 1em;
+    text-align: center;
+    @media screen and (min-width: mem(768px)) {
+      margin-bottom: 0.5em;
+      //text-align: left;
+    }
+    @media screen and (min-width: mem(992px)) {
+      margin-bottom: 1em;
+    }
+  }
+  strong {
+    color: white;
+  }
+  .call-to-actions {
+    margin-top: 2em;
+    text-align: center;
+    @media screen and (min-width: mem(500px)) {
+      margin-top: 2.5em;
+    }
+  }
+  .btn-call-to-action {
+    border-color: white;
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #111;
+    box-shadow: 1px 1px 2px #111;
+    &:hover, &:active, &:focus {
+      color: $brand-primary;
+      border-color: $brand-primary;
+    }
+  }
+  .btn-cv {
+    margin-left: 1em;
+  }
+}
+.homepage-intro-description a {
+  color: white;
+  &:hover, &:focus, &:active {
+    color: $brand-primary;
+  }
+}
+.homepage-intro-container {
+  padding-top: em(50px);
+  padding-bottom: em(50px);
 }
 .homepage-intro-image {
   margin-bottom: 2em;
@@ -20,7 +81,6 @@
 }
 
 .homepage-expertises-wrapper {
-  padding-top: 0;
   .page-heading {
     font-size: em(24px);
     margin-bottom: 1em;
@@ -40,9 +100,10 @@
   padding: 1em;
   background-color: #eee;
   margin-bottom: 2em;
+  border-radius: em(10px);
 }
 .homepage-expertise-header {
-  color: #444;
+  color: #111;
   text-align: center;
 }
 .homepage-expertise-heading {

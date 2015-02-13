@@ -15,6 +15,17 @@ private
     end
   end
 
+  def search(search = {})
+    p = params[:search] || {}
+    m = model_name.constantize
+    scoped = m.ordered.paginate(page: params[:page], per_page: @per_page)
+    if m.respond_to?(:adm_for_text)
+      scoped = scoped.adm_for_text(p[:text])
+    end
+    scoped = scoped.includes(:images)
+    scoped
+  end
+
   def strong_params
     a = %w(
       active highlight name year website_url description job_id company_description

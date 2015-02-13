@@ -39,8 +39,8 @@ module PushUpRails
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 "/jobs",               "/cv"
       r301 "/projects",           "/projets"
-      r301 %r{/projects/(\w+)},   "/projets/$1"
-      r301 %r{/editorials/(\w+)}, "/informations/$1"
+      r301 %r{^/projects/(\w+)},   "/projets/$1"
+      r301 %r{^/editorials/(\w+)}, "/informations/$1"
       # filename = File.join(Rails.root, 'public', 'redirections.csv')
       # if File.exists?(filename)
       #   CSV.parse(File.read(filename), headers: false) do |row|

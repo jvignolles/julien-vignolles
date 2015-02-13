@@ -7,8 +7,8 @@ $menu-column-breakpoint: 680px;
   padding-top: 0;
   padding-bottom: 0;
   color: #eee;
-  background-color: #444;
-  border-bottom: 1px solid #666;
+  background-color: $brand-header;
+  border-bottom: 3px solid $brand-primary;
   text-align: center;
   top: em(-106px);
   @include transition (all 0.4s ease-in-out);
@@ -19,7 +19,7 @@ $menu-column-breakpoint: 680px;
   .logo {
     position: absolute;
     font-size: em(18px);
-    right: em(15px, 18px);
+    right: em(20px, 18px);
     @media screen and (min-width: mem(420px)) {
       width: em(240px, 18px);
       right: auto;
@@ -57,17 +57,18 @@ $menu-column-breakpoint: 680px;
   font-size: em(36px);
   height: 1.25em;
   line-height: 1em;
-  color: #444;
+  color: #ccc;
   text-transform: uppercase;
   padding: 0 em(10px, 36px);
   text-align: center;
+  background-color: transparent;
   @media screen and (min-width: mem($toggle-menu-breakpoint)) {
     display: none;
   }
   &:hover, &:active, &:focus {
     color: #eee;
-    border-color: #111;
-    background-color: white;
+    border-color: $brand-primary;
+    background-color: transparent;
   }
 }
 .menu {
@@ -77,7 +78,7 @@ $menu-column-breakpoint: 680px;
   z-index: 9;
   width: em($toggle-menu-width);
   min-height: 100%;
-  background-color: $brand-footer;
+  background-color: $brand-header;
   color: white;
   .text-wrapper {
     display: block;
@@ -107,7 +108,7 @@ $menu-column-breakpoint: 680px;
     }
   }
 */
-  a.active {
+  a.active, a.active:hover, a.active:focus, a.active:active {
     color: $brand-primary;
   }
   @media screen and (min-width: mem($toggle-menu-breakpoint)) {
@@ -123,10 +124,10 @@ $menu-column-breakpoint: 680px;
       padding: 0 em(20px);
       text-align: center;
       color: #eee;
+      border-radius: em(4px);
     }
     a.text-wrapper:hover {
-      background-color: #eee;
-      color: #111;
+      color: $brand-primary;
     }
     .text {
       font-size: em(16px);
@@ -176,7 +177,6 @@ $menu-column-breakpoint: 680px;
       left: 0;
       width: 100%;
       z-index: 1000;
-      border-top: 3px solid $brand-primary;
       box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.6);
     }
     .homepage-heading {
