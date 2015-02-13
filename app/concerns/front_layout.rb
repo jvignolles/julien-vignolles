@@ -44,8 +44,10 @@ protected
       homepage: { name: "Accueil",   url: front_home_path },
       projects: { name: "Portfolio", url: front_projects_path },
       jobs:     { name: "CV",        url: front_jobs_path },
+      blog:     { name: "Blog",      url: front_blog_topics_path },
       contacts: { name: "Contact",   url: new_front_contact_path },
     }
+    @header_menu.delete(:blog) unless @configuration.blog_active?
     @breadcrumbs = [{ key: "homepage", name: "Accueil", url: front_home_path }]
 
     # SEO

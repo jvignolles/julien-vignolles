@@ -25,6 +25,10 @@ namespace 'admin', format: false do
     has_image_routes
     has_reorder_routes
   end
+  resources :blog_tags, except: [:show]
+  resources :blog_topics, except: [:show] do
+    has_image_routes
+  end
   resources :configurations, only: [:index, :edit, :update] do
     has_image_routes
   end
@@ -50,11 +54,11 @@ namespace 'admin', format: false do
     has_image_routes
     has_reorder_routes
   end
-  resources :quotations, only: [:index, :show, :destroy]
+  #resources :quotations, only: [:index, :show, :destroy]
   resources :skills, except: [:show] do
     has_reorder_routes
   end
-  resources :subscriptions, only: [:index, :destroy]
+  #resources :subscriptions, only: [:index, :destroy]
   #resources :team_members, except: [:show] do
   #  has_image_routes
   #  has_reorder_routes

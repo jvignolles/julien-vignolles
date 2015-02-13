@@ -4,10 +4,13 @@ class Front::ProjectsController < Front::BaseController
     @front_kind = "projects"
     @active_menus << :projects
     @page_heading = "Portfolio"
-    @page_title = "#{@page_heading} | #{app_name}"
-    @page_description = "Consultez ma sélection de projets."
     key = "projects"
     @breadcrumbs << { key: key, name: @page_heading, url: front_projects_path }
+
+    # SEO
+    @page_title = "Porfolio de #{app_name}"
+    @page_description = "Ma sélection de projets auxquels j’ai contribué : #{@projects.map(&:name)[0..3].join(', ')}…"
+    @page_keywords = "porfolio, projets, web, développement, ruby on rails, lead developper, CTO, chef de projet, freelance, consultant, indépendant"
   end
 
   def show
@@ -29,9 +32,14 @@ class Front::ProjectsController < Front::BaseController
     @front_kind = "project"
     @active_menus << :projects
     @page_heading = @project.name
-    @page_title = "#{@page_heading} | #{app_name}"
     @breadcrumbs << { key: "projects", name: "Portfolio", url: front_projects_path }
     @breadcrumbs << { key: "projects-#{@project.id}", name: @page_heading, url: front_project_path(id: @project) }
+
+    # SEO
+    @page_title = "#{@page_heading} • Portfolio de #{app_name}"
+    @page_description = trunc_html(@project.description, 160)
+    @page_keywords = "#{@project.name}, développement, ruby on rails, lead developer, CTO, chef de projet, freelance, consultant, indépendant"
+    @page_keywords += @project.skills.active.map { |x| ", #{x.name}" }.join
     add_seo_fields @project
   end
 end

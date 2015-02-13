@@ -14,6 +14,9 @@
     = form.input :address, as: :text, input_html: { rows: 2 }
 %fieldset.row
   .col-xxs-12
+    = form.input :blog_active, wrapper: :inline_checkbox
+%fieldset.row
+  .col-xxs-12
     %legend Réseaux sociaux
     - %w(facebook twitter googleplus instagram pinterest linkedin viadeo github stackoverflow).each do |network|
       = form.input "#{network}_url".to_sym, wrapper_html: { class: "size-m" }

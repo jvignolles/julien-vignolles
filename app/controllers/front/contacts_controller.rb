@@ -29,7 +29,10 @@ private
     @front_kind = "contacts"
     @active_menus << :contacts
     @page_heading = "Me contacter"
-    @page_title = "#{@page_heading} | #{app_name}"
     @breadcrumbs << { key: "contacts", name: "Contact", url: new_front_contact_path }
+
+    # SEO
+    @page_title = "#{@page_heading} • #{app_name}"
+    add_seo_fields @editorial
   end
 end

@@ -1,4 +1,3 @@
-# encoding: utf-8
 class Front::EditorialsController < Front::BaseController
   def show
     kind = params[:kind].present? && Editorial::KINDS[params[:kind]].present? ? params[:kind] : nil
@@ -19,7 +18,10 @@ class Front::EditorialsController < Front::BaseController
     @front_kind = "editorial"
     url = kind ? send("front_editorial_#{kind}_path") : front_editorial_path(@editorial)
     @breadcrumbs << { key: "editorials", name: @page_heading, url: url }
+
+    # SEO
+    @page_title = "#{@editorial.name} • #{app_name}"
+    @page_description = trunc_html(@editorial.description, 160)
     add_seo_fields @editorial
   end
 end
-

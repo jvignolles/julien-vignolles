@@ -36,7 +36,7 @@ module PushUpRails
     config.exceptions_app = self.routes
 
     # URL rewriting
-    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 "/jobs",               "/cv"
       r301 "/projects",           "/projets"
       r301 %r{/projects/(\w+)},   "/projets/$1"

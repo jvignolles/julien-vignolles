@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123182937) do
+ActiveRecord::Schema.define(version: 20150207163800) do
 
   create_table "admins", force: true do |t|
     t.boolean  "active",                             default: true,  null: false
@@ -64,6 +64,49 @@ ActiveRecord::Schema.define(version: 20150123182937) do
   add_index "banners", ["name"], name: "index_banners_on_name", using: :btree
   add_index "banners", ["position"], name: "index_banners_on_position", using: :btree
 
+  create_table "blog_tags", force: true do |t|
+    t.boolean  "active",                     default: true, null: false
+    t.string   "name",            limit: 64, default: "",   null: false
+    t.text     "description"
+    t.string   "seo_title",                  default: "",   null: false
+    t.string   "seo_h1",                     default: "",   null: false
+    t.string   "seo_description",            default: "",   null: false
+    t.text     "seo_keywords"
+    t.integer  "position",                   default: 0,    null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  add_index "blog_tags", ["name"], name: "index_blog_tags_on_name", using: :btree
+  add_index "blog_tags", ["position"], name: "index_blog_tags_on_position", using: :btree
+
+  create_table "blog_tags_blog_topics", id: false, force: true do |t|
+    t.integer "blog_tag_id"
+    t.integer "blog_topic_id"
+  end
+
+  add_index "blog_tags_blog_topics", ["blog_tag_id", "blog_topic_id"], name: "index_blog_tags_blog_topics_on_blog_tag_id_and_blog_topic_id", using: :btree
+
+  create_table "blog_topics", force: true do |t|
+    t.boolean  "active",                      default: true, null: false
+    t.integer  "admin_id"
+    t.string   "name",            limit: 128, default: "",   null: false
+    t.text     "introduction"
+    t.text     "description"
+    t.string   "seo_title",                   default: "",   null: false
+    t.string   "seo_h1",                      default: "",   null: false
+    t.string   "seo_description",             default: "",   null: false
+    t.text     "seo_keywords"
+    t.datetime "published_at"
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "blog_topics", ["admin_id"], name: "index_blog_topics_on_admin_id", using: :btree
+  add_index "blog_topics", ["created_at"], name: "index_blog_topics_on_created_at", using: :btree
+  add_index "blog_topics", ["name"], name: "index_blog_topics_on_name", using: :btree
+  add_index "blog_topics", ["published_at"], name: "index_blog_topics_on_published_at", using: :btree
+
   create_table "companies", force: true do |t|
     t.boolean  "active",                  default: true, null: false
     t.string   "name",        limit: 128, default: "",   null: false
@@ -107,6 +150,7 @@ ActiveRecord::Schema.define(version: 20150123182937) do
     t.datetime "updated_at"
     t.string   "github_url",                  limit: 128, default: "",    null: false
     t.string   "stackoverflow_url",           limit: 128, default: "",    null: false
+    t.boolean  "blog_active",                             default: false, null: false
   end
 
   create_table "contacts", force: true do |t|
