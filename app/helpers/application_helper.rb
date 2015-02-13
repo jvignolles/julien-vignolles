@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include ActionView::Helpers::TextHelper
   include FormatMethods
 
   def app_name
@@ -30,6 +31,23 @@ module ApplicationHelper
     return '' if date.blank?
     date = date.to_date unless date.is_a?(Date)
     I18n.localize(date, format: format)
+  end
+
+  def format_education_dates(education, format = :month_year)
+    dates = []
+    dates << education.started_on.year if education.started_on.present?
+    dates << education.ended_on.year if education.ended_on.present?
+    dates.uniq.join(" - ")
+  end
+
+  def format_job_dates(job, format = :month_year)
+    dates = [format_date(job.started_on, format)]
+    if job.ended_on
+      dates << format_date(job.ended_on, format)
+    else
+      dates << "aujourd’hui"
+    end
+    dates.join(" - ")
   end
 
   def i18n_simple_form_label(model, key)
@@ -88,8 +106,12 @@ module ApplicationHelper
     truncate(text, length: length, omission: '…')
   end
 
+  def trunc_html(text, length = 30)
+    trunc(HTMLEntities.new.decode(ActionController::Base.helpers.strip_tags(text)), length)
+  end
+
   def has_flashes?
-    flash.present? && ([:error, :alert, :notice, :h_alert, :h_notice] & flash.keys.map(&:to_sym)).present?
+    flash.present? && (arr = [:error, :alert, :notice, :h_alert, :h_notice] & flash.keys.map(&:to_sym)).present? && (arr.detect { |x| flash[x].present? })
   end
 
   BOOTSTRAP_ALERT_LEVEL = {

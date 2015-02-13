@@ -36,14 +36,18 @@ module PushUpRails
     config.exceptions_app = self.routes
 
     # URL rewriting
-    # config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
-    #   filename = File.join(Rails.root, 'public', 'redirections.csv')
-    #   if File.exists?(filename)
-    #     CSV.parse(File.read(filename), headers: false) do |row|
-    #       k, v = row
-    #       r301 k, v
-    #     end
-    #   end
-    # end
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      r301 "/jobs",               "/cv"
+      r301 "/projects",           "/projets"
+      r301 %r{/projects/(\w+)},   "/projets/$1"
+      r301 %r{/editorials/(\w+)}, "/informations/$1"
+      # filename = File.join(Rails.root, 'public', 'redirections.csv')
+      # if File.exists?(filename)
+      #   CSV.parse(File.read(filename), headers: false) do |row|
+      #     k, v = row
+      #     r301 k, v
+      #   end
+      # end
+    end
   end
 end

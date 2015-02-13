@@ -1,4 +1,3 @@
-# encoding: utf-8
 # French translations for Ruby on Rails
 # by Christian Lescuyer (christian@flyingcoders.com)
 # contributors:
@@ -473,15 +472,18 @@ fr:
       banner:
         one: "bannière"
         other: "bannières"
+      blog_tag:
+        one: "tag"
+        other: "tags"
+      blog_topic:
+        one: "article de blog"
+        other: "articles de blog"
       company:
         one: "entreprise"
         other: "entreprises"
       contact:
         one: "contact"
         other: "contacts"
-      country:
-        one: "pays"
-        other: "pays"
       editorial:
         one: "éditorial"
         other: "éditoriaux"
@@ -491,24 +493,12 @@ fr:
       job:
         one: "emploi"
         other: "emplois"
-      location:
-        one: "lieu"
-        other: "lieux"
       project:
         one: "projet"
         other: "projets"
-      quotation:
-        one: "devis"
-        other: "devis"
       skill:
         one: "compétence"
         other: "compétences"
-      subscription:
-        one: "inscription newsletter"
-        other: "inscriptions newsletter"
-      team_member:
-        one: "membre de l’équipe"
-        other: "membres de l’équipe"
   civilities:
     mr:
       short: "M."
@@ -522,7 +512,6 @@ fr:
   editorials:
     names:
       homepage: "Accueil"
-      team_members: "L’équipe"
       contact: "Contact"
       legal_info: "Mentions légales"
       privacy_policy: "Vie privée"
@@ -530,4 +519,3 @@ fr:
       who_we_are: "Qui sommes-nous ?"
       commitments: "Nos engagements"
       warranties: "Garanties"
-

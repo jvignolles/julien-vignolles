@@ -3,77 +3,79 @@
     .row
       .col-xxs-12
         %h1.page-heading= @page_heading
-.jobs-wrapper.container-wrapper
-  .container
-    - if @jobs.present?
-      - @jobs.each do |job|
-        - company = job.company
-        .row
-          .col-xxs-12
-            .job-item
-              %h3.job-name= job.name
-              - if company && company.active?
-                .job-company
-                  %p
-                    - if company.website_url.present?
-                      = link_to company.name, company.website_url, rel: "external", class: "job-company-name"
-                    - else
-                      %span.job-company-name= company.name
-                    - if company.location.present?
-                      %span.job-company-location
-                        = icon "map-marker"
-                        = company.location
-                  - if company.description.present?
-                    %p.job-company-description= company.description
-              .job-infos
-                .job-duration
-                  %span.job-duration-span.job-duration-dates= format_job_dates job
-                  %span.job-duration-span.job-duration-duration (#{format_job_duration job})
-                - if (skills = job.skills.active).present?
-                  %p.job-skills
-                    - skills.each do |skill|
-                      %span.btn-skill
-                        - if skill.title.present?
-                          %abbr{ title: skill.title }= skill.name
-                        - else
-                          = skill.name
-              - if job.description.present?
-                .job-description.html-text= job.description.html_safe
-              - if (projects = job.projects.active).present?
-                %ul.job-projects.clearfix
-                  - projects.each do |project|
-                    %li.job-project
-                      = link_to front_project_path(id: project), class: "job-project-link", title: project.name do
-                        - if (image = project.images.for_kind(:logo).first).present?
-                          = image_tag image.img.small.url, alt: project.name, class: "job-project-img"
-                        - else
-                          = image_tag "front/default_project.png", alt: project.name, class: "job-project-img"
+- if @jobs.present?
+  - cache cache_key_for_list(:jobs, @jobs), expires_in: 1.day do
+    .jobs-wrapper.container-wrapper
+      .container
+        - @jobs.each do |job|
+          - company = job.company
+          .row
+            .col-xxs-12
+              .job-item
+                %h3.job-name= job.name
+                - if company && company.active?
+                  .job-company
+                    %p
+                      - if company.website_url.present?
+                        = link_to company.name, company.website_url, rel: "external", class: "job-company-name"
+                      - else
+                        %span.job-company-name= company.name
+                      - if company.location.present?
+                        %span.job-company-location
+                          = icon "map-marker"
+                          = company.location
+                    - if company.description.present?
+                      %p.job-company-description= company.description
+                .job-infos
+                  .job-duration
+                    %span.job-duration-span.job-duration-dates= format_job_dates job
+                    %span.job-duration-span.job-duration-duration (#{format_job_duration job})
+                  - if (skills = job.skills.active).present?
+                    %p.job-skills
+                      - skills.each do |skill|
+                        %span.btn-skill
+                          - if skill.title.present?
+                            %abbr{ title: skill.title }= skill.name
+                          - else
+                            = skill.name
+                - if job.description.present?
+                  .job-description.html-text= job.description.html_safe
+                - if (projects = job.projects.active).present?
+                  %ul.job-projects.clearfix
+                    - projects.each do |project|
+                      %li.job-project
+                        = link_to front_project_path(id: project), class: "job-project-link", title: project.name do
+                          - if (image = project.images.for_kind(:logo).first).present?
+                            = image_tag image.img.small.url, alt: project.name, class: "job-project-img"
+                          - else
+                            = image_tag "front/default_project.png", alt: project.name, class: "job-project-img"
 - if @educations.present?
-  .jobs-wrapper.educations-wrapper.container-wrapper
-    .container
-      .row
-        .col-xxs-12
-          %h2.page-heading Formation
-      - @educations.each do |education|
+  - cache cache_key_for_list(:educations, @educations), expires_in: 1.day do
+    .jobs-wrapper.educations-wrapper.container-wrapper
+      .container
         .row
           .col-xxs-12
-            .job-item.education-item
-              %h3.job-name= education.name
-              - if education.option.present?
-                .job-option Option : #{education.option}
-              - if education.establishment.present?
-                .job-company
-                  %p
-                    - if education.website_url.present?
-                      = link_to education.establishment, education.website_url, rel: "external", class: "job-company-name"
-                    - else
-                      %span.job-company-name= education.establishment
-                    - if education.location.present?
-                      %span.job-company-location
-                        = icon "map-marker"
-                        = education.location
-              .job-infos
-                .job-duration
-                  %span.job-duration-span.job-duration-dates= format_education_dates education
-              - if education.description.present?
-                .job-description.html-text= education.description.html_safe
+            %h2.page-heading Formation
+        - @educations.each do |education|
+          .row
+            .col-xxs-12
+              .job-item.education-item
+                %h3.job-name= education.name
+                - if education.option.present?
+                  .job-option Option : #{education.option}
+                - if education.establishment.present?
+                  .job-company
+                    %p
+                      - if education.website_url.present?
+                        = link_to education.establishment, education.website_url, rel: "external", class: "job-company-name"
+                      - else
+                        %span.job-company-name= education.establishment
+                      - if education.location.present?
+                        %span.job-company-location
+                          = icon "map-marker"
+                          = education.location
+                .job-infos
+                  .job-duration
+                    %span.job-duration-span.job-duration-dates= format_education_dates education
+                - if education.description.present?
+                  .job-description.html-text= education.description.html_safe

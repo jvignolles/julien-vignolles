@@ -1,4 +1,3 @@
-# encoding: utf-8
 en:
   simple_form:
     "yes": 'Yes'
@@ -24,4 +23,3 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
-

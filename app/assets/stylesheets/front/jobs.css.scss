@@ -133,6 +133,9 @@ a.job-company-name {
 // Description
 .job-description {
   font-size: em(14px);
+  ul, ol {
+    margin-top: 0;
+  }
 }
 
 .job-project {

@@ -3,23 +3,6 @@ module Front::JobsHelper
   DAYS_IN_A_MONTH = 365.0 / 12
   MONTHS_IN_A_YEAR = 12.0
 
-  def format_education_dates(education, format = :month_year)
-    dates = []
-    dates << education.started_on.year if education.started_on.present?
-    dates << education.ended_on.year if education.ended_on.present?
-    dates.uniq.join(" - ")
-  end
-
-  def format_job_dates(job, format = :month_year)
-    dates = [format_date(job.started_on, format)]
-    if job.ended_on
-      dates << format_date(job.ended_on, format)
-    else
-      dates << "aujourd’hui"
-    end
-    dates.join(" - ")
-  end
-
   def format_job_duration(job)
     s = job.started_on
     e = (job.ended_on || Time.zone.now.to_date)

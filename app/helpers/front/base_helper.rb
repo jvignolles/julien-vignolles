@@ -1,6 +1,12 @@
 module Front::BaseHelper
   include JobsHelper
 
+  def cache_key_for_list(name, list)
+    count = list.count
+    max_updated_at = list.maximum(:updated_at).try(:utc).try(:to_s, :number)
+    "#{name}/all-#{count}-#{max_updated_at}"
+  end
+
   def format_html(html)
     html.gsub(/<\/?p[^>]*>/, "").html_safe
   end

@@ -1,4 +1,3 @@
-# encoding: utf-8
 fr:
   helpers:
     submit:
@@ -86,20 +85,22 @@ fr:
         current_password: Mot de passe actuel
       banner:
         button: Texte du bouton
+      blog_topic:
+        blog_tag_ids: "Tags"
+        introduction: "Introduction"
+        published_at: "Publié le"
       configuration:
         app_name: "Nom du site web"
         baseline: "Accroche"
+        blog_active: "Activer le blog"
         company_name: "Nom de la société"
         email_contact: "E-mail"
         intracom_vat_number: "N° TVA Intracom."
-        open_hours: "Horaires d’ouverture abrégés"
-        open_hours_details: "Horaires d’ouverture détaillés"
         seo_default_description: Description
         seo_default_keywords: Mots-clés
         seo_default_title: Titre
         siren: "SIREN"
         siret: "SIRET"
-        twitter_url: Adresse Twitter
         website_on_hold: "Site web en maintenance"
         website_on_hold_description: "Message de maintenance"
         facebook_url: URL Facebook
@@ -136,14 +137,11 @@ fr:
       message:
         content: "Réponse"
       project:
+        company_description: "Description entreprise"
         highlight: "Mise en avant"
         job_id: "Emploi"
         skill_ids: "Compétences"
         year: "Année"
-      subscriptions:
-        file: Fichier
-      user:
-        current_password: Mot de passe actuel
     placeholders:
       defaults:
         birthday: jj/mm/aaaa
@@ -161,9 +159,3 @@ fr:
         viadeo_url: http://…
         github_url: http://…
         stackoverflow_url: http://…
-      quotation:
-        description: Vos envies pour ce voyage
-        phone: Téléphone
-      search:
-        text: Mon texte…
-

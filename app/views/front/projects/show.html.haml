@@ -1,37 +1,47 @@
 .project-wrapper.container-wrapper
   .container
     .row
-      .col-sm-6
-        - if (images = @project.images.for_kind(:preview)).present?
-          #project-slider.project-slider.carousel.slide{ data: { ride: "carousel", interval: "200000" } }
-            - if 1 < images.count
-              %ol.carousel-indicators
+      - cache @project, expires_in: 1.day do
+        .col-sm-6
+          - if (images = @project.images.for_kind(:preview)).present?
+            #project-slider.project-slider.carousel.slide{ data: { ride: "carousel", interval: "200000" } }
+              - if 1 < images.count
+                %ol.carousel-indicators
+                  - images.each_with_index do |image, index|
+                    - classes = ["marker"]
+                    - classes << "active" if 0 == index
+                    %li{ data: { "target" => "#project-slider", "slide-to" => index }, class: classes }
+              .carousel-inner
                 - images.each_with_index do |image, index|
-                  - classes = ["marker"]
+                  - alt = image.legend.present? ? image.legend : @project.name
+                  - classes = ["slider-slide", "item"]
                   - classes << "active" if 0 == index
-                  %li{ data: { "target" => "#project-slider", "slide-to" => index }, class: classes }
-            .carousel-inner
-              - images.each_with_index do |image, index|
-                - alt = image.legend.present? ? image.legend : @project.name
-                - classes = ["slider-slide", "item"]
-                - classes << "active" if 0 == index
-                = image_tag image.img.project.preview.url, alt: alt, class: classes
-            = link_to "#project-slider", class: "left carousel-control", role: "button", data: { slide: "prev" } do
-              = icon "chevron-left"
-              %span.sr-only Précédente
-            = link_to "#project-slider", class: "right carousel-control", role: "button", data: { slide: "next" } do
-              = icon "chevron-right"
-              %span.sr-only Suivante
-        - else
-          .project-slider
-            = image_tag "front/default_project.png", alt: @project.name, class: "slider-slide"
-      .project-details.col-sm-6
-        %h1.project-name= @project.name
-        - if @project.company_description.present?
-          .project-company-description= @project.company_description
-        - if @project.website_url.present?
-          = link_to @project.website_url, @project.website_url, class: "project-company-link", rel: "external nofollow"
-        - if @project.description.present?
-          .project-description.html-text= @project.description.html_safe
-        .centered
-          = link_to "Retour au portfolio", front_projects_path, class: "btn btn-primary"
+                  = image_tag image.img.project.preview.url, alt: alt, class: classes
+              = link_to "#project-slider", class: "left carousel-control", role: "button", data: { slide: "prev" } do
+                = icon "chevron-left"
+                %span.sr-only Précédente
+              = link_to "#project-slider", class: "right carousel-control", role: "button", data: { slide: "next" } do
+                = icon "chevron-right"
+                %span.sr-only Suivante
+          - else
+            .project-slider
+              .carousel-inner
+                = image_tag "front/default_project.png", alt: @project.name, class: "slider-slide"
+        .project-details.col-sm-6
+          %h1.project-name= @project.name
+          - if @project.company_description.present?
+            .project-company-description= @project.company_description
+          - if @project.website_url.present?
+            = link_to @project.website_url, @project.website_url, class: "project-company-link", rel: "external nofollow"
+          - if (skills = @project.skills.active).present?
+            %p.project-skills
+              - skills.each do |skill|
+                %span.btn-skill
+                  - if skill.title.present?
+                    %abbr{ title: skill.title }= skill.name
+                  - else
+                    = skill.name
+          - if @project.description.present?
+            .project-description.html-text= @project.description.html_safe
+          .centered
+            = link_to "Retour au portfolio", front_projects_path, class: "btn btn-primary"

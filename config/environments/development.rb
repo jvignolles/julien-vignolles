@@ -41,4 +41,9 @@ Rails.application.configure do
   mailer_opts[:host] = ENV["mailer_host"] if ENV["mailer_host"].present?
   mailer_opts[:port] = ENV["mailer_port"] if ENV["mailer_port"].present?
   config.action_mailer.default_url_options = mailer_opts
+
+  if %x(ps aux | grep memcached | grep -v grep).include?("memcached")
+    config.action_controller.perform_caching = true
+    config.cache_store = :dalli_store
+  end
 end

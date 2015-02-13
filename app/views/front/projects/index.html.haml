@@ -5,13 +5,11 @@
         %h1.page-heading= @page_heading
 .projects-wrapper.container-wrapper
   .container
-    -#cache cache_key_for_projects(@projects), expires_in: 1.day do
     - if @projects.present?
-      .project-listing.row
-        - @projects.each do |project|
-          .col-xxs-6.col-xs-4.col-sm-3.col-md-3.project-thumb
-            -#{ data: { category: project.project_category_id } }
-            - if true #cache project, expires_in: 1.day do
+      - cache cache_key_for_list(:projects, @projects), expires_in: 1.day do
+        .project-listing.row
+          - @projects.each do |project|
+            .col-xxs-6.col-xs-4.col-sm-3.col-md-3.project-thumb
               = render "front/projects/thumb", project: project
     - else
       .centered Aucun résultat

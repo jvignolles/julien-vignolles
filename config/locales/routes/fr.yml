@@ -1,4 +1,3 @@
-# encoding: utf-8
 fr:
   routes:
     #=== Restful
@@ -8,17 +7,12 @@ fr:
     sign_in: connexion
     sign_out: deconnexion
     sign_up: inscription
-    #=== users
-    user: compte
-    users: comptes
-    team_members: l-equipe
     #=== Models
-    products: produits
+    blog_tags: categorie
+    blog_topics: blog
     editorials: informations
-    quotation: demande-de-devis
-    quotations: demandes-de-devis
-    subscription: inscription
-    subscriptions: inscriptions
+    jobs: cv
+    projects: projets
     #=== Editorials
     legal-info: mentions-legales
     privacy-policy: vie-privee
@@ -26,4 +20,3 @@ fr:
     who-we-are: qui-sommes-nous
     commitments: nos-engagements
     warranties: garanties
-
