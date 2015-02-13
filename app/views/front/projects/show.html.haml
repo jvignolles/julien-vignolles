@@ -44,4 +44,6 @@
           - if @project.description.present?
             .project-description.html-text= @project.description.html_safe
           .centered
-            = link_to "Retour au portfolio", front_projects_path, class: "btn btn-primary"
+            = link_to front_projects_path, class: "btn btn-primary btn-back" do
+              = icon "chevron-left"
+              Retour au portfolio
