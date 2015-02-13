@@ -2,6 +2,7 @@
 @import "mixins";
 
 .homepage-intro-wrapper {
+  position: relative;
   padding-top: 0;
   padding-bottom: 0;
   min-height: em(300px);
@@ -57,6 +58,19 @@
   }
   .btn-cv {
     margin-left: 1em;
+  }
+  .credit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: em(12px);
+    height: 2em;
+    line-height: 2em;
+    padding: 0 em(10px);
+    color: #888;
+    &:hover {
+      color: white;
+    }
   }
 }
 .homepage-intro-description a {

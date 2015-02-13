@@ -18,13 +18,13 @@ $menu-column-breakpoint: 680px;
   }
   .logo {
     position: absolute;
-    font-size: em(18px);
-    right: em(20px, 18px);
+    font-size: em(20px);
+    right: em(20px, 20px);
     @media screen and (min-width: mem(420px)) {
-      width: em(240px, 18px);
+      width: em(240px, 20px);
       right: auto;
       left: 50%;
-      margin-left: em(-120px, 18px);
+      margin-left: em(-120px, 20px);
       text-align: center;
     }
     @media screen and (min-width: mem($toggle-menu-breakpoint)) {
@@ -34,12 +34,12 @@ $menu-column-breakpoint: 680px;
     }
     .text-wrapper {
       display: block;
-      height: em(45px, 18px);
-      line-height: em(45px, 18px);
+      height: em(45px, 20px);
+      line-height: em(45px, 20px);
       outline: 0;
       @media screen and (min-width: mem(320px)) {
-        height: em(45px, 18px);
-        line-height: em(45px, 18px);
+        height: em(45px, 20px);
+        line-height: em(45px, 20px);
       }
     }
   }
@@ -84,7 +84,7 @@ $menu-column-breakpoint: 680px;
     display: block;
     padding: 0 2em;
     line-height: em(56px);
-    text-transform: uppercase;
+    //text-transform: uppercase;
     text-align: left;
     color: white;
     outline: 0;
