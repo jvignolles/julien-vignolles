@@ -33,8 +33,13 @@ $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 // Brand colors
 // -------------------------
 
-$brand-primary:         #ff8a00 !default; // orange
-$brand-secondary:       #ed8000 !default; // orange darker
+// Orange
+//$brand-primary:         #ff8a00 !default;
+//$brand-secondary:       #ed8000 !default;
+
+// Blue
+$brand-primary:         #158fe5 !default;
+$brand-secondary:       #146ba7 !default;
 $brand-success:         #5cb85c !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;

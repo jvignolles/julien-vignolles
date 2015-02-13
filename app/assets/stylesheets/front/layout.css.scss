@@ -50,6 +50,17 @@ h2.heading {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #ffc;
 }
+.btn-primary {
+  color: $brand-primary;
+  background: transparent;
+  border: 2px solid $brand-primary;
+  font-weight: bold;
+  &:hover, &:focus, &:active {
+    color: $brand-secondary;
+    background: transparent;
+    border-color: $brand-secondary;
+  }
+}
 .btn-icon .glyphicon {
   margin-left: 0;
 }
