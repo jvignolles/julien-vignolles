@@ -158,14 +158,6 @@ $menu-column-breakpoint: 680px;
     }
   }
 }
-.homepage-heading {
-  position: absolute;
-  font-size: em(14px);
-  line-height: em(21px, 14px);
-  margin: em(10px) 0 0;
-  text-align: left;
-  color: #aaa;
-}
 
 // FIXED PART
 @media screen and (min-width: mem(992px)) {
@@ -180,9 +172,6 @@ $menu-column-breakpoint: 680px;
       width: 100%;
       z-index: 1000;
       box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.6);
-    }
-    .homepage-heading {
-      display: none;
     }
   }
 }

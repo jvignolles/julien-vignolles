@@ -4,16 +4,11 @@
       .row
         .col-sm-8.col-sm-push-2.col-lg-6.col-lg-push-3
           .homepage-intro-description
-            .homepage-intro-image
-              - if (image = @editorial.images.first).present?
+            - if (image = @editorial.images.first).present?
+              .homepage-intro-image
                 = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
-              -# else
-                = image_tag "front/default_homepage_intro.png", alt: "", class: "homepage-intro-img"
             - if @page_heading.present?
-              %h1.page-heading
-                = @page_heading
-                -# if (image = @editorial.images.first).present?
-                  = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-heading-img"
+              %h1.page-heading= @page_heading
             - if @editorial.text1.present?
               .html-text
                 = @editorial.text1.html_safe
@@ -25,21 +20,21 @@
   .container
     .row
       .col-xxs-12.centered
-        %h2.page-heading Mes compétences
+        %h2.page-heading.homepage-heading Mes compétences
     .row
       .col-xs-6.col-md-3
-        .homepage-expertise
+        .homepage-expertise.homepage-expertise1
           .homepage-expertise-header
             = icon "picture"
             .homepage-expertise-heading
               %span.centered Développement front-end
           .homepage-expertise-description
             %p Intégration HTML5/CSS3
-            %p Responsive web design
+            %p Responsive Web Design
             %p JavaScript, JQuery
             %p Accessibilité
       .col-xs-6.col-md-3
-        .homepage-expertise
+        .homepage-expertise.homepage-expertise2
           .homepage-expertise-header
             = icon "cog"
             .homepage-expertise-heading
@@ -50,7 +45,7 @@
             %p Cloud / PaaS (Heroku)
             %p Administration Linux
       .col-xs-6.col-md-3
-        .homepage-expertise
+        .homepage-expertise.homepage-expertise3
           .homepage-expertise-header
             = icon "user"
             .homepage-expertise-heading
@@ -61,24 +56,28 @@
             %p Tests et documentation
             %p Lean startup
       .col-xs-6.col-md-3
-        .homepage-expertise
+        .homepage-expertise.homepage-expertise4
           .homepage-expertise-header
-            = icon "heart-empty"
+            = icon "heart"
             .homepage-expertise-heading
               %span.centered Petits plus
           .homepage-expertise-description
             %p Performance
             %p Référencement naturel
             %p Ergonomie / UX
-            %p Emailing / newsletters
             %p Growth hacking
+    .row
+      .col-xxs-12.centered
+        = link_to front_jobs_path, class: "btn btn-primary btn-expertises" do
+          Voir le détail de mes compétences
+          = icon "chevron-right"
 - if @highlighted_projects.present?
   - cache cache_key_for_list(:h_projects, @highlighted_projects), expires_in: 1.day do
     .container-wrapper.homepage-highlighted-projects-wrapper
       .container
         .row
           .col-xxs-12.centered
-            %h2.page-heading Mes réalisations
+            %h2.page-heading.homepage-heading Mes réalisations
         .row
           - @highlighted_projects.each do |project|
             - if (image = project.images.for_kind(:preview).first).present?
@@ -92,7 +91,7 @@
       .container
         .row
           .col-xxs-12.centered
-            %h2.page-heading Mes loisirs
+            %h2.page-heading.homepage-heading Mes loisirs
         .row.parent-lightbox
           - @entertainments.each do |entertainment|
             - if (image = entertainment.images.for_kind(:preview).first).present?

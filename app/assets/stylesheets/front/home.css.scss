@@ -24,6 +24,7 @@
     background-image: image-url('front/home_intro_xl.jpg');
   }
   .page-heading {
+    font-family: $heading-font;
     margin-bottom: 1em;
     text-align: center;
     @media screen and (min-width: mem(768px)) {
@@ -86,15 +87,6 @@
     padding-bottom: em(100px);
   }
 }
-/*
-.homepage-heading-img {
-  display: inline-block;
-  width: em(50px);
-  height: em(50px);
-  border-radius: em(25px);
-  margin: 0 auto;
-}
-*/
 .homepage-intro-image {
   margin-bottom: 2em;
   text-align: center;
@@ -110,26 +102,36 @@
   box-sizing: content-box;
 }
 
+.homepage-heading {
+  font-family: $heading-font;
+  font-size: em(30px);
+  margin-bottom: 1em;
+}
+
 .homepage-expertises-wrapper {
-  .page-heading {
-    font-size: em(24px);
-    margin-bottom: 1em;
-  }
+  padding-top: em(70px);
+  padding-bottom: em(70px);
+}
+.homepage-expertise-header {
   .glyphicon {
     display: inline-block;
     font-size: em(48px);
     line-height: em(60px, 48px);
     margin: 0 em(20px, 48px);
+    color: #346ec9;
   }
   .centered {
     display: inline-block;
     line-height: em(22px, 16px);
   }
 }
+.homepage-expertise2 .glyphicon { color: #458d1b; }
+.homepage-expertise3 .glyphicon { color: #f49e31; }
+.homepage-expertise4 .glyphicon { color: #ce502d; }
 .homepage-expertise {
   padding: 1em;
   background-color: #eee;
-  margin-bottom: 2em;
+  margin-bottom: em(40px);
   border-radius: em(10px);
 }
 .homepage-expertise-header {
@@ -152,10 +154,6 @@
 
 .homepage-highlighted-projects-wrapper {
   padding-top: 0;
-  .page-heading {
-    font-size: em(24px);
-    margin-bottom: 1em;
-  }
 }
 .homepage-highlighted-project {
   margin-bottom: em(40px);
@@ -179,10 +177,6 @@
 
 .homepage-entertainments-wrapper {
   padding-top: 0;
-  .page-heading {
-    font-size: em(24px);
-    margin-bottom: 1em;
-  }
 }
 .homepage-entertainment {
   margin-bottom: em(40px);
