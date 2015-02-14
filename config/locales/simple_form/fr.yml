@@ -95,6 +95,8 @@ fr:
         blog_active: "Activer le blog"
         company_name: "Nom de la société"
         email_contact: "E-mail"
+        highlighted_projects_active: 'Activer le bloc "quelques projets"'
+        entertainments_active: 'Activer le bloc "loisirs"'
         intracom_vat_number: "N° TVA Intracom."
         seo_default_description: Description
         seo_default_keywords: Mots-clés

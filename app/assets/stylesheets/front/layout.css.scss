@@ -302,8 +302,22 @@ h2.heading {
   }
 }
 
-.mfp-bg {
-  background-color: white;
+.mfp-title {
+  font-size: 18px;
+  line-height: 30px;
+  padding-right: 0;
+  color: white;
+  text-align: center;
+}
+.mfp-counter {
+  display: none;
+}
+.mfp-bottom-bar {
+  margin-top: 0;
+  top: auto;
+  bottom: 40px;
+  padding: 5px 10px;
+  background: hsla(0, 0, 0, 0.6);
 }
 .mfp-with-zoom .mfp-container,
 .mfp-with-zoom.mfp-bg {

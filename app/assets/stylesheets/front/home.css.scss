@@ -8,6 +8,7 @@
   min-height: em(300px);
   background: black image-url('front/home_intro_xs.jpg') center center no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   color: #ddd;
   text-shadow: 1px 1px 2px #111;
   @media screen and (min-width: mem(480px)) {
@@ -17,8 +18,6 @@
     background-image: image-url('front/home_intro_md.jpg');
   }
   @media screen and (min-width: mem(992px)) {
-    padding-top: em(80px);
-    padding-bottom: em(80px);
     background-image: image-url('front/home_intro_lg.jpg');
   }
   @media screen and (min-width: mem(1280px)) {
@@ -29,7 +28,6 @@
     text-align: center;
     @media screen and (min-width: mem(768px)) {
       margin-bottom: 0.5em;
-      //text-align: left;
     }
     @media screen and (min-width: mem(992px)) {
       margin-bottom: 1em;
@@ -83,16 +81,33 @@
 .homepage-intro-container {
   padding-top: em(50px);
   padding-bottom: em(50px);
+  @media screen and (min-width: mem(992px)) {
+    padding-top: em(100px);
+    padding-bottom: em(100px);
+  }
 }
+/*
+.homepage-heading-img {
+  display: inline-block;
+  width: em(50px);
+  height: em(50px);
+  border-radius: em(25px);
+  margin: 0 auto;
+}
+*/
 .homepage-intro-image {
   margin-bottom: 2em;
+  text-align: center;
 }
 .homepage-intro-img {
-  display: block;
-  width: 100%;
-  max-width: em(158px);
-  border-radius: em(79px);
+  display: inline-block;
+  width: em(100px);
+  height: em(100px);
+  border-radius: em(50px);
   margin: 0 auto;
+  border: 2px solid white;
+  box-shadow: 1px 1px 2px #111;
+  box-sizing: content-box;
 }
 
 .homepage-expertises-wrapper {
@@ -143,7 +158,7 @@
   }
 }
 .homepage-highlighted-project {
-  margin-bottom: 2em;
+  margin-bottom: em(40px);
   text-align: center;
 }
 .homepage-highlighted-project-link {
@@ -160,6 +175,29 @@
   width: 100%;
   max-width: em(135px);
   margin: 0 auto;
+}
+
+.homepage-entertainments-wrapper {
+  padding-top: 0;
+  .page-heading {
+    font-size: em(24px);
+    margin-bottom: 1em;
+  }
+}
+.homepage-entertainment {
+  margin-bottom: em(40px);
+}
+.homepage-entertainment-link {
+  display: block;
+  box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+  &:hover {
+    border-color: #aaa;
+    box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+  }
+}
+.homepage-entertainment-img {
+  display: block;
+  width: 100%;
 }
 
 /*

@@ -2,16 +2,18 @@
   .container.homepage-intro-container
     - if @editorial.present?
       .row
-        -#.col-xs-4
-          -#.homepage-intro-image
-            - if (image = @editorial.images.first).present?
-              = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
-            - else
-              = image_tag "front/default_homepage_intro.png", alt: "", class: "homepage-intro-img"
         .col-sm-8.col-sm-push-2.col-lg-6.col-lg-push-3
           .homepage-intro-description
+            .homepage-intro-image
+              - if (image = @editorial.images.first).present?
+                = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
+              -# else
+                = image_tag "front/default_homepage_intro.png", alt: "", class: "homepage-intro-img"
             - if @page_heading.present?
-              %h1.page-heading= @page_heading
+              %h1.page-heading
+                = @page_heading
+                -# if (image = @editorial.images.first).present?
+                  = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-heading-img"
             - if @editorial.text1.present?
               .html-text
                 = @editorial.text1.html_safe
@@ -21,6 +23,9 @@
       = link_to "crédit photo LoKan Sardari", "https://www.flickr.com/photos/lokan/", class: "credit", rel: "nofollow external"
 .container-wrapper.homepage-expertises-wrapper
   .container
+    .row
+      .col-xxs-12.centered
+        %h2.page-heading Compétences
     .row
       .col-xs-6.col-md-3
         .homepage-expertise
@@ -42,7 +47,7 @@
           .homepage-expertise-description
             %p Ruby on Rails, Java / JEE
             %p Bases de données
-            %p Cloud / PAAS (Heroku)
+            %p Cloud / PaaS (Heroku)
             %p Administration Linux
       .col-xs-6.col-md-3
         .homepage-expertise
@@ -68,28 +73,30 @@
             %p Emailing / newsletters
             %p Growth hacking
 - if @highlighted_projects.present?
-  .container-wrapper.homepage-highlighted-projects-wrapper
-    .container
-      .row
-        .col-xxs-12.centered
-          %h2.page-heading Quelques réalisations…
-      .row
-        - @highlighted_projects.each do |project|
-          - if (image = project.images.for_kind(:preview).first).present?
-            .col-xxs-6.col-xs-4.col-md-2.homepage-highlighted-project
-              = link_to front_project_path(id: project), class: "homepage-highlighted-project-link", title: project.name do
-                - alt = image.legend.present? ? image.legend : project.name
-                = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
+  - cache cache_key_for_list(:h_projects, @highlighted_projects), expires_in: 1.day do
+    .container-wrapper.homepage-highlighted-projects-wrapper
+      .container
+        .row
+          .col-xxs-12.centered
+            %h2.page-heading Quelques réalisations
+        .row
+          - @highlighted_projects.each do |project|
+            - if (image = project.images.for_kind(:preview).first).present?
+              .col-xxs-6.col-xs-4.col-md-2.homepage-highlighted-project
+                = link_to front_project_path(id: project), class: "homepage-highlighted-project-link", title: project.name do
+                  - alt = image.legend.present? ? image.legend : project.name
+                  = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
 - if @entertainments.present?
-  .container-wrapper.homepage-entertainments-wrapper
-    .container
-      .row
-        .col-xxs-12.centered
-          %h2.page-heading Quelques réalisations…
-      .row
-        - @entertainments.each do |entertainment|
-          - if (image = project.images.for_kind(:preview).first).present?
-            .col-xxs-6.col-xs-4.col-md-2.homepage-entertainment
-              = link_to front_project_path(id: project), class: "homepage-entertainment-link", title: project.name do
-                - alt = image.legend.present? ? image.legend : project.name
-                = image_tag image.img.medium.url, alt: alt, class: "homepage-entertainment-img"
+  - cache cache_key_for_list(:entertainments, @entertainments), expires_in: 1.day do
+    .container-wrapper.homepage-entertainments-wrapper
+      .container
+        .row
+          .col-xxs-12.centered
+            %h2.page-heading À propos
+        .row.parent-lightbox
+          - @entertainments.each do |entertainment|
+            - if (image = entertainment.images.for_kind(:preview).first).present?
+              .col-xxs-6.col-xs-4.col-md-2.homepage-entertainment
+                = link_to image.img.url, class: "homepage-entertainment-link custom-lightbox", title: entertainment.name do
+                  - alt = image.legend.present? ? image.legend : entertainment.name
+                  = image_tag image.img.entertainment.preview.url, alt: alt, class: "homepage-entertainment-img"

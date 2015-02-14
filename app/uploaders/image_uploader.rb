@@ -80,8 +80,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :editorial, :if => :editorial? do
     version :preview, :if => :as_preview? do
       process resize_to_fill: [600, 600]
-      #process resize_to_limit: [nil, 600]
-      #version(:carrousel) { process resize_to_fill: [120, 80] }
+      version(:home) { process resize_to_fill: [100, 100] }
+    end
+  end
+
+  version :entertainment, :if => :entertainment? do
+    version :preview, :if => :as_preview? do
+      process resize_to_fill: [480, 480]
     end
   end
 

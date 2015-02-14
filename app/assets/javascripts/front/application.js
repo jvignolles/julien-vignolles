@@ -14,7 +14,7 @@
 //= require jquery-ui
 //  require turbolinks
 //= require ./jquery.scrollTo.min
-//  require magnific-popup
+//= require magnific-popup
 //  require ./socialshare.min
 //= require ./stickymenu
 
