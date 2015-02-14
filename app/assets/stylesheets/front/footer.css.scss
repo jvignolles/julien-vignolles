@@ -35,7 +35,8 @@
       display: inline-block;
       width: em(24px);
       height: em(24px);
-      background: transparent image-url("front/social_networks.png") 0 2px no-repeat;
+      background: transparent image-url("front/social_networks.png") 0 em(2px) no-repeat;
+      background-size: cover;
     }
     &:hover {
       background-color: #3B5998;
@@ -46,35 +47,35 @@
   }
   .googleplus {
     &:hover { background-color: #DA4937; }
-    .social-icon { background-position: 0  -28px; }
+    .social-icon { background-position: 0  em(-28px); }
   }
   .pinterest {
     &:hover { background-color: #00CDFF; }
-    .social-icon { background-position: 0  -58px; }
+    .social-icon { background-position: 0  em(-58px); }
   }
   .facebook {
     &:hover { background-color: #0977B5; }
-    .social-icon { background-position: 0  -88px; }
+    .social-icon { background-position: 0  em(-88px); }
   }
   .twitter {
     &:hover { background-color: #00CDFF; }
-    .social-icon { background-position: 0 -118px; }
+    .social-icon { background-position: 0 em(-118px); }
   }
   .linkedin {
     &:hover { background-color: #2e7fb5; }
-    .social-icon { background-position: 0 -148px; }
+    .social-icon { background-position: 0 em(-148px); }
   }
   .viadeo {
     &:hover { background-color: #444444; }
-    .social-icon { background-position: 0 -178px; }
+    .social-icon { background-position: 0 em(-178px); }
   }
   .github {
     &:hover { background-color: #aaaaaa; }
-    .social-icon { background-position: 0 -208px; }
+    .social-icon { background-position: 0 em(-208px); }
   }
   .stackoverflow {
     &:hover { background-color: #f37a20; }
-    .social-icon { background-position: 0 -238px; }
+    .social-icon { background-position: 0 em(-238px); }
   }
 
   .copyright {

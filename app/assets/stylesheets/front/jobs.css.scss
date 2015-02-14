@@ -158,7 +158,7 @@ a.job-company-name {
 .job-project-link {
   display: inline-block;
   border: 1px solid #ddd;
-  box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+  box-shadow: 0 0 em(3px) 0 hsla(0, 0, 0, 0.6);
 }
 .job-project-img {
   display: block;
@@ -167,6 +167,6 @@ a.job-company-name {
   &:hover {
     color: $brand-primary;
     border-color: #aaa;
-    box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+    box-shadow: 0 0 em(5px) 0 hsla(0, 0, 0, 0.8);
   }
 }

@@ -12,7 +12,7 @@ class Front::JobsController < Front::BaseController
     # SEO
     @page_title = "CV de #{app_name}"
     @page_description = "Mon parcours : lead developer et chef de projet en agence web, freelance Ruby on Rails, consultant CTO…"
-    @page_keywords = "CV, CTO, lead developer, ruby on rails, freelance, consultant, indépendant"
+    @page_keywords = "#{app_name}, CV, CTO, lead developer, ruby on rails, freelance, consultant, indépendant"
     add_seo_fields @editorial
   end
 end

@@ -66,7 +66,7 @@ h2.heading {
 .btn-primary {
   color: $brand-primary;
   background: transparent;
-  border: 2px solid $brand-primary;
+  border: em(2px) solid $brand-primary;
   font-weight: bold;
   &:hover, &:focus, &:active {
     color: $brand-secondary;
@@ -116,7 +116,6 @@ h2.heading {
 
 // Responsive menu
 #all {
-  //border-top: 3px solid $brand-primary;
   width: 100%;
   overflow: hidden;
 }
@@ -187,78 +186,6 @@ h2.heading {
   z-index: -1;
   background-color: white;
   color: #111;
-  .page-header {
-    margin-top: 0;
-    .inline-text {
-      margin-left: 10px;
-    }
-  }
-  /* Forms */
-  .with-help {
-     margin-bottom: 20px;
-    .form-group, .control {
-      display: inline;
-    }
-  }
-  /* Listings */
-  .table-hover.listing tbody tr:hover td, .table-hover.listing tbody tr:hover th {
-    background-color: #ffc;
-  }
-  table.simple-listing th, table.simple-listing td {
-    line-height: 26px;
-  }
-  table.listing th, table.listing td {
-    padding-left: 5px;
-    padding-right: 5px;
-    line-height: 26px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  table.listing tr.inactive {
-    th, td {
-      background-color: #F2DEDE;
-    }
-    a {
-      color: #A94442;
-    }
-  }
-  table.listing .link {
-    padding-top: 0;
-    padding-bottom: 0;
-    line-height: 42px;
-    a {
-      display: block;
-    }
-    .popover-content {
-      line-height: 20px;
-    }
-  }
-  table td.center, table th.center {
-    text-align: center;
-  }
-  table .buttons-group {
-    padding: 2px 5px;
-    margin-bottom: 0;
-    display: table-cell;
-  }
-  table .col-btn-2 {
-    width: 73px;
-  }
-  table .col-btn-3 {
-    width: 112px;
-  }
-  table .col-btn-4 {
-    width: 151px;
-  }
-  table.listing.table-condensed {
-    .btn-group {
-      padding: 1px 5px;
-    }
-    .link {
-      line-height: 40px;
-    }
-  }
 }
 
 .html-text {
@@ -329,7 +256,7 @@ h2.heading {
   margin-top: 0;
   top: auto;
   bottom: 40px;
-  padding: 5px 10px;
+  padding: em(5px) em(10px);
   background: hsla(0, 0, 0, 0.6);
 }
 .mfp-with-zoom .mfp-container,

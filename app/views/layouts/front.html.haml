@@ -2,7 +2,7 @@
 !!! 5
 %html{ :lang => I18n.locale, :"xmlns:og" => "http://ogp.me/ns#" }
   %head
-    - prefetches = ["//www.google-analytics.com", "//js-agent.newrelic.com", "https://vignolles.s3-eu-west-1.amazonaws.com"]
+    - prefetches = ["http://www.google-analytics.com", "http://js-agent.newrelic.com", "https://vignolles.s3-eu-west-1.amazonaws.com", "http://beacon-5.newrelic.com"]
     - prefetches.each do |domain|
       %link{ rel: "dns-prefetch", href: domain }
     %meta{ "http-equiv" => "Content-Type",    :content => "text/html; charset=utf-8" }

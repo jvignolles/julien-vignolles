@@ -10,7 +10,7 @@
   background-size: cover;
   background-attachment: fixed;
   color: #ddd;
-  text-shadow: 1px 1px 2px #111;
+  text-shadow: em(1px) em(1px) em(2px) #111;
   @media screen and (min-width: mem(480px)) {
     background-image: image-url('front/home_intro_sm.jpg');
   }
@@ -45,12 +45,12 @@
     }
   }
   .btn-call-to-action {
-    border: 2px solid white;
+    border: em(2px) solid white;
     color: white;
     font-weight: bold;
     text-decoration: none;
-    text-shadow: 1px 1px 2px #111;
-    box-shadow: 1px 1px 2px #111;
+    text-shadow: em(1px) em(1px) em(2px) #111;
+    box-shadow: em(1px) em(1px) em(2px) #111;
     &:hover, &:active, &:focus {
       color: $brand-primary;
       border-color: $brand-primary;
@@ -97,8 +97,8 @@
   height: em(100px);
   border-radius: em(50px);
   margin: 0 auto;
-  border: 2px solid white;
-  box-shadow: 1px 1px 2px #111;
+  border: em(2px) solid white;
+  box-shadow: em(1px) em(1px) em(2px) #111;
   box-sizing: content-box;
 }
 
@@ -166,10 +166,10 @@
 .homepage-highlighted-project-link {
   display: inline-block;
   border: 1px solid #ddd;
-  box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+  box-shadow: 0 0 em(3px) 0 hsla(0, 0, 0, 0.6);
   &:hover {
     border-color: #aaa;
-    box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+    box-shadow: 0 0 em(5px) 0 hsla(0, 0, 0, 0.8);
   }
 }
 .homepage-highlighted-project-img {
@@ -191,12 +191,12 @@
   width: 100%;
   height: 0;
   padding-top: 100%;
-  box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
+  box-shadow: 0 0 em(3px) 0 hsla(0, 0, 0, 0.6);
   box-sizing: content-box;
   overflow: hidden;
   &:hover {
     border-color: #aaa;
-    box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
+    box-shadow: 0 0 em(5px) 0 hsla(0, 0, 0, 0.8);
   }
 }
 .homepage-entertainment-img {
@@ -206,133 +206,3 @@
   width: 100%;
   height: 100%;
 }
-
-/*
-#homepage-banners {
-  position: relative;
-  padding-top: 0;
-  padding-bottom: 2em;
-  .container {
-    position: relative;
-  }
-  .carousel-indicators {
-    position: absolute;
-    bottom: 1em;
-    z-index: 100;
-    text-align: center;
-  }
-  .marker {
-    display: inline-block;
-    width: em(20px);
-    height: em(20px);
-    margin: 0 0 0 em(20px);
-    border-radius: em(20px);
-    border-color: white;
-    background-color: white;
-    @include transition (all 0.2s ease-in-out);
-    &:first-child {
-      margin-left: 0;
-    }
-    &:hover {
-      border-color: $brand-primary;
-    }
-    &.active {
-      border-color: $brand-primary;
-      background-color: $brand-primary;
-    }
-  }
-  .carousel-inner {
-    position: relative;
-    height: em(400px);
-    overflow: hidden;
-  }
-  .homepage-banner {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    .homepage-banner-description {
-      padding: em(20px);
-      max-width: em(430px);
-      color: white;
-      text-shadow: 1px 1px 2px #111;
-    }
-    .homepage-banner-name {
-      font-size: em(32px);
-      line-height: em(48px, 32px);
-      margin-bottom: 1em;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .homepage-banner-text {
-      font-size: em(18px);
-      margin-bottom: em(32px, 18px);
-    }
-    .button {
-      margin: 1em 0 4em;
-      @media screen and (min-width: mem(420px)) {
-        position: absolute;
-        left: em(20px);
-        bottom: em(140px);
-        margin: 0;
-      }
-    }
-  }
-}
-*/
-/*
-.highlights-wrapper {
-  background-color: white;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  .highlight-thumb {
-    margin-bottom: em(40px);
-  }
-  .highlight-link {
-    display: block;
-    background-color: white;
-    color: #111;
-    overflow: hidden;
-    @include transition(none);
-    box-shadow: 0 0 3px 0 hsla(0, 0, 0, 0.6);
-    &:hover {
-      color: $brand-primary;
-      box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.8);
-    }
-  }
-  .highlight-img-wrapper {
-    position: relative;
-  }
-  .highlight-img {
-    width: 100%;
-  }
-  .highlight-name {
-    height: em(54px);
-    line-height: em(44px);
-    padding: em(5px);
-    font-weight: bold;
-    text-align: center;
-    .inner {
-      font-size: em(18px);
-      display: inline-block;
-      max-height: em(44px, 18px);
-      line-height: em(22px, 18px);
-      vertical-align: middle;
-      overflow: hidden;
-    }
-  }
-  .highlight-description {
-    font-size: em(13px);
-    line-height: em(20px, 13px);
-    height: em(70px, 13px);
-    padding: em(5px, 13px);
-    overflow: hidden;
-    .truncate {
-      max-height: em(60px);
-      overflow-y: hidden;
-    }
-  }
-}
-*/

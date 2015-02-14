@@ -8,7 +8,7 @@ $menu-column-breakpoint: 680px;
   padding-bottom: 0;
   color: #eee;
   background-color: $brand-header;
-  border-bottom: 3px solid $brand-primary;
+  border-bottom: em(5px) solid $brand-primary;
   text-align: center;
   top: em(-106px);
   @include transition (all 0.4s ease-in-out);
@@ -57,20 +57,25 @@ $menu-column-breakpoint: 680px;
 .menu-link {
   float: left;
   font-size: em(36px);
-  height: 1.25em;
-  line-height: 1em;
+  height: em(48px, 36px);
+  line-height: em(26px, 36px);
   color: #ccc;
   text-transform: uppercase;
-  padding: 0 em(10px, 36px);
+  padding: em(10px, 36px) em(13px, 36px);
   text-align: center;
+  border: em(1px) solid #444;
   background-color: transparent;
   @media screen and (min-width: mem($toggle-menu-breakpoint)) {
     display: none;
   }
   &:hover, &:active, &:focus {
     color: #eee;
-    border-color: $brand-primary;
-    background-color: transparent;
+    border-color: #444;
+    background-color: #222;
+  }
+  svg {
+    width: em(26px, 36px);
+    height: em(26px, 36px);
   }
 }
 .menu {
@@ -95,7 +100,7 @@ $menu-column-breakpoint: 680px;
     }
   }
   a.text-wrapper:hover {
-    background-color: #333;
+    background-color: #222;
     color: white;
   }
   a.text-wrapper:focus {
@@ -163,7 +168,7 @@ $menu-column-breakpoint: 680px;
 @media screen and (min-width: mem(992px)) {
   .sticky-menu {
     .fixed-header-padder {
-      padding-top: em(61px);
+      padding-top: em(62px);
     }
     .header-wrapper {
       position: fixed;
@@ -171,7 +176,7 @@ $menu-column-breakpoint: 680px;
       left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 0 5px 0 hsla(0, 0, 0, 0.6);
+      box-shadow: 0 0 em(5px) 0 hsla(0, 0, 0, 0.6);
     }
   }
 }

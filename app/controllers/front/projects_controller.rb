@@ -10,8 +10,8 @@ class Front::ProjectsController < Front::BaseController
 
     # SEO
     @page_title = "Porfolio de #{app_name}"
-    @page_description = "Ma sélection de projets auxquels j’ai contribué : #{@projects.map(&:name)[0..3].join(', ')}…"
-    @page_keywords = "porfolio, projets, web, développement, ruby on rails, lead developper, CTO, chef de projet, freelance, consultant, indépendant"
+    @page_description = "Sélection de projets Ruby on Rails auxquels j’ai contribué : #{@projects.map(&:name)[0..3].join(', ')}…"
+    @page_keywords = "#{app_name}, porfolio, projets, web, développement, ruby on rails, lead developper, CTO, chef de projet, freelance, consultant, indépendant, paris"
     add_seo_fields @editorial
   end
 
