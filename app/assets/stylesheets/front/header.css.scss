@@ -34,7 +34,7 @@ $menu-column-breakpoint: 680px;
     }
     .text-wrapper {
       display: block;
-      color: #eee;
+      color: white;
       height: em(45px, 20px);
       line-height: em(45px, 20px);
       outline: 0;
@@ -48,9 +48,10 @@ $menu-column-breakpoint: 680px;
     }
   }
   .logo-img {
-    display: block;
-    width: em(146px);
-    height: em(45px);
+    display: inline-block;
+    width: em(32px, 20px);
+    height: em(32px, 20px);
+    margin-left: 1em;
   }
 }
 .menu-link {
