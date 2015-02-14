@@ -6,7 +6,7 @@ class Front::HomeController < Front::BaseController
       @highlighted_projects = Project.active.highlighted.ordered.limit(6).includes(:images)
     end
     if @configuration.entertainments_active?
-      @entertainments = Entertainment.active.ordered.limit(6).includes(:images)
+      @entertainments = Entertainment.active.ordered.limit(12).includes(:images)
     end
     @front_kind = :homepage
     @active_menus << :homepage

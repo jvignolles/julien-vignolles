@@ -96,7 +96,7 @@
         .row.parent-lightbox
           - @entertainments.each do |entertainment|
             - if (image = entertainment.images.for_kind(:preview).first).present?
-              .col-xxs-6.col-xs-4.col-md-2.homepage-entertainment
+              .col-xxs-4.col-xs-3.col-sm-2.col-lg-1.homepage-entertainment
                 = link_to image.img.url, class: "homepage-entertainment-link custom-lightbox", title: entertainment.name do
                   - alt = image.legend.present? ? image.legend : entertainment.name
                   = image_tag image.img.entertainment.preview.url, alt: alt, class: "homepage-entertainment-img"
