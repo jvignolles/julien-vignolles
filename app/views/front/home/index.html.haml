@@ -25,7 +25,7 @@
   .container
     .row
       .col-xxs-12.centered
-        %h2.page-heading Compétences
+        %h2.page-heading Mes compétences
     .row
       .col-xs-6.col-md-3
         .homepage-expertise
@@ -78,7 +78,7 @@
       .container
         .row
           .col-xxs-12.centered
-            %h2.page-heading Quelques réalisations
+            %h2.page-heading Mes réalisations
         .row
           - @highlighted_projects.each do |project|
             - if (image = project.images.for_kind(:preview).first).present?
@@ -92,11 +92,11 @@
       .container
         .row
           .col-xxs-12.centered
-            %h2.page-heading À propos
+            %h2.page-heading Mes loisirs
         .row.parent-lightbox
           - @entertainments.each do |entertainment|
             - if (image = entertainment.images.for_kind(:preview).first).present?
-              .col-xxs-4.col-xs-3.col-sm-2.col-lg-1.homepage-entertainment
+              .col-xxs-4.col-xs-3.col-sm-2.homepage-entertainment
                 = link_to image.img.url, class: "homepage-entertainment-link custom-lightbox", title: entertainment.name do
                   - alt = image.legend.present? ? image.legend : entertainment.name
                   = image_tag image.img.entertainment.preview.url, alt: alt, class: "homepage-entertainment-img"

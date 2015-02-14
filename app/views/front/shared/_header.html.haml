@@ -5,7 +5,7 @@
         -# if (image = @configuration.images.for_kind(:logo_app).first).present?
           = image_tag image.img.configuration.logo_app.url, alt: app_name, class: "logo-img"
         %span.logo-name= app_name
-        = image_tag "front/logo.png", alt: "", class: "logo-img"
+        -#= image_tag "front/logo.png", alt: "", class: "logo-img"
     = link_to "#", class: "menu-link menu-toggle btn btn-default", title: "Menu" do
       = image_tag "front/icon_menu_white.png", alt: ""
     %ul.menu.clearfix
