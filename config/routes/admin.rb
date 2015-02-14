@@ -43,6 +43,10 @@ namespace 'admin', format: false do
   resources :educations, except: [:show] do
     has_reorder_routes
   end
+  resources :entertainments, except: [:show] do
+    has_image_routes
+    has_reorder_routes
+  end
   resources :highlights, except: [:show] do
     has_image_routes
     has_reorder_routes

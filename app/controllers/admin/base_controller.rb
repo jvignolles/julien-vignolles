@@ -10,8 +10,9 @@ class Admin::BaseController < ApplicationController
     home:           { name: "Accueil",         url: "admin_home_path" },
     contacts:       { name: "Contacts",        url: "admin_contacts_path", badge: "@badge_contacts", badge_kind: "warning" },
     homepage:       { name: "Homepage",        url: "", children: {
-      banners:        { name: "Bannières",       url: "admin_banners_path" },
+      #banners:        { name: "Bannières",       url: "admin_banners_path" },
       highlights:     { name: "Mises en avant",  url: "admin_highlights_path" },
+      entertainments: { name: "Loisirs",         url: "admin_entertainments_path" },
     }},
     projects:       { name: "Projets",         url: "admin_projects_path" },
     experiences:    { name: "CV",              url: "", children: {

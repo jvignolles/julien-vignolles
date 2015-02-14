@@ -80,3 +80,16 @@
               = link_to front_project_path(id: project), class: "homepage-highlighted-project-link", title: project.name do
                 - alt = image.legend.present? ? image.legend : project.name
                 = image_tag image.img.medium.url, alt: alt, class: "homepage-highlighted-project-img"
+- if @entertainments.present?
+  .container-wrapper.homepage-entertainments-wrapper
+    .container
+      .row
+        .col-xxs-12.centered
+          %h2.page-heading Quelques réalisations…
+      .row
+        - @entertainments.each do |entertainment|
+          - if (image = project.images.for_kind(:preview).first).present?
+            .col-xxs-6.col-xs-4.col-md-2.homepage-entertainment
+              = link_to front_project_path(id: project), class: "homepage-entertainment-link", title: project.name do
+                - alt = image.legend.present? ? image.legend : project.name
+                = image_tag image.img.medium.url, alt: alt, class: "homepage-entertainment-img"

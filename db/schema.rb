@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207163800) do
+ActiveRecord::Schema.define(version: 20150214042600) do
 
   create_table "admins", force: true do |t|
     t.boolean  "active",                             default: true,  null: false
@@ -212,6 +212,18 @@ ActiveRecord::Schema.define(version: 20150207163800) do
   add_index "educations", ["name"], name: "index_educations_on_name", using: :btree
   add_index "educations", ["position"], name: "index_educations_on_position", using: :btree
   add_index "educations", ["started_on", "ended_on"], name: "index_educations_on_started_on_and_ended_on", using: :btree
+
+  create_table "entertainments", force: true do |t|
+    t.boolean  "active",     default: true, null: false
+    t.string   "name",       default: "",   null: false
+    t.integer  "position",   default: 0,    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "entertainments", ["created_at"], name: "index_entertainments_on_created_at", using: :btree
+  add_index "entertainments", ["name"], name: "index_entertainments_on_name", using: :btree
+  add_index "entertainments", ["position"], name: "index_entertainments_on_position", using: :btree
 
   create_table "highlights", force: true do |t|
     t.boolean  "active",                  default: true, null: false
