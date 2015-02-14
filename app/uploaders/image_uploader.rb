@@ -86,7 +86,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :entertainment, :if => :entertainment? do
     version :preview, :if => :as_preview? do
-      process resize_to_fill: [160, 160]
+      process resize_to_fill: [170, 170]
     end
   end
 
