@@ -1,0 +1,15 @@
+- item = form.object
+= render "admin/shared/errors", item: item
+%fieldset.row
+  .col-xxs-12
+    %legend Informations générales
+  .col-xxs-12
+    = form.input :active, wrapper: :inline_checkbox
+    = form.input :name, wrapper_html: { class: "size-m" }, autofocus: true
+    = form.input :blog_tag_ids, collection: @blog_tags, selected: @item.blog_tags.map { |x| x.id.to_s }, input_html: { class: "size-m select2", multiple: true }
+    = form.input :published_at, wrapper_html: { class: "size-s" } do
+      .input-group
+        = form.input_field :published_at, as: :string, class: "form-control with-calendar", value: format_date(item.published_at)
+        %span.input-group-addon= icon "calendar"
+    = form.input :introduction, input_html: { rows: 4, class: "tinymce" }, wrapper_html: { class: "size-l" }
+    = form.input :description, input_html: { rows: 4, class: "tinymce" }, wrapper_html: { class: "size-l" }
