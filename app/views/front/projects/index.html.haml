@@ -3,6 +3,10 @@
     .row
       .col-xxs-12
         %h1.page-heading= @page_heading
+    - if @editorial && @editorial.text1.present?
+      .row
+        .col-xxs-12
+          .html-text.projects-intro= @editorial.text1.html_safe
 .projects-wrapper.container-wrapper
   .container
     - if @projects.present?

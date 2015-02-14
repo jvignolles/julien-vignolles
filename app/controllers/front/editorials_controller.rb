@@ -8,7 +8,7 @@ class Front::EditorialsController < Front::BaseController
     end
     if !@editorial || !@editorial.active
       if @editorial && current_admin
-        flash[:warning] = "Attention, cette page est actuellement inactive : elle n’est pas affichée aux internautes"
+        flash[:error] = "Attention, cette page est actuellement inactive : elle n’est pas affichée aux internautes"
       else
         flash[:alert] = "Cette page n’existe plus"
         return redirect_to(front_home_path)

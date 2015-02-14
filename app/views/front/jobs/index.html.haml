@@ -3,6 +3,10 @@
     .row
       .col-xxs-12
         %h1.page-heading= @page_heading
+    - if @editorial && @editorial.text1.present?
+      .row
+        .col-xxs-12
+          .html-text.jobs-intro= @editorial.text1.html_safe
 - if @jobs.present?
   - cache cache_key_for_list(:jobs, @jobs), expires_in: 1.day do
     .jobs-wrapper.container-wrapper

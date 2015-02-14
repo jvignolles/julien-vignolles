@@ -1,5 +1,6 @@
 class Front::ProjectsController < Front::BaseController
   def index
+    @editorial = Editorial.find_by_kind(:projects)
     @projects = Project.active.ordered.includes(:images, :skills)
     @front_kind = "projects"
     @active_menus << :projects
@@ -11,6 +12,7 @@ class Front::ProjectsController < Front::BaseController
     @page_title = "Porfolio de #{app_name}"
     @page_description = "Ma sélection de projets auxquels j’ai contribué : #{@projects.map(&:name)[0..3].join(', ')}…"
     @page_keywords = "porfolio, projets, web, développement, ruby on rails, lead developper, CTO, chef de projet, freelance, consultant, indépendant"
+    add_seo_fields @editorial
   end
 
   def show

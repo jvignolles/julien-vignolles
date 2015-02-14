@@ -1,13 +1,15 @@
 class Editorial < ActiveRecord::Base
   KINDS = {
     "homepage" =>       { menu: true,  url: "front_home_path" },
+    "jobs" =>           { menu: false, url: "front_jobs_path" },
     "legal_info" =>     { menu: false, token: "legal-info" },
+    "projects" =>       { menu: false, url: "front_projects_path" },
     #"contact" =>        { menu: true,  url: "new_front_contact_path" },
     #"privacy_policy" => { menu: false, token: "privacy-policy" },
     #"terms_of_use" =>   { menu: false, token: "terms-of-use" },
-    "who_we_are" =>     { menu: false, token: "who-we-are" },
-    "commitments" =>    { menu: false, token: "commitments" },
-    "warranties" =>     { menu: false, token: "warranties" },
+    #"who_we_are" =>     { menu: false, token: "who-we-are" },
+    #"commitments" =>    { menu: false, token: "commitments" },
+    #"warranties" =>     { menu: false, token: "warranties" },
   }
   IMAGE_KINDS = {
     :preview => "Photo",

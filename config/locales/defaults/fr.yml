@@ -513,8 +513,10 @@ fr:
     names:
       homepage: "Accueil"
       contact: "Contact"
+      jobs: "CV"
       legal_info: "Mentions légales"
       privacy_policy: "Vie privée"
+      projects: "Portfolio"
       terms_of_use: "Conditions Générales d’Utilisation"
       who_we_are: "Qui sommes-nous ?"
       commitments: "Nos engagements"
