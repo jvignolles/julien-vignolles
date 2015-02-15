@@ -200,9 +200,13 @@
   }
 }
 .homepage-entertainment-img {
+  display: block;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  line-height: em(20px);
+  text-align: center;
+  color: #222;
 }

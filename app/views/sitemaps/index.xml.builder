@@ -9,12 +9,12 @@ cache 'sitemap', expires_in: 1.day do
       end
     end
     @projects.each do |project|
-      xml.url {
+      xml.url do
         xml.loc        front_project_url(project)
         xml.priority   0.5
         xml.changefreq 'weekly'
         xml.lastmod    project.updated_at.strftime("%F")
-      }
+      end
     end
   end
 end
