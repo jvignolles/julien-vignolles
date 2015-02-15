@@ -3,3 +3,4 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 User-Agent: *
 Disallow: /public/secure_form_token
+Sitemap: http://www.julien-vignolles.com/sitemap.xml

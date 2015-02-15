@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   draw :admin
   get '/maintenance', to: 'application#on_hold', as: 'on_hold', format: false
+  get '/sitemap.xml', to: 'sitemaps#index',      as: 'sitemap', format: 'xml'
   %w(404 422 500).each do |code|
     get code, to: "errors#show", code: code, format: false
   end
