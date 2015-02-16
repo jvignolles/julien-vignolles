@@ -80,7 +80,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :editorial, :if => :editorial? do
     version :preview, :if => :as_preview? do
       process resize_to_fill: [600, 600]
-      version(:home) { process resize_to_fill: [100, 100] }
+      version(:home) { process resize_to_fill: [150, 150] }
     end
   end
 

@@ -6,7 +6,7 @@
           .homepage-intro-description
             - if (image = @editorial.images.first).present?
               .homepage-intro-image
-                = image_tag image.img.editorial.preview.url, alt: @editorial.name, class: "homepage-intro-img"
+                = image_tag image.img.editorial.preview.home.url, alt: app_name, class: "homepage-intro-img"
             - if @page_heading.present?
               %h1.page-heading= @page_heading
             - if @editorial.text1.present?
