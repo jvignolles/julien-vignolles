@@ -1,4 +1,6 @@
 = link_to front_project_path(id: project), class: "project-link" do
+  - if project.highlight?
+    .project-highlight
   .project-img-wrapper
     - if (image = project.images.for_kind(:logo).first).present?
       = image_tag image.img.project.logo.url, alt: project.name, class: "project-img grayscale"

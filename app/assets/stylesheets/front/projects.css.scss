@@ -25,7 +25,7 @@
     background-color: white;
     color: #111;
     overflow: hidden;
-    border: 1px solid #ddd;
+    border: 1px solid #aaa;
     box-shadow: 0 0 em(3px) 0 hsla(0, 0, 0, 0.6);
     img.grayscale {
       -webkit-filter: grayscale(1);
@@ -49,6 +49,15 @@
         bottom: 0;
       }
     }
+  }
+  .project-highlight {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    width: em(50px);
+    height: em(50px);
+    background: transparent image-url('front/project_highlight.png') right top no-repeat;
   }
   .project-img-wrapper {
     width: 100%;
