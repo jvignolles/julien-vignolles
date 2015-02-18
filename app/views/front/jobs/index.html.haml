@@ -11,6 +11,10 @@
   - cache cache_key_for_list(:jobs, @jobs), expires_in: 1.day do
     .jobs-wrapper.container-wrapper
       .container
+        .row
+          .col-xxs-12
+            %h2.page-heading Expériences
+      .container
         - @jobs.each do |job|
           - company = job.company
           .row
@@ -59,7 +63,7 @@
       .container
         .row
           .col-xxs-12
-            %h2.page-heading Formation
+            %h2.page-heading Diplômes
         - @educations.each do |education|
           .row
             .col-xxs-12
