@@ -231,6 +231,7 @@ h2.heading {
   border: 1px solid #ddd;
   border-radius: 4px;
   .sidebar-heading {
+    font-size: em(18px);
     line-height: 2em;
     color: #888;
     font-weight: bold;
@@ -242,10 +243,8 @@ h2.heading {
   }
   .sidebar-link {
     display: block;
-    padding: em(5px) em(15px);
-    &:hover {
-      background-color: #ccc;
-    }
+    font-size: em(16px);
+    padding: em(5px, 16px) em(15px, 16px);
   }
 }
 
