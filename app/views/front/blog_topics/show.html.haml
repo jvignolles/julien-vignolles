@@ -1,21 +1,27 @@
-.container-wrapper.contacts-wrapper
-  .container
-    .row
-      .col-lg-3
-        = render "front/blog_topics/sidebar"
-      .col-lg-9
-        .blog-topic
-          .blog-topic-wrapper
-            %h1.page-heading= @blog_topic.name
-          - if (banner = @blog_topic.images.for_kind(:banner).first).present?
-            .banner-wrapper= image_tag banner.img.blog_topic.banner.url, alt: (banner.legend.present? ? banner.legend : @blog_topic.name), class: "banner"
-          .blog-topic-wrapper
-            .blog-topic-introduction.html-text= @blog_topic.introduction.to_s.html_safe
-            - if @blog_topic.description.present?
-              .blog-topic-description.html-text= @blog_topic.description.to_s.html_safe
-            .blog-topic-infos.clearfix
-              .blog-topic-published-at Le #{format_datetime(@blog_topic.published_at)}
-              - if (blog_tags = @blog_topic.blog_tags.active).present?
-                .blog-topic-tags
-                  - blog_tags.each do |blog_tag|
-                    = link_to "##{blog_tag.name.downcase}", front_blog_tag_path(blog_tag_id: blog_tag), class: "btn btn-xs btn-default btn-blog-tag"
+.blog-topic
+  - if (image = @blog_topic.images.for_kind(:preview).first).present?
+    .banner-wrapper= image_tag image.img.blog_topic.preview.url, alt: (image.legend.present? ? image.legend : @blog_topic.name), class: "banner"
+  -#.blog-topic-wrapper
+    %h1.page-heading= @blog_topic.name
+  .blog-topic-wrapper
+    .blog-topic-introduction.html-text= @blog_topic.introduction.to_s.html_safe
+    - if @blog_topic.description.present?
+      .blog-topic-description.html-text= @blog_topic.description.to_s.html_safe
+    .blog-topic-infos.clearfix
+      .blog-topic-published-at Le #{format_date(@blog_topic.published_at, :full)}
+      - if (blog_tags = @blog_topic.blog_tags.active).present?
+        .blog-topic-tags
+          - blog_tags.each do |blog_tag|
+            = link_to "##{blog_tag.name.downcase}", front_blog_tag_path(blog_tag_id: blog_tag), class: "btn btn-xs btn-default btn-blog-tag"
+    #disqus_thread.disqus-thread
+:javascript
+  var disqus_shortname = 'julien-vignolles';
+  var disqus_identifier = 'blog-topic-#{@blog_topic.id}_#{Figaro.env.site_tld}';
+  var disqus_title = #{@blog_topic.name.to_json};
+  var disqus_url = #{front_blog_topic_url(@blog_topic).to_json};
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+%noscript Please enable JavaScript to view the #{link_to "comments powered by Disqus.", "https://disqus.com/?ref_noscript", rel: "nofollow"}

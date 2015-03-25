@@ -1,6 +1,6 @@
 class BlogTopic < ActiveRecord::Base
   IMAGE_KINDS = {
-    :banner => "Bannière",
+    :preview => "Bannière",
   }.freeze 
   IMAGE_LEGENDABLE = true
 

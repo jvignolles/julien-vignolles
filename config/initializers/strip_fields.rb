@@ -1,4 +1,3 @@
-# encoding: utf-8
 # Be sure to restart your server when you modify this file.
 module StripFields
   def self.included(base)
@@ -20,4 +19,3 @@ end
 class ActiveRecord::Base
   include StripFields
 end
-

@@ -64,8 +64,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :blog_topic, :if => :blog_topic? do
-    version :banner, :if => :as_banner? do
-      process resize_to_fill: [600, 200]
+    version :preview, :if => :as_preview? do
+      process resize_to_fill: [800, 250]
     end
   end
 

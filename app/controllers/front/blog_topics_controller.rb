@@ -1,5 +1,5 @@
 class Front::BlogTopicsController < Front::BaseController
-
+  layout "front_blog"
   before_filter :check_blog_active
 
   def index
@@ -83,6 +83,7 @@ private
       @breadcrumbs << { key: "blog_topic", name: @blog_topic.name, url: front_blog_topic_path(id: @blog_topic) }
 
       # SEO
+      @page_heading = @blog_topic.name
       @page_title = "#{@blog_topic.name} • Blog de #{app_name}"
       @page_description = trunc_html(@blog_topic.introduction, 160)
       add_seo_fields @blog_topic

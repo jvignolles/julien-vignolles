@@ -18,9 +18,8 @@
       pushUpRailsS3Enabled = #{Figaro.env.s3_enabled.to_bool};
       pushUpRailsJSUploadEnabled = #{Figaro.env.js_upload_enabled.to_bool};
       pushUpRailsJSS3IframeEnabled = #{Figaro.env.js_s3_iframe_enabled.to_bool};
-    = javascript_include_tag "admin/application", 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
   %body.body{ "data-spy" => "scroll", "data-target" => "#menu" }
     = yield
-
+    = javascript_include_tag "admin/application", 'data-turbolinks-track' => true
