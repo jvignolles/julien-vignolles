@@ -19,6 +19,7 @@ $menu-column-breakpoint: 680px;
   .logo {
     position: absolute;
     font-size: em(20px);
+    font-family: $heading-font;
     right: em(20px, 20px);
     @media screen and (min-width: mem(420px)) {
       width: em(240px, 20px);

@@ -10,3 +10,9 @@
     %ol.sidebar-list-items
       - @latest_blog_topics.each do |blog_topic|
         %li.sidebar-list-item= link_to blog_topic.name, front_blog_topic_path(id: blog_topic), class: "sidebar-link"
+.sidebar-list.sidebar-profile.clearfix
+  - if (image = @configuration.images.for_kind(:profile).first).present?
+    - alt = image.legend.present? ? image.legend : app_name
+    = image_tag image.img.configuration.profile.url, alt: alt, class: "sidebar-profile-img"
+  .sidebar-profile-name= app_name
+  .sidebar-profile-links= link_to @configuration.baseline, front_home_url

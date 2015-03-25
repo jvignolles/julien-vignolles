@@ -48,11 +48,11 @@ fieldset {
 }
 .page-heading {
   font-size: em(24px);
-  margin: 0;
-  //margin-bottom: em(30px, 24px);
+  margin: 0.5em 0 1em;
+  text-align: center;
+  font-family: $heading-font;
   @media screen and (min-width: mem(500px)) {
     font-size: em(36px);
-    //margin-bottom: em(30px, 36px);
   }
 }
 h2.heading {
@@ -137,7 +137,6 @@ h2.heading {
 }
 .container {
   margin: 0 auto;
-  //background: #aaf;
   @media screen and (max-width: mem(767px)) {
     // DEV NOTE: not mobile first, because we want to preserve higher breakpoints
     width: 100%; // fluid layout
@@ -239,13 +238,47 @@ h2.heading {
   }
   .sidebar-list-item {
     line-height: 1.3em;
-    //padding-left: em(30px);
   }
   .sidebar-link {
     display: block;
     font-size: em(16px);
-    padding: em(5px, 16px) em(15px, 16px);
+    padding: em(8px, 16px) em(15px, 16px);
   }
+}
+
+.sidebar-profile {
+  padding: em(15px);
+  text-align: center;
+  @media screen and (min-width: mem(992px)) {
+    text-align: left;
+  }
+}
+.sidebar-profile-img {
+  display: inline-block;
+  width: em(75px);
+  height: em(75px);
+  border-radius: em(75px);
+  border: em(2px) solid white;
+  box-sizing: content-box;
+  @media screen and (min-width: mem(992px)) {
+    float: left;
+    margin-right: em(15px);
+  }
+}
+.sidebar-profile-name {
+  font-family: $heading-font;
+  font-size: em(18px);
+  margin-top: em(5px, 18px);
+  @media screen and (min-width: mem(992px)) {
+    margin-top: em(2px, 18px);
+  }
+  @media screen and (min-width: mem(1280px)) {
+    font-size: em(24px);
+    margin-top: em(5px, 24px);
+  }
+}
+.sidebar-profile-links {
+  margin-top: 10px;
 }
 
 .heading-wrapper {

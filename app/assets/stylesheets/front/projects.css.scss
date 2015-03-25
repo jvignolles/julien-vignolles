@@ -3,7 +3,6 @@
 
 // Listing / index
 .projects-intro {
-  margin-top: 1em;
   text-align: center;
   color: #666;
 }
@@ -174,6 +173,7 @@
   .project-name {
     font-size: em(36px);
     margin: 0 0 em(10px, 36px);
+    font-family: $heading-font;
   }
   .project-company-description {
     margin-bottom: 1em;

@@ -24,9 +24,6 @@
     background-image: image-url('front/home_intro_xl.jpg');
   }
   .page-heading {
-    font-family: $heading-font;
-    margin-bottom: 1em;
-    text-align: center;
     @media screen and (min-width: mem(768px)) {
       margin-bottom: 0.5em;
     }

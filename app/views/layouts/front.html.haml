@@ -1,13 +1,16 @@
 - page_title = @page_title || app_name
 !!! 5
-/
-  \  |\      _,,,-—-,,_
-  \  /,`.-'`'    -.  ;-;;,_
-  \ |,4-  ) )-,_..;\ (  `'-'
-  \'-—-''(_/—-'  `-'\_)       … et l’easter egg chaton ! ;)
+- if :homepage == @front_kind
+  /
+    \  |\      _,,,-—-,,_
+    \  /,`.-'`'    -.  ;-;;,_
+    \ |,4-  ) )-,_..;\ (  `'-'
+    \'-—-''(_/—-'  `-'\_)       … et l’easter egg chaton ! ;)
 %html{ :lang => I18n.locale, :"xmlns:og" => "http://ogp.me/ns#" }
   %head
     - prefetches = ["http://www.google-analytics.com", "http://js-agent.newrelic.com", "https://vignolles.s3-eu-west-1.amazonaws.com", "http://beacon-5.newrelic.com"]
+    - if @blog_topic
+      - prefetches += ["https://disqus.com", "http://bam.nr-data.net", "https://realtime.services.disqus.com", "https://referrer.disqus.com"]
     - prefetches.each do |domain|
       %link{ rel: "dns-prefetch", href: domain }
     %meta{ "http-equiv" => "Content-Type",    :content => "text/html; charset=utf-8" }
@@ -27,7 +30,6 @@
       %meta(name="keywords" content="#{@page_keywords}")
     - icon_name = on_production_site? ? "front/favicon.jpg" : "front/favicon_dev.jpg"
     %link{ rel: "icon", type: "image/jpeg", href: image_path(icon_name) }
-    -#%link{ rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Rock+Salt" }
     = stylesheet_link_tag "front/application", :media => :all, 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head

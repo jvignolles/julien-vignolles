@@ -75,6 +75,9 @@ class ImageUploader < CarrierWave::Uploader::Base
       version(:admin) { process resize_to_limit: [nil, 40] }
       version(:notifier) { process resize_to_limit: [nil, 35] }
     end
+    version :profile, :if => :as_profile? do
+      process resize_to_fill: [150, 150]
+    end
   end
 
   version :editorial, :if => :editorial? do

@@ -20,7 +20,7 @@
     margin: em(5px) 0 !important;
   }
   .blog-topic-wrapper {
-    padding: em(10px);
+    padding: em(15px);
   }
   .image-wrapper {
     display: block;
@@ -31,7 +31,7 @@
   }
   .blog-topic-name {
     font-size: em(24px);
-    margin: 0 0 em(10px, 24px);
+    margin: em(10px, 24px) 0;
     font-family: $heading-font;
   }
   .blog-topic-name-link {
@@ -78,4 +78,3 @@
   padding-top: 2em;
   border-top: 1px solid #666;
 }
-
