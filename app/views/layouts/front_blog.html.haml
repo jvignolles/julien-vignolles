@@ -3,5 +3,5 @@
     .container
       %h1.page-heading= @page_heading
       .row
-        .col-sm-8.col-sm-push-4= yield
+        .col-sm-8.col-sm-push-4.sidebar= yield
         .col-sm-4.col-sm-pull-8= render "front/blog_topics/sidebar"

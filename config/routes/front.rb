@@ -14,6 +14,6 @@ scope '/', module: 'front', as: 'front', format: false do
   #resources :team_members, only: [:index]
 
   # Blog
-  get "blog_topics/blog_tags/:blog_tag_id", to: "blog_topics#index", as: "blog_tag"
+  get "blog_topics/blog_tags/:blog_tag_id", to: "blog_topics#index", as: "blog_tag" # :blog_tag_id to avoid confusion with the topic id
   resources :blog_topics, only: [:index, :show]
 end

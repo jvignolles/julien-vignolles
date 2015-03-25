@@ -77,6 +77,7 @@ private
 
   def init_view
     @blog_tags = BlogTag.active.ordered.with_active_blog_topics
+    @latest_blog_topics = BlogTopic.active.ordered.limit(5)
     @breadcrumbs << { key: "blog_topics", name: "Blog", url: front_blog_topics_path }
     @active_menus << :blog
     if @blog_topic.present?

@@ -4,15 +4,15 @@
   -#.blog-topic-wrapper
     %h1.page-heading= @blog_topic.name
   .blog-topic-wrapper
-    .blog-topic-introduction.html-text= @blog_topic.introduction.to_s.html_safe
-    - if @blog_topic.description.present?
-      .blog-topic-description.html-text= @blog_topic.description.to_s.html_safe
     .blog-topic-infos.clearfix
       .blog-topic-published-at Le #{format_date(@blog_topic.published_at, :full)}
       - if (blog_tags = @blog_topic.blog_tags.active).present?
         .blog-topic-tags
           - blog_tags.each do |blog_tag|
             = link_to "##{blog_tag.name.downcase}", front_blog_tag_path(blog_tag_id: blog_tag), class: "btn btn-xs btn-default btn-blog-tag"
+    .blog-topic-introduction.html-text= @blog_topic.introduction.to_s.html_safe
+    - if @blog_topic.description.present?
+      .blog-topic-description.html-text= @blog_topic.description.to_s.html_safe
     #disqus_thread.disqus-thread
 :javascript
   var disqus_shortname = 'julien-vignolles';

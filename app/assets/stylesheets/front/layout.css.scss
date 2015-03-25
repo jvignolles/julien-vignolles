@@ -225,8 +225,27 @@ h2.heading {
 
 .sidebar-list {
   background-color: #f8f8f8;
-  .list-product-item {
-    padding-left: em(30px);
+  padding-top: em(5px);
+  padding-bottom: em(5px);
+  margin-bottom: 2em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  .sidebar-heading {
+    line-height: 2em;
+    color: #888;
+    font-weight: bold;
+    text-align: center;
+  }
+  .sidebar-list-item {
+    line-height: 1.3em;
+    //padding-left: em(30px);
+  }
+  .sidebar-link {
+    display: block;
+    padding: em(5px) em(15px);
+    &:hover {
+      background-color: #ccc;
+    }
   }
 }
 
