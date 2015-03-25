@@ -25,8 +25,8 @@
       %meta(name="description" content="#{@page_description}")
     - if @page_keywords.present?
       %meta(name="keywords" content="#{@page_keywords}")
-    - icon_name = on_production_site? ? "front/favicon.png" : "front/favicon_dev.png"
-    %link{ rel: "icon", type: "image/png", href: image_path(icon_name) }
+    - icon_name = on_production_site? ? "front/favicon.jpg" : "front/favicon_dev.jpg"
+    %link{ rel: "icon", type: "image/jpeg", href: image_path(icon_name) }
     -#%link{ rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Rock+Salt" }
     = stylesheet_link_tag "front/application", :media => :all, 'data-turbolinks-track' => true
     = csrf_meta_tags

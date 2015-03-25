@@ -11,8 +11,8 @@
     -#%link{ rel: "apple-touch-icon", sizes: "72x72", href: "apple-touch-icon-72x72-precomposed.png" }
     -#%link{ rel: "apple-touch-icon", sizes: "114x114", href: "apple-touch-icon-114x114-precomposed.png" }
     -#%link{ rel: "apple-touch-icon", sizes: "144x144", href: "apple-touch-icon-144x144-precomposed.png" }
-    - icon_name = on_production_site? ? "admin/favicon.png" : "admin/favicon_dev.png"
-    %link{ rel: "icon", type: "image/png", href: image_path(icon_name) }
+    - icon_name = on_production_site? ? "front/favicon.jpg" : "front/favicon_dev.jpg"
+    %link{ rel: "icon", type: "image/jpeg", href: image_path(icon_name) }
     = stylesheet_link_tag "admin/application", media: :all, 'data-turbolinks-track' => true
     :javascript
       pushUpRailsS3Enabled = #{Figaro.env.s3_enabled.to_bool};
