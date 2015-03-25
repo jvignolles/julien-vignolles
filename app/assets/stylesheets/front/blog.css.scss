@@ -35,7 +35,7 @@
     font-family: $heading-font;
   }
   .blog-topic-name-link {
-    text-decoration: underline;
+    @include link-underlines($brand-primary, $brand-secondary, #f8f8f8);
   }
   .blog-topic-infos {
     padding-top: em(4px);

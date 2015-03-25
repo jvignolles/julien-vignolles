@@ -2,21 +2,58 @@
 @import "bootstrap/themes/deepblue/mixins";
 
 // Custom
+$selection-color: $brand-primary;
 @mixin selection {
-  ::-moz-selection { color: white; background: #08c; text-shadow: 0 0 0 none !important; }
-  ::selection      { color: white; background: #08c; text-shadow: 0 0 0 none !important; }
+  ::-moz-selection { color: white; background: $selection-color; text-shadow: 0 0 0 none !important; }
+  ::selection      { color: white; background: $selection-color; text-shadow: 0 0 0 none !important; }
 }
-@mixin color-black { color: #111; text-shadow: 1px 1px 1px white; @include selection; }
-@mixin color-white { color: white; text-shadow: 1px 1px 1px #111; @include selection; }
+
 @mixin ellipsis($no-wrap: true) {
   @if $no-wrap {
     white-space: nowrap; }
   overflow: hidden; text-overflow: ellipsis;
 }
+
 @mixin opacity($opacity) {
   filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
   opacity: $opacity;
 }
+
+@mixin text-shadow-to-crop-underline($color) {
+  text-shadow: .03em 0 $color, -.03em 0 $color, 0 .03em $color, 0 -.03em $color, .06em 0 $color, -.06em 0 $color, .09em 0 $color, -.09em 0 $color, .12em 0 $color, -.12em 0 $color, .15em 0 $color, -.15em 0 $color;
+}
+@mixin link-underlines-wrapper($color, $background-color) {
+  color: $color;
+  text-decoration: none;
+  @include text-shadow-to-crop-underline($background-color);
+  background-image: linear-gradient($background-color, $background-color), linear-gradient($background-color, $background-color), linear-gradient($color, $color);
+  background-size: .05em 1px, .05em 1px, 1px 1px;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-position: 0% 90%, 100% 90%, 0% 90%;
+  &::selection {
+    @include text-shadow-to-crop-underline($selection-color);
+    background: $selection-color;
+  }
+  &::-moz-selection {
+    @include text-shadow-to-crop-underline($selection-color);
+    background: $selection-color;
+  }
+  &:before, &:after, *, *:before, *:after {
+    text-shadow: none;
+  }
+  &:visited {
+    color: $color;
+  }
+}
+@mixin link-underlines($color, $hover-color, $background-color) {
+  @include link-underlines-wrapper($color, $background-color);
+  color: $color;
+  &:hover {
+    color: $hover-color;
+    @include link-underlines-wrapper($hover-color, $background-color);
+  }
+}
+
 // Bourbon 4.1
 @mixin filter($function: none) {
   // <filter-function> [<filter-function]* | none

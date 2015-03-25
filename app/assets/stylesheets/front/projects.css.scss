@@ -182,7 +182,7 @@
   .project-company-link {
     display: inline-block;
     margin-bottom: 1em;
-    text-decoration: underline;
+    @include link-underlines($brand-primary, $brand-secondary, white);
   }
   .project-skills {
     margin-bottom: 1em;
