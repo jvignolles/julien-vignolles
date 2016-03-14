@@ -21,7 +21,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
+#gem 'therubyracer',  platforms: :ruby
 
 # Application configuration, see config/application.yml
 gem 'figaro', '~> 1.0.0'
@@ -99,6 +99,9 @@ group :development do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'sextant'
+
+  gem 'image_optim'
+  gem 'image_optim_pack'
 
   # Capistrano
   # gem 'capistrano', '~> 2.15.0', require: false
