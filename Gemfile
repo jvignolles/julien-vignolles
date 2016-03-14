@@ -3,12 +3,12 @@ ruby ENV['CUSTOM_RUBY_VERSION'] || '2.1.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.15'
 
 # SGBD
 #gem 'sqlite3'
 gem 'mysql', '2.9.1'
-gem 'mysql2', '>= 0.3.13'
+gem 'mysql2', '0.3.18' # forcing
 
 
 gem 'haml-rails'
@@ -51,6 +51,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave', '~> 0.10.0'  # File uploads and image thumbnailing (requires one of many options, here mini_magick)
 gem 'carrierwave_direct'
 gem 'fog', '1.22.1'  # TODO: v1.25.0 use AWS SignatureV4, and there's something wrong with it…
+gem 'fog-core', '1.30.0' # forcing
+gem 'fog-json', '1.0.1'  # forcing
 gem 'mime-types'  # MIME detection for CarrierWave and others
 gem 'mini_magick', '~> 3.4'  # Image processing
 
