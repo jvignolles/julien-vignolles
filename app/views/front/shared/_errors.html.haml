@@ -9,7 +9,7 @@
         %strong
           = %(#{pluralize resource.errors.count, "erreur"} sur :)
           %ul
-            - resource.errors.each do |error|
+            - resource.errors.each do |error, message|
               %li
-                %label{ for: "#{model}_#{error}" }= i18n_simple_form_label(model, error)
+                %label{ for: "#{model}_#{error}" }= [i18n_simple_form_label(model, error), message].join(" ")
 

@@ -8,16 +8,13 @@
     \'-—-''(_/—-'  `-'\_)       … et l’easter egg chaton ! ;)
 %html{ :lang => I18n.locale, :"xmlns:og" => "http://ogp.me/ns#" }
   %head
+    %meta{ charset: "utf-8" }
     - prefetches = ["http://www.google-analytics.com", "http://js-agent.newrelic.com", "https://vignolles.s3-eu-west-1.amazonaws.com", "http://beacon-5.newrelic.com"]
     - if @blog_topic
       - prefetches += ["https://disqus.com", "http://bam.nr-data.net", "https://realtime.services.disqus.com", "https://referrer.disqus.com"]
     - prefetches.each do |domain|
       %link{ rel: "dns-prefetch", href: domain }
-    %meta{ "http-equiv" => "Content-Type",    :content => "text/html; charset=utf-8" }
-    %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
-    %meta{ name: "HandheldFriendly", content: "true" }
-    %meta{ name: "MobileOptimized", content: "320" }
-    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
     %meta{ name: "author", content: app_name }
     %title= page_title
     -#%link{ rel: "apple-touch-icon", href: "apple-touch-icon-precomposed.png" }
@@ -32,8 +29,8 @@
     %link{ rel: "icon", type: "image/jpeg", href: image_path(icon_name) }
     = stylesheet_link_tag "front/application", :media => :all, 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = javascript_include_tag "front/application", 'data-turbolinks-track' => true
     = yield :head
   %body{ class: "front-#{@front_kind}" }
     = render "front/shared/tracking"
     = yield
-    = javascript_include_tag "front/application", 'data-turbolinks-track' => true

@@ -26,6 +26,7 @@ class Project < ActiveRecord::Base
   #=== Scopes
   scope :active,       -> { where(active: true) }
   scope :alphabetical, -> { order("projects.name, projects.id") }
+  scope :chronological, -> { order("projects.created_at, projects.id") }
   scope :highlighted,  -> { where(highlight: true) }
   scope :adm_for_text, ->(opts) {
     words = opts && opts.scan(/\w+/)
