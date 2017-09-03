@@ -7,4 +7,7 @@
             - if (url = @configuration.send("#{name}_url")).present?
               = link_to content_tag(:span, '', class: "social-icon"), url, class: "social-link #{name}", rel: "external", title: "#{app_name} sur #{name.nameize}"
       .col-xxs-12
-        %p.copyright © #{copyright_years} #{app_name} · #{link_to "Contact", new_front_contact_path}
+        %p.copyright
+          © #{copyright_years} #{app_name}
+          - if @configuration.contacts_active
+            · #{link_to "Contact", new_front_contact_path}

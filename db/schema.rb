@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214162400) do
+ActiveRecord::Schema.define(version: 20170903212240) do
 
   create_table "admins", force: true do |t|
     t.boolean  "active",                             default: true,  null: false
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(version: 20150214162400) do
     t.boolean  "blog_active",                             default: false, null: false
     t.boolean  "entertainments_active",                   default: false, null: false
     t.boolean  "highlighted_projects_active",             default: false, null: false
+    t.boolean  "contacts_active",                         default: false, null: false
   end
 
   create_table "contacts", force: true do |t|
@@ -288,6 +289,19 @@ ActiveRecord::Schema.define(version: 20150214162400) do
   end
 
   add_index "jobs_skills", ["job_id", "skill_id"], name: "index_jobs_skills_on_job_id_and_skill_id", using: :btree
+
+  create_table "parents", force: true do |t|
+    t.boolean  "active",                  default: true, null: false
+    t.string   "first_name",  limit: 128, default: "",   null: false
+    t.string   "last_name",   limit: 128, default: "",   null: false
+    t.text     "description"
+    t.integer  "position",                default: 0,    null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "parents", ["created_at"], name: "index_parents_on_created_at", using: :btree
+  add_index "parents", ["first_name", "last_name"], name: "index_parents_on_first_name_and_last_name", using: :btree
 
   create_table "projects", force: true do |t|
     t.boolean  "active",                          default: true,  null: false

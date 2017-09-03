@@ -1,4 +1,6 @@
 class Front::ContactsController < Front::BaseController
+  before_filter :check_contacts_active
+
   def index
     return redirect_to(new_front_contact_path)
   end
@@ -24,6 +26,14 @@ class Front::ContactsController < Front::BaseController
   end
 
 private
+  def check_contacts_active
+    unless @configuration.contacts_active
+      redirect_to front_home_path
+      return false
+    end
+    true
+  end
+
   def init_view
     @editorial = Editorial.find_by_kind(:contact)
     @front_kind = "contacts"

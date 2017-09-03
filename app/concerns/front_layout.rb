@@ -48,6 +48,7 @@ protected
       contacts: { name: "Contact",   url: new_front_contact_path },
     }
     @header_menu.delete(:blog) unless @configuration.blog_active?
+    @header_menu.delete(:contacts) unless @configuration.contacts_active?
     @breadcrumbs = [{ key: "homepage", name: "Accueil", url: front_home_path }]
 
     # SEO
